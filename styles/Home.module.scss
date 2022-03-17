@@ -1,16 +1,121 @@
 .container {
+  min-height: 100vh;
   padding: 0 2rem;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+.header {
+  position: fixed;
+  height: 80px;
+  top: 0;
+  padding: 16px 0 16px 0;
   display: flex;
-  flex-direction: column;
+  gap: 16px;
+  width: 100vw;
   justify-content: center;
   align-items: center;
+  z-index: 100;
+
+  .menu {
+    font-family: Consolas, Monaco, monospace;
+    color: #fafafa;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 }
+
+.main {
+  .firstView {
+    height: 100vh;
+    background-color: #4F4F4F;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      animation: uneune 5s linear infinite;
+      overflow: hidden;
+      transition: 0.3s;
+
+      @keyframes uneune {
+        0% {
+          border-radius: 60% 50% 70% 80% / 50% 60% 50% 70%;
+        }
+        50% {
+          border-radius: 60% 40% 70% 60% / 40% 60% 50% 60%;
+        }
+        100% {
+          border-radius: 60% 50% 70% 80% / 50% 60% 50% 70%;
+        }
+      }
+
+      &:hover {
+        transition: 0.5s;
+        opacity: 0.7;
+      }
+
+      .testIcon {
+        background-color: #0070f3;
+        width: 500px;
+        height: 500px;
+      }
+    }
+
+    .welcome {
+      color: #fafafa;
+      font-weight: lighter;
+      display: inline-block;
+      width: 27ch;
+      height: fit-content;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 1.4rem;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 1px solid transparent;
+      animation: typing 2s steps(27), caret 0.3s steps(1) infinite;
+    }
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+    }
+    @keyframes caret {
+      50% {
+        border-right-color: currentColor;
+      }
+    }
+  }
+
+  .about {
+    width: 100%;
+    height: 100vh;
+    background-color: #323232;
+
+    .aboutContainer {
+      width: 70%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      gap: 48px;
+    }
+
+    .aboutTitle {
+      color: #fafafa;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .aboutDescription {
+      color: #eaeaea;
+      font-size: 1rem;
+    }
+  }
+}
+
+
 
 .footer {
   display: flex;
