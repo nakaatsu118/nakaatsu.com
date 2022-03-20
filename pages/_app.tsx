@@ -1,4 +1,4 @@
-import '../styles/globals.scss'
+import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { BaseContext } from 'next/dist/shared/lib/utils';
 import TagManager from 'react-gtm-module';
