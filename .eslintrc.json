@@ -1,5 +1,10 @@
 {
-  "extends": ["next", "next/core-web-vitals"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": ["tailwindcss"],
   "rules": {
     // Static Exportだとnext/imageが使えないためオフ
     "@next/next/no-img-element": "off"

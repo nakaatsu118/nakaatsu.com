@@ -12,12 +12,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.main}>
+      <div className='bg-gradient-to-br from-lime-600 via-teal-100 to-cyan-300'>
+
         <div className='sticky top-0 z-30 bg-opacity-90 backdrop-blur navbar font-raleway font-semibold text-neutral-content'>
           <div className='flex-1'>
             <ul className='menu menu-horizontal p-0'>
-              <li><a>About</a></li>
-              <li><a>History</a></li>
+              <li><a href='#About'>About</a></li>
+              <li><a href='#History'>History</a></li>
             </ul>
           </div>
           <div className='flex-none'>
@@ -35,43 +36,71 @@ const Home: NextPage = () => {
             </ul>
           </div>
         </div>
-        <div className={styles.firstView}>
-          <Image className='mask mask-squircle' src="/images/nakaatsu_icon.png" width={300} height={300} objectFit={'contain'} />
-          <div className='mockup-code bg-opacity-30 border-base-content border-2 border-opacity-10'>
-            <pre data-prefix="$"><code>Welcome to nakaatsu's site.</code></pre>
+
+        <div className='flex flex-col justify-center items-center md:h-screen py-20 md:py-0'>
+          <div className='mockup-window bg-slate-400 md:w-9/12 w-10/12 shadow-2xl'>
+            <div className='flex flex-col justify-center items-center gap-4 bg-slate-500 bg-opacity-90 py-10'>
+              <div className='relative md:w-60 md:h-60 w-40 h-40'>
+                <Image className='mask mask-squircle' src="/images/nakaatsu_icon.png" layout='fill' objectFit={'contain'} />
+              </div>
+              <div className='md:block hidden mockup-code bg-opacity-30 border-base-content border-2 border-opacity-10 w-4/6'>
+                <pre data-prefix="$"><code>Welcome to nakaatsu's site.</code></pre>
+              </div>
+              <div className='md:hidden text-white font-mono'>$ Welcome to<br />nakaatsu's site.</div>
+            </div>
           </div>
         </div>
-        <div className='text-white py-20 bg-slate-700/[.70]'>
-          <div className='flex flex-1 flex-row gap-8 w-11/12 justify-center items-center m-auto'>
+
+        <div id='About' className='text-white py-20 px-6 bg-slate-700/[.70] md:h-screen flex justify-center'>
+          <div className='flex flex-1 flex-col gap-8 w-11/12 justify-center items-center m-auto max-w-2xl'>
             <div className='text-4xl font-raleway font-semibold' >About</div>
             <div className='text-sm font-kosugimaru'>
-              このサイトは nakaatsu のポートフォリオサイトです。<br />
-              「ではみなさんは、そういうふうに川だと云いわれたり、乳の流れたあとだと云われたりしていたこのぼんやりと白いものがほんとうは何かご承知ですか。」<br />
-              先生は、黒板に吊つるした大きな黒い星座の図の、上から下へ白くけぶった銀河帯のようなところを指さしながら、みんなに問といをかけました。
+              このサイトは <a className='link' href='https://twitter.com/nakaatsu' target='_blank' rel='noopener noreferrer'>nakaatsu</a> のポートフォリオサイトです。<br />
+              自身の経歴やスキルセット等をまとめています。<br />
+            </div>
+            <div className='font-kosugimaru card md:w-96 w-60 bg-base-100 text-gray-900 shadow-xl'>
+              <ul className='card-body flex flex-col gap-2 text-left font-raleway'>
+                <div className='card-title md:text-xl text-lg font-raleway font-semibold'>Items used</div>
+                <li className='flex gap-2 md:text-base text-sm'><img src='./images/check-o.svg' />Framework: <a className='link' href='https://nextjs.org/' target={'_blank'} rel='noopener noreferrer'>Next.js</a></li>
+                <li className='flex gap-2 md:text-base text-sm'><img src='./images/check-o.svg' />CSS component: <a className='link' href='https://daisyui.com/' target={'_blank'} rel='noopener noreferrer'>daisyUI</a></li>
+                <li className='flex gap-2 md:text-base text-sm'><img src='./images/check-o.svg' />Hosted by: <a className='link' href='https://vercel.com/' target={'_blank'} rel='noopener noreferrer'>Vercel</a></li>
+              </ul>
+            </div>
+            <div className='md:block hidden mockup-code bg-opacity-60 border-base-content border-2 border-opacity-10 w-4/6'>
+                <pre data-prefix="$"><code>Code is <a className='link' href='https://github.com/nakaatsu118/nakaatsu.com' target={'_blank'} rel='noopener noreferrer'>here</a>.</code></pre>
+              </div>
+              <div className='md:hidden text-white font-monoa bg-slate-600 px-8 py-6 rounded-lg'>
+                <div className=''>
+                  $ Code is <a className='link' href='https://github.com/nakaatsu118/nakaatsu.com' target={'_blank'} rel='noopener noreferrer'>here</a>.
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div id='History' className='bg-slate-200/[.7] py-20 px-6 md:h-screen flex justify-center'>
+          <div className='flex justify-center items-center flex-col gap-6 max-w-2xl m-auto'>
+            <div className='font-raleway font-semibold text-4xl'>History</div>
+            <div className=''>
+              <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
+                <div className='md:text-lg text-sm font-azeretmono font-bold'>2022.2</div>
+                <div className='text-sm font-kosugimaru'>freee株式会社で働き始めました。</div>
+              </div>
+              <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
+                <div className='md:text-lg text-sm font-azeretmono font-bold'>2018.9</div>
+                <div className='text-sm font-kosugimaru'>いちから株式会社（現ANYCOLOR株式会社）で働き始めました。</div>
+              </div>
+              <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
+                <div className='md:text-lg text-sm font-azeretmono font-bold'>2016.4</div>
+                <div className='text-sm font-kosugimaru'>株式会社アルファシステムズで働き始めました。</div>
+              </div>
+              <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
+                <div className='md:text-lg text-sm font-azeretmono font-bold'>2016.3</div>
+                <div className='text-sm font-kosugimaru'>東京電機大学情報通信工学科を卒業しました。</div>
+              </div>
             </div>
           </div>
         </div>
-        <div className='flex justify-center items-center flex-col gap-6 bg-slate-200/[.7] py-14'>
-          <div className='font-raleway font-semibold text-4xl'>History</div>
-          <div className='w-10/12'>
-            <div className='flex flex-row gap-4 items-baseline m-auto'>
-              <div className='text-lg font-azeretmono font-bold'>2022.2</div>
-              <div className='text-sm font-kosugimaru'>freee株式会社で働き始めました。</div>
-            </div>
-            <div className='flex flex-row gap-4 items-baseline m-auto'>
-              <div className='text-lg font-azeretmono font-bold'>2018.9</div>
-              <div className='text-sm font-kosugimaru'>いちから株式会社（現ANYCOLOR株式会社）で働き始めました。</div>
-            </div>
-            <div className='flex flex-row gap-4 items-baseline m-auto'>
-              <div className='text-lg font-azeretmono font-bold'>2016.4</div>
-              <div className='text-sm font-kosugimaru'>株式会社アルファシステムズで働き始めました。</div>
-            </div>
-            <div className='flex flex-row gap-4 items-baseline m-auto'>
-              <div className='text-lg font-azeretmono font-bold'>2016.3</div>
-              <div className='text-sm font-kosugimaru'>東京電機大学情報通信工学科を卒業しました。</div>
-            </div>
-          </div>
-        </div>
+
       </div>
 
       <footer className={styles.footer}>
