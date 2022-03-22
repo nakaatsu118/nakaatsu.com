@@ -9,6 +9,7 @@
     "fix:lint": "next lint --fix"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.2",
     "@types/react-gtm-module": "^2.0.1",
     "daisyui": "^2.11.0",
     "eslint-plugin-tailwindcss": "^3.5.0",
