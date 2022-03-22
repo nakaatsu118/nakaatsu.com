@@ -1,15 +1,35 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
+  const title = "nakaatsu's Portfolio"
+  const url = 'https://www.nakaatsu.com'
+  const description = 'nakaatsuのポートフォリオサイトです。簡単な経歴と身につけたスキルをまとめています。'
+  const ogImage = 'https://www.nakaatsu.com/images/og_image.png'
+  const siteName = "nakaatsu's Portfolio"
+
   return (
     <div>
       <Head>
-        <title>nakaatsu Portfolio</title>
-        <meta name="description" content="nakaatsuのポートフォリオサイトです。簡単な経歴と身につけたスキルをまとめています。" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={url} />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:locale" content="ja_JP" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@nakaatsu" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:url" content={url} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="theme-color" content="#65a30d" />
       </Head>
 
       <div className='bg-gradient-to-br from-lime-600 via-teal-100 to-cyan-300'>
