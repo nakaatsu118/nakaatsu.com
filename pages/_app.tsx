@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps): BaseContext {
   useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-XXXXXX' });
+    TagManager.initialize({ gtmId: 'GTM-PR49LG4' });
   }, []);
 
   return <Component {...pageProps} />
