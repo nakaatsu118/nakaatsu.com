@@ -11,11 +11,11 @@ const Meta = ({
   pageOgImage: string;
   noIndex?: boolean;
 }) => {
-  const defaultTitle = 'hoge';
+  const defaultTitle = "nakaatsu's Portfolio";
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
-  const description = 'hoge';
-  const siteName = 'hoge';
-  const domain = 'www.hoge.com';
+  const description = 'nakaatsuのポートフォリオサイトです。簡単な経歴と身につけたスキルをまとめています。';
+  const siteName = "nakaatsu's Portfolio";
+  const domain = 'www.nakaatsu.com';
   const url = pageUrl ? `https://${domain}/${pageUrl}/` : `https://${domain}`;
   const ogImage = pageOgImage || `https://${domain}/common/og-image.png`;
 
@@ -31,14 +31,14 @@ const Meta = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content="ja_JP" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content="@hoge" />
+      <meta name="twitter:creator" content="@nakaatsu" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:image" content={ogImage} />
       <meta name="viewport" content="width=device-width" />
       <meta name="format-detection" content="telephone=no" />
-      <meta name="theme-color" content="#2e2e2e" />
+      <meta name="theme-color" content="#65a30d" />
       {/* noIndex === true の場合のみ noindex 有効化 */}
       {noIndex && <meta name="robots" content="noindex" />}
       <link rel="shortcut icon" href="/favicon.ico" />
