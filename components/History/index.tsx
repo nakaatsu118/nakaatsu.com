@@ -15,7 +15,7 @@ const History: NextPage = () => {
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
             <div className='md:text-lg text-sm font-raleway font-bold'>2018.9</div>
             <div className='flex flex-col gap-2 font-kosugimaru'>
-              <div className='text-sm'>いちから株式会社（現ANYCOLOR株式会社）で働き始めました。</div>
+              <div className='text-sm'>ANYCOLOR株式会社（旧いちから株式会社）で働き始めました。</div>
               <div className='text-xs flex flex-col gap-1 prose'>
                 <blockquote>
                   フロント、サーバーサイド、社内システム、LP監修など色々担当。<br />
