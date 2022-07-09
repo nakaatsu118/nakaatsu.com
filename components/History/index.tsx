@@ -9,16 +9,16 @@ const History: NextPage = () => {
         <div className='font-kosugimaru text-sm'>簡単な経歴と身につけたスキルをまとめました。</div>
         <div className=''>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
-            <div className='md:text-lg text-sm font-raleway font-bold'>2022.2</div>
+            <div className='md:text-lg text-sm font-raleway font-bold'>2022.2~</div>
             <div className='text-sm font-kosugimaru'>freee株式会社で働き始めました。</div>
           </div>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
-            <div className='md:text-lg text-sm font-raleway font-bold'>2018.9</div>
+            <div className='md:text-lg text-sm font-raleway font-bold'>2018.9<br />~2022.1</div>
             <div className='flex flex-col gap-2 font-kosugimaru'>
               <div className='text-sm'>ANYCOLOR株式会社（旧いちから株式会社）で働き始めました。</div>
               <div className='text-xs flex flex-col gap-1 prose'>
                 <blockquote>
-                  フロント、サーバーサイド、社内システム、LP監修など色々担当。<br />
+                  WEBフロント、サーバーサイド、社内システム、LP監修など色々担当。<br />
                   開発経験ほぼ0からの状態でいろいろなプロダクトを担当させていただき、多くのスキルを身につけることができました。
                 </blockquote>
               </div>
@@ -55,6 +55,7 @@ const History: NextPage = () => {
                       <li>Google Search Console</li>
                       <li>GTM, GA</li>
                       <li>Salesforce</li>
+                      <li>Pardot</li>
                       <li>microCMS</li>
                       <li>WordPress</li>
                     </ul>
@@ -64,7 +65,7 @@ const History: NextPage = () => {
             </div>
           </div>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
-            <div className='md:text-lg text-sm font-raleway font-bold'>2016.4</div>
+            <div className='md:text-lg text-sm font-raleway font-bold'>2016.4<br />~2018.9</div>
             <div className='flex flex-col gap-2 font-kosugimaru'>
               <div className='text-sm'>株式会社アルファシステムズで働き始めました。</div>
               <div className='text-xs flex flex-col gap-1 prose'>
@@ -88,7 +89,7 @@ const History: NextPage = () => {
             </div>
           </div>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
-            <div className='md:text-lg text-sm font-raleway font-bold'>2016.3</div>
+            <div className='md:text-lg text-sm font-raleway font-bold'>~2016.3</div>
             <div className='text-sm font-kosugimaru'>東京電機大学情報通信工学科を卒業しました。</div>
           </div>
         </div>
