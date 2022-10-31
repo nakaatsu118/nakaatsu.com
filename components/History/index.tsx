@@ -14,7 +14,14 @@ const History: NextPage = () => {
           </div>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
             <div className='md:text-lg text-sm font-raleway font-bold'>2022.2<br />~2022.10</div>
-            <div className='text-sm font-kosugimaru'>freee株式会社で働き始めました。</div>
+            <div className='flex flex-col gap-2 font-kosugimaru'>
+              <div className='text-sm font-kosugimaru'>freee株式会社で働き始めました。</div>
+              <div className='text-xs flex flex-col gap-1 prose'>
+                <blockquote>
+                  申告周りの機能追加、修正を担当。<br />
+                </blockquote>
+              </div>
+            </div>
           </div>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
             <div className='md:text-lg text-sm font-raleway font-bold'>2018.9<br />~2022.1</div>
