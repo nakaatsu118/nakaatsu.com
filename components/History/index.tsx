@@ -9,7 +9,11 @@ const History: NextPage = () => {
         <div className='font-kosugimaru text-sm'>簡単な経歴と身につけたスキルをまとめました。</div>
         <div className=''>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
-            <div className='md:text-lg text-sm font-raleway font-bold'>2022.2~</div>
+            <div className='md:text-lg text-sm font-raleway font-bold'>2022.11~</div>
+            <div className='text-sm font-kosugimaru'>株式会社microCMSで働き始めました。</div>
+          </div>
+          <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
+            <div className='md:text-lg text-sm font-raleway font-bold'>2022.2<br />~2022.10</div>
             <div className='text-sm font-kosugimaru'>freee株式会社で働き始めました。</div>
           </div>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
@@ -65,7 +69,7 @@ const History: NextPage = () => {
             </div>
           </div>
           <div className='flex flex-row items-baseline m-auto py-3 gap-4'>
-            <div className='md:text-lg text-sm font-raleway font-bold'>2016.4<br />~2018.9</div>
+            <div className='md:text-lg text-sm font-raleway font-bold'>2016.4<br />~2018.8</div>
             <div className='flex flex-col gap-2 font-kosugimaru'>
               <div className='text-sm'>株式会社アルファシステムズで働き始めました。</div>
               <div className='text-xs flex flex-col gap-1 prose'>
