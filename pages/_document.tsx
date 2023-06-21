@@ -16,6 +16,7 @@ class MyDocument extends Document<Props> {
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@700&family=Kosugi+Maru&family=Raleway:wght@200;300;400;600&display=swap" />
         </Head>
         <body>
           <Main />

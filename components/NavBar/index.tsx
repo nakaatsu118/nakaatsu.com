@@ -1,27 +1,21 @@
 import type { NextPage } from 'next'
 import NavIcon from './NavIcon'
+import styles from './NavBar.module.css'
 
 const NavBar: NextPage = () => {
 
   return (
-    <div id='NavBar' className='sticky top-0 z-30 bg-opacity-90 backdrop-blur navbar font-raleway font-semibold text-neutral-content'>
-      <div className='flex-1 md:text-base text-xs'>
-        <ul className='hidden md:flex menu menu-horizontal p-0'>
-          <li><a href='#About'>About</a></li>
-          <li><a href='#History'>History</a></li>
-        </ul>
+    <div id='NavBar' className={styles.navbarContainer}>
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <img src={'/images/logo/naka_logo_trans.png'} alt='logo' />
+        </div>
       </div>
-      <div className='flex-none'>
-        <ul className='menu menu-horizontal p-0 bg-opacity-0'>
-          <li>
-            <NavIcon link='https://twitter.com/nakaatsu' imgPath='./images/logo/twitter.svg' />
-          </li>
-          <li>
-            <NavIcon link='https://zenn.dev/nakaatsu' imgPath='./images/logo/zenn.svg' />
-          </li>
-          <li>
-            <NavIcon link='https://github.com/nakaatsu118' imgPath='./images/logo/github.png' />
-          </li>
+      <div className={styles.container}>
+      <ul className={styles.menu}>
+          <li><a href='#Who'>Who?</a></li>
+          <li><a href='#Works'>Works</a></li>
+          <li><a href='#History'>History</a></li>
         </ul>
       </div>
     </div>

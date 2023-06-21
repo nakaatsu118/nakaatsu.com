@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Meta pageTitle='' pageUrl='' pageOgImage='https://www.nakaatsu.com/images/og_image.png' />
-      <div className='bg-gradient-to-br from-lime-600 via-teal-100 to-cyan-300'>
+      <div>
         <NavBar />
         <Welcome />
         <About />

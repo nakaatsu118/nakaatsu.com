@@ -1,0 +1,37 @@
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  z-index: 999;
+  height: 74px;
+  padding: 8px 34px;
+  top: 0;
+  width: 100%;
+  font-weight: 400;
+}
+.navbarContainer .container:last-child {
+  margin-left: auto;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 80px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 1.4rem;
+}

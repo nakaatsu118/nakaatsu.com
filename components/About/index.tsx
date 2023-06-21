@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 const About: NextPage = () => {
 
   return (
-    <div id='About' className='text-white py-20 px-6 bg-slate-700/[.70] md:h-screen min-h-[800px] flex justify-center items-center'>
+    <div id='About' className='text-white py-20 px-6 bg-slate-700/[.70] md:h-screen min-h-[800px] flex justify-center items-center z-10'>
       <div className='flex flex-1 flex-col gap-8 w-11/12 justify-center items-center m-auto max-w-2xl'>
         <div className='text-4xl font-raleway font-semibold' >About</div>
         <div className='text-sm font-kosugimaru'>
