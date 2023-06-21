@@ -1,6 +1,6 @@
 .welcomeContainer {
   display: flex;
-  height: calc(100vh - 74px);
+  height: calc(100vh - 0.74rem);
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 
 .welcomeSection {
   position: relative;
-  height: calc(100vh - 74px);
+  height: calc(100vh - 0.74rem);
   display: flex;
   justify-content: center;
   align-items: left;
@@ -20,20 +20,21 @@
 
 .mainTitle {
   width: 40%;
-  max-width: 440px;
-  font-size: 3rem;
+  max-width: 4.4rem;
+  font-size: 0.3rem;
   text-align: left;
   line-height: 1.2;
   z-index: 1;
   font-weight: bold;
   position: relative;
   display: inline-block;
-  padding: 20px;
+  padding: 0.24rem;
   margin-left: auto;
   background: #333333;
-  border: solid 5px #fafafa;
+  border: solid 0.08rem #fafafa;
   box-sizing: border-box;
   border-radius: 4px;
+  word-wrap: break-word
 }
 
 .mainTitle:before {
@@ -60,8 +61,8 @@
 }
 
 .triangleLeft {
-  border-top: 260px solid #25ADD7;
-  border-right: 260px solid transparent;
+  border-top: 2.6rem solid #25ADD7;
+  border-right: 2.6rem solid transparent;
   position: absolute;
   top: 0;
   left: 0;
@@ -71,7 +72,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-left: 48px;
+  margin-left: 0.48rem;
   display: flex;
   z-index: 1;
 }
@@ -79,7 +80,7 @@
 .scrollDownContainer p {
   writing-mode: vertical-rl;
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 0.14rem;
 }
 
 .scrollDown {

@@ -28,7 +28,7 @@ const Welcome: NextPage = () => {
   return (
     <>
       <div id='Welcome' className={styles.welcomeContainer}>
-        <div className={styles.mainTitle} ref={ref}><p>Welcome to <br />[nakaatsu.com] !</p></div>
+        <div className={styles.mainTitle} ref={ref}>Welcome to <br />[nakaatsu.com] !</div>
         <div className={styles.myIcon}>
           <img src='/images/Icon_nakaatsu_trans.png' alt='nakaatsu' />
         </div>

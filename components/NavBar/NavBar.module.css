@@ -4,8 +4,8 @@
   align-items: center;
   position: sticky;
   z-index: 999;
-  height: 74px;
-  padding: 8px 34px;
+  height: 0.74rem;
+  padding: 0.08rem 0.34rem;
   top: 0;
   width: 100%;
   font-weight: 400;
@@ -26,12 +26,12 @@
 }
 
 .logo img {
-  width: 80px;
+  width: 0.8rem;
 }
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 22px;
-  font-size: 1.4rem;
+  gap: 0.22rem;
+  font-size: 0.14rem;
 }
