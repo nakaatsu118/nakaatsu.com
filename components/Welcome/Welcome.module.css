@@ -115,5 +115,6 @@
   width: 140%;
   height: 200%;
   background-size: 88%;
+  opacity: 0.5;
   transform: rotate(30deg);
 }

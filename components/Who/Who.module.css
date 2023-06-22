@@ -52,6 +52,7 @@
   padding: 0.28rem;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .description {
@@ -98,6 +99,7 @@
 .backgroundImg {
   background-image: url(/images/BG_31.svg);
   position: absolute;
+  opacity: 0.5;
   width: 120%;
   height: 220%;
   background-size: 50%;

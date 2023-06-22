@@ -10,25 +10,28 @@ gsap.config({
 });
 
 const Welcome: NextPage = () => {
-  const ref = useRef(null);
+  const commentRef = useRef(null);
+  const backgroundImgRef = useRef(null);
 
   useEffect(() => {
-    gsap.to(ref.current, {
-      y: 100,
-      scrollTrigger: {
-        trigger: ref.current,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true,
+    gsap.fromTo(
+      backgroundImgRef.current,
+      {
+        y: '100%',
       },
-      duration: 1
-    })
-  }, [ref]);
+      {
+        y: '0%',
+        delay: 0.2,
+        duration: 1.2,
+        ease: 'bounce.out'
+      }
+    )
+  }, [backgroundImgRef])
 
   return (
     <>
       <div id='Welcome' className={styles.welcomeContainer}>
-        <div className={styles.mainTitle} ref={ref}>Welcome to <br />[nakaatsu.com] !</div>
+        <div className={styles.mainTitle} ref={commentRef}>Welcome to <br />[nakaatsu.com] !</div>
         <div className={styles.myIcon}>
           <img src='/images/Icon_nakaatsu_trans.png' alt='nakaatsu' />
         </div>
@@ -36,7 +39,7 @@ const Welcome: NextPage = () => {
           <div className={styles.scrollDown} />
           <p>Scroll</p>
         </div>
-        <div className={styles.backgroundImg}></div>
+        <div className={styles.backgroundImg} ref={backgroundImgRef}></div>
       </div>
       <div className={styles.triangleLeft} />
     </>
