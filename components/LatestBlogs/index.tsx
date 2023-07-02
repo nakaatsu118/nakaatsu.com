@@ -11,7 +11,7 @@ const LatestBlog = ({blogs}: LatestBlogProps) => {
       <div className={styles.latestBlogContainer}>
         {blogs ? (
           blogs.map((blog) => (
-            <div className={styles.latestBlog}>
+            <div className={styles.latestBlog} key={blog.id}>
               <div className={styles.latestBlogCategory}>{blog.category.name}</div>
               <div className={styles.eyecatch}>
                 <img src={blog.eyecatch.url} alt={blog.title} />
