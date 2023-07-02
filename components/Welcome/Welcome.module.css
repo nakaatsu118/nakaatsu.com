@@ -1,6 +1,6 @@
 .welcomeContainer {
   display: flex;
-  height: calc(100vh - 0.74rem);
+  height: calc(80vh - 0.74rem);
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 
 .welcomeSection {
   position: relative;
-  height: calc(100vh - 0.74rem);
+  height: calc(80vh - 0.74rem);
   display: flex;
   justify-content: center;
   align-items: left;
@@ -33,7 +33,7 @@
   background: #333333;
   border: solid 0.08rem #fafafa;
   box-sizing: border-box;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   word-wrap: break-word
 }
 
@@ -66,47 +66,6 @@
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.scrollDownContainer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-left: 0.48rem;
-  display: flex;
-  z-index: 1;
-}
-
-.scrollDownContainer p {
-  writing-mode: vertical-rl;
-  font-weight: 400;
-  font-size: 0.14rem;
-}
-
-.scrollDown {
-  width: 2px;
-  height: 80px;
-  background: #fafafa;
-  animation: scrollDown4 2s ease infinite;
-}
-
-@keyframes scrollDown4{
-  0%{
-      transform-origin: top;
-      transform: scaleY(0);
-  }
-  45%{
-      transform-origin: top;
-      transform: scaleY(1);
-  }
-  55%{
-      transform-origin: bottom;
-      transform: scaleY(1);
-  }
-  100%{
-      transform-origin: bottom;
-      transform: scaleY(0);
-  }
 }
 
 .backgroundImg {

@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import styles from './Welcome.module.css'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -9,7 +8,7 @@ gsap.config({
     nullTargetWarn: false,
 });
 
-const Welcome: NextPage = () => {
+const Welcome = () => {
   const commentRef = useRef(null);
   const backgroundImgRef = useRef(null);
 
@@ -35,11 +34,7 @@ const Welcome: NextPage = () => {
         <div className={styles.myIcon}>
           <img src='/images/Icon_nakaatsu_trans.png' alt='nakaatsu' />
         </div>
-        <div className={styles.scrollDownContainer}>
-          <div className={styles.scrollDown} />
-          <p>Scroll</p>
-        </div>
-        <div className={styles.backgroundImg} ref={backgroundImgRef}></div>
+        {/* <div className={styles.backgroundImg} ref={backgroundImgRef}></div> */}
       </div>
       <div className={styles.triangleLeft} />
     </>

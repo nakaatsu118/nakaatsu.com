@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import NavIcon from './NavIcon'
 import styles from './NavBar.module.css'
 
 const NavBar: NextPage = () => {
@@ -12,10 +11,11 @@ const NavBar: NextPage = () => {
         </div>
       </div>
       <div className={styles.container}>
-      <ul className={styles.menu}>
-          <li><a href='#Who'>Who?</a></li>
+        <ul className={styles.menu}>
+          <li><a>Blog</a></li>
           <li><a href='#Works'>Works</a></li>
           <li><a href='#History'>History</a></li>
+          <li><a href='#Who'>Who?</a></li>
         </ul>
       </div>
     </div>
