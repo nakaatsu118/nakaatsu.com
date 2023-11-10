@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@700&family=Kosugi+Maru&family=Raleway:wght@400;600&display=swap');
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+/* @import '~normalize.css'; */
+
+html {
+  font-size: 100px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1e1a19;
+  color: #fafafa;
+  font-size: 0.16rem;
+  font-family: 'Raleway';
+}
+
+a {
+  color: #e2e135;
+}

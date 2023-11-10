@@ -10,9 +10,9 @@
   width: 100%;
   font-weight: 400;
 }
-.navbarContainer .container:last-child {
+/* .navbarContainer .container:last-child {
   margin-left: auto;
-}
+} */
 
 .container {
   display: flex;

@@ -1,0 +1,100 @@
+.TopPageContainer {
+  display: flex;
+}
+
+.RightContainer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 16px;
+}
+
+.CardContainer {
+  max-width: 840px;
+  padding: 24px 16px 0 16px;
+}
+
+.mainImage {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #383838;
+}
+
+.HeadContents {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  font-size: 0.14rem;
+  font-weight: 600;
+  padding-left: 8px;
+}
+
+.headContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.rightHead {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.shareIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.actionContainer {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* gap: 12px; */
+  padding: 24px 0 24px 0;
+}
+
+.leftAction {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.actionIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.titleContainer {
+  font-size: 0.14rem;
+  display: flex;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.bodyContainer {
+  font-size: 0.14rem;
+  padding: 12px 0 20px 0;
+  border-bottom: 1px solid #383838;
+}
