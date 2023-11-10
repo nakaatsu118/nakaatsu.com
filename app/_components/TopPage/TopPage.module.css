@@ -1,9 +1,11 @@
 .TopPageContainer {
   display: flex;
+  min-height: 100vh;
 }
 
 .RightContainer {
   /* width: 80%; */
+  width: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -12,6 +14,7 @@
 }
 
 .CardContainer {
+  width: 100%;
   max-width: 840px;
   padding: 24px 16px 0 16px;
 }

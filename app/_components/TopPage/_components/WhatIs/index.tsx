@@ -1,24 +1,15 @@
 import styles from './WhatIs.module.css';
-import ShareIcon from '@mui/icons-material/Share';
 import IconGithub from "@/_components/Icon/GitHub";
 import IconTwitter from "@/_components/Icon/Twitter";
 import IconZenn from "@/_components/Icon/Zenn";
 import IconInstagram from "@/_components/Icon/Instagram";
 import IconHeart from "@/_components/Icon/Heart";
+import TopPageCardHeader from '../TopPageCardHeader';
 
-export default async function WhatIs() {
+export default function WhatIs() {
   return (
     <div className={styles.CardContainer}>
-      <div className={styles.HeadContents}>
-        <div className={styles.headContainer}>
-          <img className={styles.headIcon} src={'/images/Icon_nakaatsu_.png'} alt="user icon" />
-          <div>nakaatsu</div>
-          <div className={styles.rightHead}>
-            {/* <div>…</div> */}
-            <ShareIcon className={styles.shareIcon} />
-          </div>
-        </div>
-      </div>
+      <TopPageCardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' />
       <img className={styles.mainImage} src={'/images/nakaatsu_top.png'} alt="main Image" />
       <div className={styles.mainContent}>
         <div className={styles.actionContents}>

@@ -1,0 +1,77 @@
+.CardContainer {
+  max-width: 840px;
+  padding: 24px 16px 0 16px;
+}
+
+.mainImage {
+  width: 100%;
+  border-radius: 8px;
+  /* border: 2px solid #383838; */
+}
+
+.actionContainer {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* gap: 12px; */
+  padding: 24px 0;
+}
+
+.leftAction {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.actionIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.titleContainer {
+  font-size: 0.14rem;
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.bodyContainer {
+  font-size: 0.14rem;
+  padding: 12px 0 20px 0;
+  border-bottom: 1px solid #383838;
+  line-height: 18px;
+}
+/*
+.mainContent {
+  padding: 0 16px;
+} */
+
+@media screen and (max-width: 768px) {
+  .CardContainer {
+    padding: 16px 0;
+  }
+  .actionContainer {
+    padding: 12px 0;
+  }
+
+  .mainImage {
+    border-radius: 0;
+  }
+
+  .bodyContainer {
+    padding: 8px 0 24px 0;
+  }
+
+  .mainContent {
+    padding: 0 16px;
+  }
+}
