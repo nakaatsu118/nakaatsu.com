@@ -10,6 +10,12 @@ export type Blog = {
   title: string;
   content: string;
   eyecatch?: MicroCMSImage;
+  category?: Category;
+} & MicroCMSDate;
+
+export type Category = {
+  id: string;
+  name: string;
 } & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {

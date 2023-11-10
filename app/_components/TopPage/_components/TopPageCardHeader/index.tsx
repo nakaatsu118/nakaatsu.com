@@ -16,10 +16,10 @@ export default function TopPageCardHeader({ iconPath, iconAlt, title, link }: To
         <img className={styles.headIcon} src={iconPath} alt={iconAlt} />
         <div>{title}</div>
         <div className={styles.rightHead}>
-          {link ? <div className={styles.rightHead}>
+          {link ? <>
             MORE
             <IconRightOpen className={styles.shareIcon} />
-          </div> : <ShareIcon className={styles.shareIcon} />}
+          </> : <ShareIcon className={styles.shareIcon} />}
         </div>
       </div>
     </div>

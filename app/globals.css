@@ -16,6 +16,28 @@ body {
   font-family: 'Raleway';
 }
 
-a {
+.link {
   color: #e2e135;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+  font-size: 0.16rem;
+}
+
+::selection {
+  background-color: #e2e135;
+  color: #1e1a19;
 }

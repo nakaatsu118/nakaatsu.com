@@ -6,7 +6,7 @@
   height: 100vh;
   font-size: 0.14rem;
   padding: 0 32px;
-  gap: 12px;
+  gap: 24px;
   border-right: 1px solid #e2e135;
   position: sticky;
   top: 0;
@@ -16,7 +16,6 @@
   display: flex;
   gap: 12px;
   align-items: center;
-  margin: 4px 0;
   font-size: 0.16rem;
   /* padding: 12px; */
   /* font-weight: 600; */

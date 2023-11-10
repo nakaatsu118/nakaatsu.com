@@ -17,6 +17,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "@types/react-gtm-module": "^2.0.1",
     "daisyui": "^2.11.0",
+    "dayjs": "^1.11.10",
     "eslint-plugin-tailwindcss": "^3.5.0",
     "gsap": "^3.12.1",
     "microcms-js-sdk": "^2.7.0",
