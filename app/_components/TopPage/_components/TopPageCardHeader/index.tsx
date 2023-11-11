@@ -8,7 +8,7 @@ export type TopPageCardHeaderProps = {
   link?: string
 }
 
-export default function TopPageCardHeader({ iconPath, iconAlt, title, link }: TopPageCardHeaderProps) {
+const TopPageCardHeader = ({ iconPath, iconAlt, title, link }: TopPageCardHeaderProps) => {
   return (
     <div className={styles.headContainer}>
       <div className={styles.contents}>
@@ -23,3 +23,5 @@ export default function TopPageCardHeader({ iconPath, iconAlt, title, link }: To
     </div>
   )
 }
+
+export default TopPageCardHeader

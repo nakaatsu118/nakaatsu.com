@@ -1,7 +1,9 @@
 import styles from './Footer.module.css';
 
-export default function Footer() {
+const Footer = () => {
   return (
     <div className={styles.footerContainer}>©2023   nakaatsu</div>
   )
 }
+
+export default Footer;

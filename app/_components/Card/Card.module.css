@@ -1,0 +1,15 @@
+.cardContainer {
+  width: 100%;
+  max-width: 840px;
+  border-bottom: 1px solid #383838;
+}
+
+.card {
+  padding: 0 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 0;
+  }
+}

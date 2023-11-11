@@ -11,7 +11,7 @@ export const metadata = {
   description: 'nakaatsuのポートフォリオサイトです。自身の経歴やスキルセット等をまとめています。',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja">
       <body>
@@ -22,4 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   )
-}
+};
+
+export default RootLayout;

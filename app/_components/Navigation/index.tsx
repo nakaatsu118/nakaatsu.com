@@ -1,7 +1,7 @@
 import styles from './Navigation.module.css';
 import { FormOutlined, HomeOutlined, SmileOutlined } from '@ant-design/icons';
 
-const Navigation = (): JSX.Element => {
+const Navigation = () => {
   return (
     <div className={styles.NavigationContainer}>
       <img src={'/images/logo/naka_logo_trans.png'} alt="logo" className={styles.LogoImage} />
@@ -14,7 +14,6 @@ const Navigation = (): JSX.Element => {
       <h2>
         <SmileOutlined style={{ fontSize: '0.24rem' }} /><p className={styles.text}>Bio</p>
       </h2>
-      <div className={styles.copyRight}>©nakaatsu</div>
     </div>
   );
 }

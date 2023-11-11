@@ -28,15 +28,6 @@
   padding: 32px 0 32px 0;
 }
 
-.copyRight {
-  display: flex;
-  justify-content: center;
-  font-size: 0.12rem;
-  margin-top: auto;
-  color: #d4d4d4;
-  padding-bottom: 32px;
-}
-
 @media screen and (max-width: 768px) {
   .NavigationContainer {
     flex-direction: row;
@@ -57,10 +48,6 @@
   }
 
   h2 .text {
-    display: none;
-  }
-
-  .copyRight {
     display: none;
   }
 }

@@ -4,7 +4,7 @@ import styles from './Blogs.module.css';
 import TopPageCardHeader from "../TopPageCardHeader";
 import { formatDate } from "~/_lib/formatDate";
 
-export default function Blogs({ contents }: MicroCMSListResponse<Blog>) {
+const Blogs = ({ contents }: MicroCMSListResponse<Blog>) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.card}>
@@ -31,3 +31,5 @@ export default function Blogs({ contents }: MicroCMSListResponse<Blog>) {
     </div>
   )
 }
+
+export default Blogs
