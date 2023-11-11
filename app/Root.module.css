@@ -1,0 +1,17 @@
+.rootContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .rootContainer {
+    flex-direction: column-reverse;
+  }
+}

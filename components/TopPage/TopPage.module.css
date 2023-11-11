@@ -26,7 +26,7 @@
   height: 54px;
   display: flex;
   font-size: 0.14rem;
-  font-weight: 600;
+  font-weight: 400;
   padding-left: 8px;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .title {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .bodyContainer {

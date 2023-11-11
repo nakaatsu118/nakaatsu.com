@@ -6,12 +6,12 @@ import { formatDate } from "~/_lib/formatDate";
 
 export default function Blogs({ contents }: MicroCMSListResponse<Blog>) {
   return (
-    <div className={styles.CardContainer}>
-      <div className={styles.Card}>
+    <div className={styles.cardContainer}>
+      <div className={styles.card}>
         <TopPageCardHeader iconPath='/images/notebook.svg' iconAlt='blog' title='Blog' link="/blogs" />
       </div>
-      <ul className={styles.BlogsContainer}>
-        {contents.map((blog) => (
+      <ul className={styles.blogContainer}>
+        {contents.length && contents.map((blog) => (
           <li key={blog.id}>
             <a>
               <div className={styles.imageContainer}>
@@ -21,7 +21,7 @@ export default function Blogs({ contents }: MicroCMSListResponse<Blog>) {
                 <time>{blog.publishedAt ? formatDate(blog.publishedAt) : ''}</time>
                 <h3>{blog.title}</h3>
                 {blog.category &&
-                  <span key={blog.category.id}>{blog.category.name}</span>
+                  <span key={blog.category.id} className={styles.category}>#{blog.category.name}</span>
                 }
               </div>
             </a>

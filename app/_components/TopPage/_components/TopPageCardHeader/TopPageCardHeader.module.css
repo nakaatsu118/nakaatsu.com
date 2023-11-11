@@ -1,4 +1,4 @@
-.HeadContents {
+.headContainer {
   width: 100%;
   height: 54px;
   display: flex;
@@ -7,7 +7,7 @@
   padding: 10px 0;
 }
 
-.headContainer {
+.contents {
   height: 100%;
   width: 100%;
   display: flex;
@@ -23,7 +23,7 @@
   padding-left: 8px;
 }
 
-.rightHead {
+.right {
   width: 100%;
   height: 100%;
   display: flex;
@@ -33,7 +33,6 @@
   padding-right: 8px;
 }
 
-.shareIcon {
-  width: 20px;
-  height: 20px;
+.icon {
+  font-size: 0.2rem;
 }

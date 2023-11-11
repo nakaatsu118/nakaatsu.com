@@ -1,6 +1,8 @@
 import React from "react"
-import "./normalize.css"
-import "./globals.css"
+import "@/_styles/normalize.css"
+import "@/_styles/globals.css"
+import styles from '@/Root.module.css'
+import Navigation from "@/_components/Navigation"
 
 export const siteTitle = 'nakaatsu World'
 
@@ -12,7 +14,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <div className={styles.rootContainer}>
+          <Navigation />
+          <main className={styles.main}>{children}</main>
+        </div>
+      </body>
     </html>
   )
 }

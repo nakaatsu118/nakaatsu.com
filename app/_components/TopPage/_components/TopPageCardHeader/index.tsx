@@ -1,6 +1,5 @@
 import styles from './TopPageCardHeader.module.css';
-import ShareIcon from '@mui/icons-material/Share';
-import IconRightOpen from "@/_components/Icon/RightOpen";
+import { ShareAltOutlined, SwapRightOutlined } from '@ant-design/icons';
 
 export type TopPageCardHeaderProps = {
   iconPath: string
@@ -11,15 +10,14 @@ export type TopPageCardHeaderProps = {
 
 export default function TopPageCardHeader({ iconPath, iconAlt, title, link }: TopPageCardHeaderProps) {
   return (
-    <div className={styles.HeadContents}>
-      <div className={styles.headContainer}>
+    <div className={styles.headContainer}>
+      <div className={styles.contents}>
         <img className={styles.headIcon} src={iconPath} alt={iconAlt} />
         <div>{title}</div>
-        <div className={styles.rightHead}>
+        <div className={styles.right}>
           {link ? <>
-            MORE
-            <IconRightOpen className={styles.shareIcon} />
-          </> : <ShareIcon className={styles.shareIcon} />}
+            MORE<SwapRightOutlined className={styles.icon} />
+          </> : <ShareAltOutlined className={styles.icon} />}
         </div>
       </div>
     </div>

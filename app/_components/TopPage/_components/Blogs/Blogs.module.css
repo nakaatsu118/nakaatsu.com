@@ -1,13 +1,14 @@
-.CardContainer {
+.cardContainer {
   width: 100%;
   max-width: 840px;
+  border-bottom: 1px solid #383838;
 }
 
-.Card {
+.card {
   padding: 0 16px;
 }
 
-.BlogsContainer {
+.blogContainer {
   display: flex;
   align-items: flex-start;
   overflow-x: scroll;
@@ -17,17 +18,12 @@
   scrollbar-width: none;
 }
 
-.BlogsContainer::-webkit-scrollbar {
+.blogContainer::-webkit-scrollbar {
   display: none;
 }
 
-.BlogsContainer li {
-  /* width: 30%; */
+.blogContainer li {
   min-width: 240px;
-}
-
-.BlogsContainer li a {
-  width: 100%;
 }
 
 .imageContainer img {
@@ -49,16 +45,22 @@
   line-height: 0.18rem;
 }
 
+.category {
+  width: fit-content;
+  color: rgb(224, 241, 255);
+}
+
 @media screen and (max-width: 768px) {
-  .Card {
+  .card {
     padding: 0;
   }
 
-  .BlogsContainer {
-    margin: 0 0 0 16px;
+  .blogContainer {
+    margin: 0;
+    padding-left: 16px;
   }
 
-  .BlogsContainer:nth-last-child(1) {
+  .blogContainer:nth-last-child(1) {
     padding-right: 16px;
   }
 }

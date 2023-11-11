@@ -1,8 +1,7 @@
-.LeftNavContainer {
+.NavigationContainer {
   display: flex;
   flex-direction: column;
   width: 180px;
-  /* min-width: 220px; */
   height: 100vh;
   font-size: 0.14rem;
   padding: 0 32px;
@@ -12,13 +11,11 @@
   top: 0;
 }
 
-.LeftNavContainer h2 {
+.NavigationContainer h2 {
   display: flex;
   gap: 12px;
   align-items: center;
   font-size: 0.16rem;
-  /* padding: 12px; */
-  /* font-weight: 600; */
 }
 
 .icon {
@@ -41,7 +38,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .LeftNavContainer {
+  .NavigationContainer {
     flex-direction: row;
     bottom: 0;
     width: 100%;
