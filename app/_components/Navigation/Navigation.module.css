@@ -1,4 +1,4 @@
-.NavigationContainer {
+.navigationContainer {
   display: flex;
   flex-direction: column;
   width: 180px;
@@ -11,7 +11,7 @@
   top: 0;
 }
 
-.NavigationContainer h2 {
+.navigationContainer h2 {
   display: flex;
   gap: 12px;
   align-items: center;
@@ -23,13 +23,16 @@
   height: 24px;
 }
 
-.LogoImage {
-  width: 84px;
+.image {
+  position: relative !important;
+  width: 84px !important;
+  height: auto !important;
+  object-fit: contain;
   padding: 32px 0 32px 0;
 }
 
 @media screen and (max-width: 768px) {
-  .NavigationContainer {
+  .navigationContainer {
     flex-direction: row;
     bottom: 0;
     width: 100%;
@@ -43,7 +46,7 @@
     align-items: center;
   }
 
-  .LogoImage {
+  .image {
     display: none;
   }
 

@@ -13,8 +13,15 @@
   border-radius: 8px;
 }
 
+.imageContainer {
+  width: 100%;
+  height: 360px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .mainContent {
-  /* border-bottom: 1px solid #383838; */
   padding-bottom: 16px;
 }
 
@@ -67,6 +74,11 @@
 
   .mainImage {
     border-radius: 0;
+  }
+
+  .imageContainer {
+    border-radius: 0;
+    height: 240px;
   }
 
   .bodyContainer {

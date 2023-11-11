@@ -11,8 +11,11 @@
     align-items: center;
   }
 
-  .headerContainer img {
-    height: 50%;
+  .image {
+    position: relative !important;
+    width: auto !important;
+    height: 50% !important;
+    object-fit: contain;
     padding-left: 16px;
   }
 }

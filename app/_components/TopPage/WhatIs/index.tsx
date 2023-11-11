@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './WhatIs.module.css';
 import CardHeader from '../../Card/CardHeader';
 import { GithubOutlined, HeartOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
@@ -7,7 +8,7 @@ const WhatIs = () => {
   return (
     <Card>
       <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' />
-      <img className={styles.mainImage} src={'/images/nakaatsu_top.png'} alt="main Image" />
+      <div className={styles.imageContainer} ><Image src={'/images/nakaatsu_top.png'} alt="main Image" fill style={{ objectFit: 'cover' }} /></div>
       <div className={styles.mainContent}>
         <div className={styles.actionContainer}>
           <div className={styles.leftAction}>
