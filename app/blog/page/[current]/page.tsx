@@ -18,7 +18,7 @@ const Blog = async ({ params }: Props) => {
   return (
     <>
       <Header />
-      <Blogs contents={data.contents} totalCount={data.totalCount} current={current} />
+      <Blogs contents={data.contents} totalCount={data.totalCount} current={current} limit={0} offset={0} />
       <Footer />
     </>
   )

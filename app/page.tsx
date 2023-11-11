@@ -11,7 +11,7 @@ const Home = async () => {
     <>
       <Header />
       <WhatIs />
-      <TopBlogs contents={res.contents} />
+      <TopBlogs contents={res.contents} totalCount={0} limit={0} offset={0} />
       <Footer />
     </>
   )

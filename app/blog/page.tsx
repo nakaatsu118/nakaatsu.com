@@ -11,7 +11,7 @@ const Blog = async () => {
   return (
     <>
       <Header />
-      <Blogs contents={data.contents} totalCount={data.totalCount} />
+      <Blogs contents={data.contents} totalCount={data.totalCount} limit={0} offset={0} />
       <Footer />
     </>
   )
