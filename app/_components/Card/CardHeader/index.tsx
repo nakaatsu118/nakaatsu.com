@@ -1,14 +1,14 @@
-import styles from './TopPageCardHeader.module.css';
+import styles from './CardHeader.module.css';
 import { ShareAltOutlined, SwapRightOutlined } from '@ant-design/icons';
 
-export type TopPageCardHeaderProps = {
+export type CardHeaderProps = {
   iconPath: string
   iconAlt: string
   title: string
   link?: string
 }
 
-const TopPageCardHeader = ({ iconPath, iconAlt, title, link }: TopPageCardHeaderProps) => {
+const CardHeader = ({ iconPath, iconAlt, title, link }: CardHeaderProps) => {
   return (
     <div className={styles.headContainer}>
       <div className={styles.contents}>
@@ -24,4 +24,4 @@ const TopPageCardHeader = ({ iconPath, iconAlt, title, link }: TopPageCardHeader
   )
 }
 
-export default TopPageCardHeader
+export default CardHeader

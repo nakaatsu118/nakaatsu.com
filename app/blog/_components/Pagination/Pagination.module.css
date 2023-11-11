@@ -1,0 +1,21 @@
+.paginationContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+
+.paginationContainer li {
+  line-height: 1;
+  list-style: none;
+  padding: 12px 16px;
+  border: 1px solid #fafafa;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .paginationContainer {
+    padding-top: 32px;
+  }
+}

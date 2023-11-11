@@ -1,12 +1,12 @@
 import styles from './WhatIs.module.css';
-import TopPageCardHeader from '../TopPageCardHeader';
+import CardHeader from '../../Card/CardHeader';
 import { GithubOutlined, HeartOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 import Card from '~/_components/Card';
 
 const WhatIs = () => {
   return (
     <Card>
-      <TopPageCardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' />
+      <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' />
       <img className={styles.mainImage} src={'/images/nakaatsu_top.png'} alt="main Image" />
       <div className={styles.mainContent}>
         <div className={styles.actionContainer}>

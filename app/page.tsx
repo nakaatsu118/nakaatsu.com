@@ -1,8 +1,8 @@
 import Footer from "./_components/Footer"
 import Header from "./_components/Header"
-import Blogs from "./_components/TopPage/_components/Blogs"
-import WhatIs from "./_components/TopPage/_components/WhatIs"
-import { getBlogList } from "@/_lib/microcms"
+import TopBlogs from "./_components/TopPage/TopBlogs"
+import WhatIs from "./_components/TopPage/WhatIs"
+import { getBlogList } from "~/_libs/microcms"
 
 const Home = async () => {
   const res = await getBlogList({ limit: 5 })
@@ -11,7 +11,7 @@ const Home = async () => {
     <>
       <Header />
       <WhatIs />
-      <Blogs contents={res.contents} />
+      <TopBlogs contents={res.contents} />
       <Footer />
     </>
   )

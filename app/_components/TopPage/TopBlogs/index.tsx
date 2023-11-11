@@ -1,14 +1,14 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
-import { Blog } from "~/_lib/microcms";
-import styles from './Blogs.module.css';
-import TopPageCardHeader from "../TopPageCardHeader";
-import { formatDate } from "~/_lib/formatDate";
+import { Blog } from "~/_libs/microcms";
+import styles from './TopBlogs.module.css';
+import CardHeader from "~/_components/Card/CardHeader";
+import { formatDate } from "~/_libs/formatDate";
 
-const Blogs = ({ contents }: MicroCMSListResponse<Blog>) => {
+const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.card}>
-        <TopPageCardHeader iconPath='/images/notebook.svg' iconAlt='blog' title='Blog' link="/blogs" />
+        <CardHeader iconPath='/images/notebook.svg' iconAlt='blog' title='Blog' link="/blogs" />
       </div>
       <ul className={styles.blogContainer}>
         {contents.length && contents.map((blog) => (
@@ -32,4 +32,4 @@ const Blogs = ({ contents }: MicroCMSListResponse<Blog>) => {
   )
 }
 
-export default Blogs
+export default TopBlogs
