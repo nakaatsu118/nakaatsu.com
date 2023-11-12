@@ -3,7 +3,7 @@
   align-items: flex-start;
   overflow-x: scroll;
   gap: 24px;
-  padding: unset;
+  padding-bottom: 24px;
   scrollbar-width: none;
   width: 100%;
 }
@@ -14,17 +14,24 @@
 
 .blogContainer li {
   min-width: 240px;
+  border-radius: 8px;
+}
+
+.imageContainer {
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
 }
 
 .imageContainer img {
   width: 240px;
   height: 240px;
   object-fit: cover;
-  border-radius: 8px;
+  transition: 0.3s;
 }
 
 .text {
-  padding: 24px 0;
+  padding: 12px 6px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -47,5 +54,17 @@
 
   .blogContainer li:nth-last-child(1) {
     padding-right: 16px;
+  }
+}
+
+@media (hover: hover) {
+  .blogContainer li:hover .imageContainer img {
+    transform: scale(1.06);
+    transition: 0.4s;
+  }
+
+  .blogContainer li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
   }
 }

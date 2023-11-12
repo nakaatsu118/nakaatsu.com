@@ -6,10 +6,15 @@
   height: 100vh;
   font-size: 0.14rem;
   padding: 0 32px;
-  gap: 24px;
+  gap: 12px;
   border-right: 1px solid #e2e135;
   position: sticky;
   top: 0;
+}
+
+.navigationContainer a {
+  padding: 8px 0 8px 8px;
+  border-radius: 8px;
 }
 
 .navigationContainer h2 {
@@ -26,12 +31,15 @@
   height: 24px;
 }
 
+.imageContainer {
+  padding: 32px 0 32px 0;
+}
+
 .image {
   position: relative !important;
   width: 84px !important;
   height: auto !important;
   object-fit: contain;
-  padding: 32px 0 32px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -55,5 +63,13 @@
 
   h2 .text {
     display: none;
+  }
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: #e2e135;
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }

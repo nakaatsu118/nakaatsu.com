@@ -7,19 +7,21 @@ const Navigation = () => {
   return (
     <div className={styles.navigationContainer}>
       <Link href="/" className={styles.imageLink}>
-        <Image src={'/images/logo/naka_logo_trans.png'} alt="logo" fill className={styles.image} />
+        <h2 className={styles.imageContainer}>
+          <Image src={'/images/logo/naka_logo_trans.png'} alt="logo" fill className={styles.image} />
+        </h2>
       </Link>
-      <Link href="/">
+      <Link href="/" className={styles.link}>
         <h2>
           <HomeOutlined style={{ fontSize: '0.24rem' }} /><p className={styles.text}>Home</p>
         </h2>
       </Link>
-      <Link href="/blog">
+      <Link href="/blog" className={styles.link}>
         <h2>
           <FormOutlined style={{ fontSize: '0.24rem' }} /><p className={styles.text}>Blog</p>
         </h2>
       </Link>
-      <Link href="/bio">
+      <Link href="/bio" className={styles.link}>
         <h2>
           <SmileOutlined style={{ fontSize: '0.24rem' }} /><p className={styles.text}>Bio</p>
         </h2>
