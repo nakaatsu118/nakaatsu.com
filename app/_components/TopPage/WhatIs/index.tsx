@@ -29,7 +29,7 @@ const WhatIs = () => {
           <h3 className={styles.title}>このサイトについて</h3>
         </div>
         <div className={styles.bodyContainer}>
-          こんにちは。なかあつです。このサイトは <a className='link' href='https://twitter.com/nakaatsu' target='_blank' rel='noopener noreferrer'>@nakaatsu</a> の日々をしたためています。<br />
+          こんにちは。なかあつですわ。このサイトは <a className='link' href='https://twitter.com/nakaatsu' target='_blank' rel='noopener noreferrer'>@nakaatsu</a> の日々をしたためています。<br />
           多趣味でごっちゃにな自分の世界がここにあります。<br />
           <br />
           🔥Next.js / React / TypeScript<br />
