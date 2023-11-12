@@ -16,6 +16,11 @@ body {
   color: #e2e135;
 }
 
+a {
+  text-decoration: none;
+  color: #fafafa;
+}
+
 p {
   margin: 0;
 }

@@ -3,18 +3,23 @@ import styles from './WhatIs.module.css';
 import CardHeader from '../../Card/CardHeader';
 import { GithubOutlined, HeartOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 import Card from '~/_components/Card';
+import Link from 'next/link';
 
 const WhatIs = () => {
   return (
     <Card>
-      <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' />
+      <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' link='/' isShare />
       <div className={styles.imageContainer} ><Image src={'/images/nakaatsu_top.png'} alt="main Image" fill style={{ objectFit: 'cover' }} /></div>
       <div className={styles.mainContent}>
         <div className={styles.actionContainer}>
           <div className={styles.leftAction}>
-            <TwitterOutlined className={styles.actionIcon} />
-            <InstagramOutlined className={styles.actionIcon} />
-            <GithubOutlined className={styles.actionIcon} />
+            <Link href={'https://twitter.com/nakaatsu'} rel="noopener noreferrer" target="_blank"><TwitterOutlined className={styles.actionIcon} /></Link>
+            <Link href={'https://www.instagram.com/nakaatsu_world/'} rel="noopener noreferrer" target="_blank">
+              <InstagramOutlined className={styles.actionIcon} />
+            </Link>
+            <Link href={'https://github.com/nakaatsu118'} rel="noopener noreferrer" target="_blank">
+              <GithubOutlined className={styles.actionIcon} />
+            </Link>
           </div>
           <div className={styles.rightAction}>
             <HeartOutlined className={styles.actionIcon} />

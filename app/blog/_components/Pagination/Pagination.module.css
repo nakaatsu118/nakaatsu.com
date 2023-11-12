@@ -9,9 +9,26 @@
 .paginationContainer li {
   line-height: 1;
   list-style: none;
-  padding: 12px 16px;
+  width: 40px;
+  height: 40px;
   border: 1px solid #fafafa;
   border-radius: 4px;
+}
+
+.paginationContainer li a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  background-color: #e2e135;
+  border: 1px solid #e2e135 !important;
+}
+
+.active a {
+  color: #333333;
 }
 
 @media screen and (max-width: 768px) {

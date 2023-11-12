@@ -11,6 +11,13 @@
     align-items: center;
   }
 
+  .headerContainer a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
   .image {
     position: relative !important;
     width: auto !important;

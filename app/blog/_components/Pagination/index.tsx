@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Pagination.module.css';
 
 type Props = {
@@ -15,8 +16,10 @@ const Pagination = ({ totalCount, current = 1, basePath = '' }: Props) => {
   return (
     <ul className={styles.paginationContainer}>
       {pages.map((page) => (
-        <li key={page}>
-          <a>{page}</a>
+        <li key={page} className={current === page ? styles.active : undefined}>
+          <Link href={`${basePath}/page/${page}`}>
+            <div >{page}</div>
+          </Link>
         </li>
       ))}
     </ul>

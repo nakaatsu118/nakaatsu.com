@@ -1,13 +1,3 @@
-.cardContainer {
-  width: 100%;
-  max-width: 840px;
-  border-bottom: 1px solid #383838;
-}
-
-.card {
-  padding: 0 16px;
-}
-
 .mainImage {
   width: 100%;
   border-radius: 8px;
@@ -64,10 +54,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .card {
-    padding: 0;
-  }
-
   .actionContainer {
     padding: 12px 0;
   }

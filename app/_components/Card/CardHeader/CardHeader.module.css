@@ -13,7 +13,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.left a {
+  display: flex;
   gap: 12px;
+  align-items: center;
 }
 
 .headIcon {
@@ -28,9 +33,14 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   padding-right: 8px;
+}
+
+.right a {
+  display: flex;
+  align-items: center;
 }
 
 .icon {

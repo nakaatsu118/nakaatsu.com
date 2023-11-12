@@ -1,7 +1,8 @@
 .navigationContainer {
   display: flex;
   flex-direction: column;
-  width: 180px;
+  width: 120px;
+  min-width: 120px;
   height: 100vh;
   font-size: 0.14rem;
   padding: 0 32px;
@@ -16,6 +17,8 @@
   gap: 12px;
   align-items: center;
   font-size: 0.16rem;
+  height: 24px;
+  width: fit-content;
 }
 
 .icon {
@@ -46,7 +49,7 @@
     align-items: center;
   }
 
-  .image {
+  .imageLink {
     display: none;
   }
 

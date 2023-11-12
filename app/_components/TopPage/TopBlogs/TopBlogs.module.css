@@ -1,21 +1,11 @@
-.cardContainer {
-  width: 100%;
-  max-width: 840px;
-  border-bottom: 1px solid #383838;
-}
-
-.card {
-  padding: 0 16px;
-}
-
 .blogContainer {
   display: flex;
   align-items: flex-start;
   overflow-x: scroll;
   gap: 24px;
-  margin: 0 16px;
   padding: unset;
   scrollbar-width: none;
+  width: 100%;
 }
 
 .blogContainer::-webkit-scrollbar {
@@ -51,16 +41,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .card {
-    padding: 0;
-  }
-
-  .blogContainer {
-    margin: 0;
+  .blogContainer li:nth-child(1) {
     padding-left: 16px;
   }
 
-  .blogContainer:nth-last-child(1) {
+  .blogContainer li:nth-last-child(1) {
     padding-right: 16px;
   }
 }
