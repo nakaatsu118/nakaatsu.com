@@ -5,6 +5,7 @@ import CardHeader from "~/_components/Card/CardHeader";
 import { formatDate } from "~/_libs/formatDate";
 import Card from "~/_components/Card";
 import Link from "next/link";
+import 'animate.css'
 
 const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
   return (
@@ -12,7 +13,7 @@ const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
       <CardHeader iconPath='/images/notebook.svg' iconAlt='blog' title='Blog' link="/blog" />
       <ul className={styles.blogContainer}>
         {contents.map((blog) => (
-          <li key={blog.id}>
+          <li key={blog.id} className={`${styles.blog} animate__animated animate__fadeInRight`}>
             <Link href={`/blog/${blog.id}`} >
               <div className={styles.imageContainer}>
                 <img src={blog.eyecatch?.url + '?fit=crop&w=480&h=480'} />

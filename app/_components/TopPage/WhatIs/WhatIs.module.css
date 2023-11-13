@@ -30,11 +30,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 4px;
 }
 
 .actionIcon {
   font-size: 0.22rem;
+  color: #fafafa;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .titleContainer {
@@ -58,6 +61,14 @@
     padding: 12px 0;
   }
 
+  .leftAction {
+    gap: 8px;
+  }
+
+  .actionIcon {
+    padding: 0;
+  }
+
   .mainImage {
     border-radius: 0;
   }
@@ -73,5 +84,28 @@
 
   .mainContent {
     padding: 0 16px;
+  }
+}
+
+@media (hover: hover) {
+  .actionIcon:hover {
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    color: #696969;
+    transition: 0.3s;
+  }
+
+  .twitter:hover {
+    color: #1da1f2;
+    transition: 0.3s;
+  }
+
+  .instagram:hover {
+    color: #c13584;
+    transition: 0.3s;
+  }
+
+  .github:hover {
+    color: #696969;
+    transition: 0.3s;
   }
 }

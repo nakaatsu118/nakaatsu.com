@@ -11,12 +11,14 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@types/react-gtm-module": "^2.0.1",
+    "animate.css": "^4.1.1",
     "dayjs": "^1.11.10",
     "microcms-js-sdk": "^2.7.0",
     "next": "^14.0.2",
     "react": "^18.2.0",
     "react-dom": "18",
     "react-gtm-module": "^2.0.11",
+    "react-intersection-observer": "^9.5.3",
     "sass": "^1.48.0"
   },
   "devDependencies": {

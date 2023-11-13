@@ -63,11 +63,23 @@
 
 .icon {
   font-size: 0.2rem;
+  transition: 0.3s;
 }
 
 @media (hover: hover) {
   .left:hover a {
     color: #e2e135;
+    transition: 0.3s;
+    transition-duration: 0.2s;
+  }
+
+  .right a:hover .rightAnimation {
+    transform: translateX(4px);
+    transition: 0.3s;
+  }
+
+  .right a:hover .rotateAnimation {
+    transform: rotate(360deg);
     transition: 0.3s;
   }
 

@@ -19,10 +19,12 @@ const Blogs = ({ contents, totalCount, current }: Props) => {
         {contents.map((blog) => (
           <Link href={`/blog/${blog.id}`} key={blog.id}>
             <div className={styles.blog} key={blog.id}>
-              <img src={blog.eyecatch?.url + '?fit=crop&w=960&h=540'} />
+              <div className={styles.imageContainer}>
+                <img src={blog.eyecatch?.url + '?fit=crop&w=960&h=540'} />
+              </div>
               <div className={styles.text}>
-                <h2>{blog.title}</h2>
                 <time>{blog.publishedAt ? formatDate(blog.publishedAt) : ''}</time>
+                <h2>{blog.title}</h2>
                 {blog.category &&
                   <span key={blog.category.id} className={styles.category}>{blog.category.name}</span>
                 }

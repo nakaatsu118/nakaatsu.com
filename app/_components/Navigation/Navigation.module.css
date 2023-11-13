@@ -7,9 +7,10 @@
   font-size: 0.14rem;
   padding: 0 32px;
   gap: 12px;
-  border-right: 1px solid #e2e135;
+  border-right: 2px solid #e2e135;
   position: sticky;
   top: 0;
+  z-index: 999;
 }
 
 .navigationContainer a {
@@ -42,6 +43,23 @@
   object-fit: contain;
 }
 
+.link p {
+  position: relative;
+}
+
+.link p::after {
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #e2e135;
+  bottom: -1px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+
 @media screen and (max-width: 768px) {
   .navigationContainer {
     flex-direction: row;
@@ -50,7 +68,7 @@
     height: 50px;
     padding: 0;
     border-right: none;
-    border-top: 1px solid #e2e135;
+    border-top: 4px solid #e2e135;
     top: auto;
     background-color: #1e1a19;
     justify-content: space-evenly;
@@ -70,6 +88,10 @@
   .link:hover {
     color: #e2e135;
     transition: 0.3s;
-    background-color: rgba(255, 255, 255, 0.1);
+    /* background-color: rgba(255, 255, 255, 0.1); */
+  }
+
+  .link:hover p::after {
+    transform: scale(1, 1);
   }
 }

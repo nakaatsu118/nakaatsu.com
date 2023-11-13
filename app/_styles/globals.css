@@ -10,6 +10,7 @@ body {
   color: #fafafa;
   font-size: 0.16rem;
   font-family: 'Zen Kaku Gothic New', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .link {

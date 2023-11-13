@@ -29,10 +29,10 @@ const CardHeader = ({ iconPath, iconAlt, title, link, isShare, shareTitle }: Car
           </Link>
         </div>
         <div className={styles.right}>
-          {isShare ? <a href={`https://twitter.com/share?url=${baseUrl + path}&text=${editedShareTitle}`} rel="noopener noreferrer" target="_blank"><ShareAltOutlined className={styles.icon} /></a>
+          {isShare ? <a href={`https://twitter.com/share?url=${baseUrl + path}&text=${editedShareTitle}`} rel="noopener noreferrer" target="_blank"><ShareAltOutlined className={`${styles.icon} ${styles.rotateAnimation}`} /></a>
             :
             link ? <Link href={link}>
-              MORE<SwapRightOutlined className={styles.icon} />
+              MORE<SwapRightOutlined className={`${styles.icon} ${styles.rightAnimation}`} />
             </Link> : <></>}
         </div>
       </div>
