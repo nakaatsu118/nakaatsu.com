@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './CardHeader.module.css';
 import { ShareAltOutlined, SwapRightOutlined } from '@ant-design/icons';
 import { usePathname } from "next/navigation"
+import { motion } from 'framer-motion';
 
 export type CardHeaderProps = {
   iconPath: string
@@ -29,7 +30,9 @@ const CardHeader = ({ iconPath, iconAlt, title, link, isShare, shareTitle }: Car
           </Link>
         </div>
         <div className={styles.right}>
-          {isShare ? <a href={`https://twitter.com/share?url=${baseUrl + path}&text=${editedShareTitle}`} rel="noopener noreferrer" target="_blank"><ShareAltOutlined className={`${styles.icon} ${styles.rotateAnimation}`} /></a>
+          {isShare ? <motion.div whileHover={{ scale: 1.1 }}>
+            <a href={`https://twitter.com/share?url=${baseUrl + path}&text=${editedShareTitle}`} rel="noopener noreferrer" target="_blank"><ShareAltOutlined className={`${styles.icon} ${styles.rotateAnimation}`} /></a>
+          </motion.div>
             :
             link ? <Link href={link}>
               MORE<SwapRightOutlined className={`${styles.icon} ${styles.rightAnimation}`} />
