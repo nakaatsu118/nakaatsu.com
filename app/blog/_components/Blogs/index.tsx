@@ -21,7 +21,7 @@ const Blogs = ({ contents, totalCount, current }: Props) => {
       <div className={styles.blogsContainer}>
         {contents.map((blog, i) => (
           <Link href={`/blog/${blog.id}`} key={blog.id}>
-            <motion.div className={styles.blog} key={blog.id} initial={{ opacity: 0, y: 400 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: i * 0.1 }}>
+            <motion.div className={styles.blog} key={blog.id} initial={{ opacity: 0, y: 400 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: i * 0.07 }}>
               <div className={styles.imageContainer}>
                 <img src={blog.eyecatch?.url + '?fit=crop&w=960&h=540'} />
               </div>

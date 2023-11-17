@@ -10,7 +10,7 @@ export type CardHeaderProps = {
   iconPath: string
   iconAlt: string
   title: string
-  link: string
+  link?: string
   isShare?: boolean
   shareTitle?: string
 }
@@ -24,14 +24,20 @@ const CardHeader = ({ iconPath, iconAlt, title, link, isShare, shareTitle }: Car
     <div className={styles.headContainer}>
       <div className={styles.contents}>
         <div className={styles.left}>
-          <Link href={link}>
-            <img className={styles.headIcon} src={iconPath} alt={iconAlt} />
-            <div className={styles.title}>{title}</div>
-          </Link>
+          {link ?
+            <Link href={link}>
+              <img className={styles.headIcon} src={iconPath} alt={iconAlt} />
+              <div className={styles.title}>{title}</div>
+            </Link>
+            :
+            <a><img className={styles.headIcon} src={iconPath} alt={iconAlt} />
+              <div className={styles.title}>{title}</div></a>
+          }
+
         </div>
         <div className={styles.right}>
-          {isShare ? <motion.div whileHover={{ scale: 1.1 }}>
-            <a href={`https://twitter.com/share?url=${baseUrl + path}&text=${editedShareTitle}`} rel="noopener noreferrer" target="_blank"><ShareAltOutlined className={`${styles.icon} ${styles.rotateAnimation}`} /></a>
+          {isShare ? <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}>
+            <a href={`https://twitter.com/share?url=${baseUrl + path}&text=${editedShareTitle}`} rel="noopener noreferrer" target="_blank"><ShareAltOutlined className={styles.icon} /></a>
           </motion.div>
             :
             link ? <Link href={link}>

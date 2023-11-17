@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
   const { ref, inView } = useInView({
-    rootMargin: "-100px",
+    threshold: 0.2,
     triggerOnce: true,
   });
 
