@@ -34,3 +34,17 @@
   max-width: 80%;
   height: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .infoContainer {
+    padding: 0 16px;
+  }
+
+  .content {
+    padding: 24px 16px;
+  }
+
+  .content img {
+    max-width: 100%;
+  }
+}

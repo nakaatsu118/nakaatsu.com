@@ -32,6 +32,9 @@
 .title {
   position: relative;
   width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title::after {

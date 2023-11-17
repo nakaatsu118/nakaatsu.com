@@ -20,7 +20,6 @@
 @media screen and (max-width: 768px) {
   .cardContainer {
     width: 100vw;
-    border-bottom: 1px solid #e2e135;
   }
 
   .card {
