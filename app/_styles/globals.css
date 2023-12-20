@@ -1,25 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap');
 
+:root {
+  --c-primary: #e2e135;
+  --c-black: #332627;
+  --c-white: #eee9d4;
+  --c-beige: #e8d6ae;
+  --c-quaternary: var(--c-primary);
+}
+
 html {
   font-size: 100px;
   scroll-behavior: smooth;
+  word-break: auto-phrase;
 }
 
 body {
-  background-color: #1e1a19;
-  color: #fafafa;
+  background-color: var(--c-black);
+  color: var(--c-white);
   font-size: 0.16rem;
   font-family: 'Zen Kaku Gothic New', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .link {
-  color: #e2e135;
+  color: var(--c-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
 }
 
 a {
   text-decoration: none;
-  color: #fafafa;
+  color: var(--c-white);
 }
 
 p {
@@ -44,6 +63,6 @@ h3 {
 }
 
 ::selection {
-  background-color: #e2e135;
-  color: #1e1a19;
+  background-color: var(--c-primary);
+  color: var(--c-black);
 }

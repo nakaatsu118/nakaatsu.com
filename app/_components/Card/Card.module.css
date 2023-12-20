@@ -1,6 +1,9 @@
 .cardContainer {
-  width: 840px;
-  border-bottom: 1px solid #383838;
+  /* width: 840px; */
+  width: 86vw;
+  max-width: 1200px;
+  /* border-bottom: 1px solid var(--c-white); */
+  min-height: 100vh;
 }
 
 .card {

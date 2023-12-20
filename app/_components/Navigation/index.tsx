@@ -11,21 +11,28 @@ const Navigation = () => {
           <Image src={'/images/logo/naka_logo_trans.png'} alt="logo" fill className={styles.image} />
         </h2>
       </Link>
-      <Link href="/" className={styles.link}>
-        <h2>
-          <HomeOutlined style={{ fontSize: '0.24rem' }} /><p className={styles.text}>Home</p>
-        </h2>
-      </Link>
-      <Link href="/blog" className={styles.link}>
-        <h2>
-          <FormOutlined style={{ fontSize: '0.24rem' }} /><p className={styles.text}>Blog</p>
-        </h2>
-      </Link>
-      <Link href="/bio" className={styles.link}>
-        <h2>
-          <SmileOutlined style={{ fontSize: '0.24rem' }} /><p className={styles.text}>Bio</p>
-        </h2>
-      </Link>
+      <div className={styles.linkContainer}>
+        <Link href="/" className={styles.link}>
+          <h2>
+            <p className={styles.text}>Home</p>
+          </h2>
+        </Link>
+        <Link href="/blog" className={styles.link}>
+          <h2>
+            <p className={styles.text}>Blog</p>
+          </h2>
+        </Link>
+        <Link href="/works" className={styles.link}>
+          <h2>
+            <p className={styles.text}>Works</p>
+          </h2>
+        </Link>
+        <Link href="/bio" className={styles.link}>
+          <h2>
+            <p className={styles.text}>Biography</p>
+          </h2>
+        </Link>
+      </div>
     </div>
   );
 }

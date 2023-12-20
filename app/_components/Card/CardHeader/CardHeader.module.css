@@ -3,7 +3,7 @@
   max-width: 100%;
   height: 54px;
   display: flex;
-  font-size: 0.14rem;
+  font-size: 0.164rem;
   font-weight: 600;
   padding: 10px 0;
 }
@@ -49,7 +49,7 @@
   content: '';
   width: 100%;
   height: 1px;
-  background-color: #e2e135;
+  background-color: var(--c-primary);
   bottom: -1px;
   transform: scale(0, 1);
   transform-origin: left top;
@@ -78,7 +78,7 @@
 
 @media (hover: hover) {
   .left:hover a {
-    color: #e2e135;
+    color: var(--c-primary);
     transition: 0.3s;
     transition-duration: 0.2s;
   }

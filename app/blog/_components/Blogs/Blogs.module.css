@@ -19,7 +19,7 @@
   content: '';
   height: 100%;
   width: 1px;
-  background-color: #e2e135;
+  background-color: var(--c-primary);
   right: -1px;
   transform: scale(1, 0);
   transform-origin: right top;

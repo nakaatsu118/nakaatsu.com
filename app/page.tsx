@@ -7,7 +7,7 @@ import 'animate.css'
 import MotionWrapper from "./_components/MotionWrapper"
 
 const Home = async () => {
-  const res = await getBlogList({ limit: 5 })
+  const res = await getBlogList({ limit: 3 })
 
   return (
     <MotionWrapper>

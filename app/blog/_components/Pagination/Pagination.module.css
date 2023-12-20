@@ -11,7 +11,7 @@
   list-style: none;
   width: 40px;
   height: 40px;
-  border: 1px solid #fafafa;
+  border: 1px solid var(--c-white);
   border-radius: 4px;
 }
 
@@ -23,8 +23,8 @@
 }
 
 .active {
-  background-color: #e2e135;
-  border: 1px solid #e2e135 !important;
+  background-color: var(--c-primary);
+  border: 1px solid var(--c-primary) !important;
 }
 
 .active a {
