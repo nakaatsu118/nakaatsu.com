@@ -1,9 +1,8 @@
 .cardContainer {
-  /* width: 840px; */
   width: 86vw;
   max-width: 1200px;
-  /* border-bottom: 1px solid var(--c-white); */
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  padding: 8.333333333333332vw 0;
 }
 
 .card {
@@ -15,9 +14,9 @@
     width: 70vw;
   }
 
-  .card {
+  /* .card {
     padding: 0;
-  }
+  } */
 }
 
 @media screen and (max-width: 768px) {
@@ -25,7 +24,7 @@
     width: 100vw;
   }
 
-  .card {
+  /* .card {
     padding: 0;
-  }
+  } */
 }

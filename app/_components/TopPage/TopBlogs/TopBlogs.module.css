@@ -1,21 +1,31 @@
-.blogContainer {
+.topBlogsWrapper {
+  /* width: 100vw;
+  overflow-x: hidden; */
+  /* background-image: url('/images/blogBackground9.png'); */
+  /* background-position: center;
+  background-size: cover;
+  background-attachment: fixed; */
+}
+
+.backgroundFilter {
+  width: 100%;
+  /* backdrop-filter: blur(3px) brightness(40%); */
   display: flex;
-  /* align-items: ; */
-  /* overflow-x: scroll; */
-  /* gap: 24px; */
-  padding-bottom: 24px;
-  /* scrollbar-width: none; */
+  align-items: center;
+  justify-content: center;
+}
+
+.blogContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 42px 24px;
+  align-items: center;
   width: 100%;
 }
 
-.blogContainer::-webkit-scrollbar {
-  display: none;
-}
-
 .blog {
-  /* min-width: 240px; */
-  width: calc(100% / 3);
-  border-radius: 0.23rem;
+  width: 100%;
+  border-radius: 30px;
   position: relative;
   animation-duration: 0.4s;
 }
@@ -35,6 +45,9 @@
 .blog:nth-child(5) {
   animation-delay: 0.6s;
 }
+.blog:nth-child(6) {
+  animation-delay: 0.7s;
+}
 
 .blog::after {
   position: absolute;
@@ -50,10 +63,11 @@
 }
 
 .imageContainer {
-  width: 90%;
+  width: 100%;
   border-radius: 0.23rem;
   overflow: hidden;
   display: flex;
+  position: relative;
 }
 
 .imageContainer img {
@@ -66,33 +80,45 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 0.14rem;
+  font-size: 0.168rem;
 }
 
 .text time {
-  font-size: 0.12rem;
+  font-size: 0.148rem;
+  letter-spacing: 0.05em;
 }
 
-.text p {
+.text h3 {
   line-height: 0.18rem;
+  letter-spacing: 0.05em;
 }
 
 .category {
+  font-size: 0.148rem;
+  font-weight: 600;
   width: fit-content;
-  color: rgb(224, 241, 255);
+  color: var(--c-black);
+  background-color: var(--c-white);
+  padding: 10px 20px;
+  border-radius: 30px;
+  position: absolute;
+  top: 24px;
+  right: 20px;
 }
 
 @media screen and (max-width: 768px) {
-  .blogContainer li:nth-child(1) {
-    padding-left: 16px;
+  .blogContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .blogContainer li:nth-last-child(1) {
-    padding-right: 16px;
+  .category {
+    top: 12px;
+    right: 10px;
+    padding: 8px 12px;
   }
 }
 
-@media (hover: hover) {
+/* @media (hover: hover) {
   .blog:hover .imageContainer img {
     transform: scale(1.06);
     transition: 0.5s;
@@ -101,4 +127,4 @@
   .blog:hover::after {
     transform: scale(1, 1);
   }
-}
+} */

@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 
 const WhatIs = () => {
   return (
-    <>
+    <div className={styles.whatIsWrapper}>
       <Card>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.3 }}>
           <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' link='/' isShare />
@@ -41,7 +41,7 @@ const WhatIs = () => {
               </div>
             </div>
             <div className={styles.titleContainer}>
-              <motion.h3 className={styles.title} initial={{ width: 0, opacity: 0 }} animate={{ width: "fit-content", opacity: 1 }} transition={{ duration: 3, delay: 0.8, type: "spring", stiffness: 90 }}>このサイトについて</motion.h3>
+              <h3 className={styles.title}>このサイトについて</h3>
             </div>
             <div className={styles.bodyContainer}>
               こんにちは。なかあつです。このサイトは <a className='link' href='https://twitter.com/nakaatsu' target='_blank' rel='noopener noreferrer'>@nakaatsu</a> の日々をしたためています。<br />
@@ -52,12 +52,12 @@ const WhatIs = () => {
               <br />
             </div>
           </div>
-          <div className={styles.bottomArrow}>
+          {/* <div className={styles.bottomArrow}>
             <img src='/images/arrow-22.svg' />
-          </div>
+          </div> */}
         </motion.div >
       </Card >
-    </>
+    </div>
 
   )
 }

@@ -83,7 +83,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .navigationContainer {
+  /* .navigationContainer {
     flex-direction: row;
     bottom: 0;
     width: 100%;
@@ -103,7 +103,7 @@
 
   h2 .text {
     display: none;
-  }
+  } */
 }
 
 @media (hover: hover) {
