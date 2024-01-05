@@ -3,7 +3,15 @@
 :root {
   --c-primary: #e2e135;
   --c-black: #332627;
+  --c-black-1: #0d1123;
+  --c-black-2: #464957;
+  --c-black-3: #252a40;
+  --c-black-4: #666a79;
   --c-white: #eee9d4;
+  --c-white-1: #e2e2dd;
+  --c-white-2: #959590;
+  --c-white-3: #bcbcae;
+  --c-white-4: #f9f9f2;
   --c-beige: #e8d6ae;
   --c-quaternary: var(--c-primary);
 }
@@ -15,8 +23,8 @@ html {
 }
 
 body {
-  background-color: var(--c-black);
-  color: var(--c-white);
+  background-color: var(--c-black-2);
+  color: var(--c-white-1);
   font-size: 0.16rem;
   font-family: 'Zen Kaku Gothic New', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -38,7 +46,7 @@ img {
 
 a {
   text-decoration: none;
-  color: var(--c-white);
+  color: var(--c-white-1);
 }
 
 p {

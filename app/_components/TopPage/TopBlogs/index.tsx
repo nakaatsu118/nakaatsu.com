@@ -8,7 +8,7 @@ import { formatDate } from "~/_libs/formatDate";
 import Card from "~/_components/Card";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
   const { ref, inView } = useInView({
@@ -27,7 +27,7 @@ const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
                 <li key={blog.id} className={styles.blog}>
                   <Link href={`/blog/${blog.id}`} >
                     <motion.div initial={{ opacity: 0, x: 400 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: i * 0.2 }}>
-                      <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} transition={{ type: "spring", stiffness: 400, damping: 15 }} whileTap={{ scale: 0.9 }}>
+                      <motion.div whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} transition={{ type: "spring", stiffness: 400, damping: 11 }} whileTap={{ scale: 0.9 }}>
                         <div className={styles.imageContainer}>
                           <img src={blog.eyecatch?.url + '?fit=crop&w=480&h=480'} />
                           {blog.category &&
