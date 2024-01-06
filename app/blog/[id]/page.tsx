@@ -5,7 +5,6 @@ import { getBlogDetail } from "~/_libs/microcms";
 import styles from './BlogPage.module.css';
 import { formatDate } from "~/_libs/formatDate";
 import Footer from "~/_components/Footer";
-import Header from "~/_components/Header";
 
 type Props = {
   params: {
@@ -14,22 +13,21 @@ type Props = {
 }
 
 const BlogPage = async ({ params }: Props) => {
-  const data = await getBlogDetail(params.id)
+  const res = await getBlogDetail(params.id)
 
   return (
     <MotionWrapper>
-      <Header />
       <Card>
-        <CardHeader iconPath='/images/notebook.svg' iconAlt='blog' title={data.title} link={''} isShare shareTitle={data.title} />
+        <CardHeader iconPath='/images/notebook.svg' iconAlt='blog' title={res.title} link={''} isShare shareTitle={res.title} />
         <div className={styles.blogPageContainer}>
           <div className={styles.infoContainer}>
-            <time>{data.publishedAt ? formatDate(data.publishedAt) : ''}</time>
-            <div>#{data.category?.name}</div>
+            <time>{res.publishedAt ? formatDate(res.publishedAt) : ''}</time>
+            <div>#{res.category?.name}</div>
           </div>
           <div className={styles.imageContainer}>
-            <img src={data.eyecatch?.url + '?fit=crop&w=960&h=540'} />
+            <img src={res.eyecatch?.url + '?fit=crop&w=960&h=540'} />
           </div>
-          <div className={styles.content} dangerouslySetInnerHTML={{ __html: `${data.content}` }} />
+          <div className={styles.content} dangerouslySetInnerHTML={{ __html: `${res.content}` }} />
         </div>
       </Card>
       <Footer />

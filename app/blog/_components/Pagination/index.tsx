@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Pagination = ({ totalCount, current = 1, basePath = '' }: Props) => {
-  const perPage = 5;
+  const perPage = 9;
   const pages = Array.from({ length: Math.ceil(totalCount / perPage) }).map(
     (_, i) => i + 1,
   );

@@ -3,7 +3,7 @@
   gap: 16px;
   align-items: center;
   justify-content: center;
-  padding-bottom: 32px;
+  padding-top: 120px;
 }
 
 .paginationContainer li {
@@ -12,7 +12,7 @@
   width: 40px;
   height: 40px;
   border: 1px solid var(--c-white-1);
-  border-radius: 4px;
+  border-radius: 80px 80px 0 80px;
 }
 
 .paginationContainer li a {
@@ -28,11 +28,5 @@
 }
 
 .active a {
-  color: #333333;
-}
-
-@media screen and (max-width: 768px) {
-  .paginationContainer {
-    padding-top: 32px;
-  }
+  color: var(--c-black-1);
 }

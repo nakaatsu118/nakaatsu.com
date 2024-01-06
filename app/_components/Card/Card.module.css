@@ -1,7 +1,6 @@
 .cardContainer {
   width: 86vw;
   max-width: 1200px;
-  /* min-height: 100vh; */
   padding: 8.333333333333332vw 0;
 }
 
@@ -11,20 +10,12 @@
 
 @media screen and (max-width: 1050px) {
   .cardContainer {
-    width: 70vw;
+    width: 92vw;
   }
-
-  /* .card {
-    padding: 0;
-  } */
 }
 
 @media screen and (max-width: 768px) {
   .cardContainer {
     width: 100vw;
   }
-
-  /* .card {
-    padding: 0;
-  } */
 }

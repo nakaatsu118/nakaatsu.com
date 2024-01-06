@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from './Navigation.module.css';
-import { FormOutlined, HomeOutlined, SmileOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 
 const Navigation = () => {

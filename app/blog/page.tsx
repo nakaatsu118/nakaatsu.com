@@ -1,18 +1,16 @@
 import Footer from "@/_components/Footer"
-import Header from "@/_components/Header"
 import { getBlogList } from "~/_libs/microcms"
 import Blogs from "./_components/Blogs"
 import MotionWrapper from "~/_components/MotionWrapper"
 
-const blogLimit = 5
+const blogLimit = 9
 
 const Blog = async () => {
-  const data = await getBlogList({ limit: blogLimit })
+  const res = await getBlogList({ limit: blogLimit, orders: '-publishedAt' })
 
   return (
     <MotionWrapper>
-      <Header />
-      <Blogs contents={data.contents} totalCount={data.totalCount} limit={0} offset={0} />
+      <Blogs contents={res.contents} totalCount={res.totalCount} limit={0} offset={0} />
       <Footer />
     </MotionWrapper>
   )

@@ -52,9 +52,6 @@ const WhatIs = () => {
               <br />
             </div>
           </div>
-          {/* <div className={styles.bottomArrow}>
-            <img src='/images/arrow-22.svg' />
-          </div> */}
         </motion.div >
       </Card >
     </div>
