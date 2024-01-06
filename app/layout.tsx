@@ -5,11 +5,29 @@ import styles from '@/Root.module.css'
 import Navigation from "@/_components/Navigation"
 import { Metadata } from "next"
 
-const siteTitle = 'nakaatsu World'
+const siteName = 'nakaatsu World'
+const description = 'nakaatsuの個人サイトです。趣味のブログやポートフォリオをまとめています。'
+const url = 'https://nakaatsu.com'
 
 export const metadata: Metadata = {
-  title: siteTitle,
-  description: 'nakaatsuのポートフォリオサイトです。自身の経歴やスキルセット等をまとめています。',
+  title: siteName,
+  description,
+  openGraph: {
+    title: siteName,
+    description,
+    url,
+    siteName,
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: siteName,
+    description,
+    site: '@nakaatsu',
+    creator: '@nakaatsu',
+  },
+  metadataBase: new URL(process.env.URL ?? 'http://localhost:3000'),
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {

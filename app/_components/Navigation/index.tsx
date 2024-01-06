@@ -7,7 +7,7 @@ const Navigation = () => {
     <div className={styles.navigationContainer}>
       <Link href="/" className={styles.imageLink}>
         <h2 className={styles.imageContainer}>
-          <Image src={'/images/logo/naka_logo_trans.png'} alt="logo" fill className={styles.image} />
+          <Image src={'/images/logo/naka_.svg'} alt="logo" fill className={styles.image} />
         </h2>
       </Link>
       <div className={styles.linkContainer}>
