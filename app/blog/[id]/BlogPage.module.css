@@ -1,14 +1,10 @@
 .imageContainer {
-  height: 240px;
-  overflow: hidden;
-  border-radius: 8px;
+  padding-top: 48px;
 }
 
 .imageContainer img {
-  max-width: 100%;
-  height: 240px;
-  width: 100%;
-  object-fit: cover;
+  max-height: 60vh;
+  border-radius: 80px 80px 0 80px;
 }
 
 .blogPageContainer {
@@ -19,14 +15,35 @@
 
 .infoContainer {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   font-size: 0.14rem;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: var(--c-black-4);
+  color: var(--c-white-1);
+  width: 100%;
+  border-radius: 80px 80px 0 80px;
+}
+
+.infoContainer time {
+  font-size: 0.148rem;
+  letter-spacing: 0.05em;
+  padding: 0 0.2rem;
+}
+
+.category {
+  font-size: 0.138rem;
+  font-weight: 600;
+  width: fit-content;
+  color: var(--c-black);
+  background-color: var(--c-white-1);
+  padding: 12px 24px;
+  border-radius: 80px 80px 0 80px;
 }
 
 .content {
-  padding: 56px 0;
-  line-height: 0.24rem;
+  padding: 0.12rem 0;
+  /* line-height: 0.24rem; */
 }
 
 .content h1 {
@@ -64,10 +81,16 @@
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
+  line-height: 0.24rem;
+}
+
+.content ol {
+  line-height: 0.24rem;
 }
 
 .content p {
   margin-bottom: 0.14rem;
+  line-height: 0.24rem;
 }
 
 .content img {
@@ -77,9 +100,10 @@
 }
 
 .content blockquote {
-  border-left: 4px solid var(--c-white-1);
   margin: 16px 0;
   padding: 16px;
+  background-color: var(--c-black-4);
+  border-radius: 8px;
 }
 
 .content blockquote p {
@@ -91,18 +115,36 @@
   color: var(--c-primary);
 }
 
+.content pre {
+  background-color: var(--c-black-1);
+  border-radius: 8px;
+  overflow-x: auto;
+  word-break: normal;
+  word-wrap: normal;
+  display: flex;
+}
+
+.content code {
+  padding: 0.05rem;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.144rem;
+  background-color: var(--c-black-1);
+  border-radius: 8px;
+}
+
+.content pre code {
+  padding: 0.2rem;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.144rem;
+}
+
 @media screen and (max-width: 768px) {
-  .infoContainer {
-    padding: 0 16px;
+  .category {
+    padding: 8px 12px;
   }
 
   .content {
-    padding: 24px 16px;
     line-height: 0.28rem;
-  }
-
-  .imageContainer {
-    border-radius: 0;
   }
 
   .content img {

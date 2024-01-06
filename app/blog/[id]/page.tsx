@@ -22,10 +22,10 @@ const BlogPage = async ({ params }: Props) => {
         <div className={styles.blogPageContainer}>
           <div className={styles.infoContainer}>
             <time>{res.publishedAt ? formatDate(res.publishedAt) : ''}</time>
-            <div>#{res.category?.name}</div>
+            <div className={styles.category}>{res.category?.name}</div>
           </div>
           <div className={styles.imageContainer}>
-            <img src={res.eyecatch?.url + '?fit=crop&w=960&h=540'} />
+            <img src={res.eyecatch?.url + '?w=960'} />
           </div>
           <div className={styles.content} dangerouslySetInnerHTML={{ __html: `${res.content}` }} />
         </div>

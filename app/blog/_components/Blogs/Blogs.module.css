@@ -1,11 +1,8 @@
 .blogsWrapper {
   width: 100vw;
-  /* background-color: var(--c-white-2); */
-  border-radius: 80px 80px 0 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 8.333333333333332vw;
   padding-bottom: 2.333333333333332vw;
 }
 
