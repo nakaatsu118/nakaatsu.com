@@ -35,7 +35,7 @@ const Blogs = ({ contents, totalCount, current }: Props) => {
                       <div className={styles.imageContainer}>
                         <img src={blog.eyecatch?.url + '?fit=crop&w=480&h=480'} />
                         {blog.category &&
-                          <span key={blog.category.id} className={styles.category}>#{blog.category.name}</span>
+                          <span key={blog.category.id} className={styles.category}>{blog.category.name}</span>
                         }
                       </div>
                       <div className={styles.text}>
