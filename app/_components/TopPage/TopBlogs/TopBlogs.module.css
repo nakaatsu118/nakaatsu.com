@@ -20,26 +20,6 @@
 .blog {
   min-width: 0;
   position: relative;
-  animation-duration: 0.4s;
-}
-
-.blog:first-child {
-  animation-delay: 0.2s;
-}
-.blog:nth-child(2) {
-  animation-delay: 0.3s;
-}
-.blog:nth-child(3) {
-  animation-delay: 0.4s;
-}
-.blog:nth-child(4) {
-  animation-delay: 0.5s;
-}
-.blog:nth-child(5) {
-  animation-delay: 0.55s;
-}
-.blog:nth-child(6) {
-  animation-delay: 0.6s;
 }
 
 .imageContainer {

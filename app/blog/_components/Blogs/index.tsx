@@ -9,29 +9,23 @@ import { formatDate } from "~/_libs/formatDate";
 import Pagination from "../Pagination";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 type Props = {
   current?: number;
 } & MicroCMSListResponse<Blog>
 
 const Blogs = ({ contents, totalCount, current }: Props) => {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  });
-
   return (
     <div className={styles.blogsWrapper}>
       <Card>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.4 }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2, delay: 0.1 }}>
           <CardHeader iconPath='/images/notebook.svg' iconAlt='blog' title='Blog' link="/blog" isShare shareTitle="Blog" />
-          <ul className={styles.blogsContainer} ref={ref}>
-            {inView && contents.map((blog, i) => (
+          <ul className={styles.blogsContainer}>
+            {contents.map((blog, i) => (
               <li key={blog.id} className={styles.blog}>
                 <Link href={`/blog/${blog.id}`}>
-                  <motion.div initial={{ opacity: 0, x: 400 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: i * 0.2 }}>
-                    <motion.div className={styles.blog} key={blog.id} whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} transition={{ type: "spring", stiffness: 400, damping: 11 }} whileTap={{ scale: 0.9 }}>
+                  <motion.div initial={{ x: 48, y: 48, scale: 0 }} whileInView={{ x: 0, y: 0, scale: 1 }} transition={{ duration: 0.4, delay: 0.1 * i, type: 'spring', bounce: 0.3 }} viewport={{ margin: '120px', once: true }} >
+                    <motion.div className={styles.blog} whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} transition={{ type: "spring", stiffness: 400, damping: 11 }} whileTap={{ scale: 0.9 }}>
                       <div className={styles.imageContainer}>
                         <img src={blog.eyecatch?.url + '?fit=crop&w=480&h=480'} />
                         {blog.category &&
