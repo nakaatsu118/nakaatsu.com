@@ -26,16 +26,17 @@ const WhoIs = () => {
               <h2>なかあつ / nakaatsu</h2>
               <p>1993年生まれ。東京都在住。</p>
               <p>Webフロントエンドエンジニア寄りのフルスタックエンジニア。</p>
+              <p>📧 nakaatsu0118@gmail.com</p>
               <h3>スキル</h3>
               <ul>
                 <li>
                   React / Next.js / TypeScript / JavaScript / HTML / CSS
                 </li>
                 <li>
-                  Ruby / Ruby on Rails / Node.js / Golang
+                  Ruby / Ruby on Rails / Node.js / Golang / PHP
                 </li>
                 <li>
-                  Firebase / AWS / GCP / microCMS / Salesforce
+                  Firebase / AWS / GCP / microCMS / Salesforce / GTM / GA / GSC / Google App Script
                 </li>
                 <li>Figma / Adobe XD</li>
               </ul>

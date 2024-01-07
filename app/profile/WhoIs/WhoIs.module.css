@@ -71,7 +71,7 @@
 
 @media screen and (max-width: 768px) {
   .imageContainer {
-    width: 90vw;
+    width: 70vw;
   }
 
   .imageContainer img {
@@ -83,6 +83,10 @@
   }
 
   .description {
-    padding: 64px 8px 0 8px;
+    padding: 32px 8px 0 8px;
+  }
+
+  .description h2 {
+    font-size: 0.32rem;
   }
 }

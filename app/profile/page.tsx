@@ -13,8 +13,8 @@ const Profile = async () => {
     <MotionWrapper>
       <ProgressBar />
       <WhoIs />
-      <Works contents={res.contents} totalCount={0} limit={0} offset={0} />
       <Biography />
+      <Works contents={res.contents} totalCount={0} limit={0} offset={0} />
       <Footer />
     </MotionWrapper>
   );
