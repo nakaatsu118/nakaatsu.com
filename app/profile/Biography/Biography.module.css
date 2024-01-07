@@ -1,0 +1,7 @@
+.biographyWrapper {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2.333333333333332vw;
+}
