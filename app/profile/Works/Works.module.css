@@ -23,7 +23,6 @@
 
 .work {
   border-radius: 16px 16px 0 16px;
-  background-color: var(--c-black-2);
   padding: 0.64rem 0.32rem;
   display: flex;
   flex-direction: column;
