@@ -5,6 +5,7 @@ import { getBlogDetail } from "~/_libs/microcms";
 import styles from './BlogPage.module.css';
 import { formatDate } from "~/_libs/formatDate";
 import Footer from "~/_components/Footer";
+import ProgressBar from "./_components/ProgressBar";
 
 type Props = {
   params: {
@@ -17,6 +18,7 @@ const BlogPage = async ({ params }: Props) => {
 
   return (
     <MotionWrapper>
+      <ProgressBar />
       <Card>
         <CardHeader iconPath='/images/notebook.svg' iconAlt='blog' title={res.title} link={''} isShare shareTitle={res.title} />
         <div className={styles.blogPageContainer}>
