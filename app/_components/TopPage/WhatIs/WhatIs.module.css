@@ -67,6 +67,11 @@
   line-height: 1.64;
 }
 
+.link {
+  color: var(--c-primary);
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 768px) {
   .actionContainer {
     padding: 12px 0;

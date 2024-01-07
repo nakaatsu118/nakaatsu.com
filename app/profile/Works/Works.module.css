@@ -1,0 +1,112 @@
+.worksWrapper {
+  width: 100vw;
+  background-color: var(--c-white-2);
+  border-radius: 80px 80px 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 8.333333333333332vw;
+}
+
+.worksContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 42px 24px;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+}
+
+.workContainer {
+  min-width: 0;
+}
+
+.work {
+  border-radius: 16px 16px 0 16px;
+  background-color: var(--c-black-2);
+  padding: 0.64rem 0.32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  width: 100%;
+  border: 1px solid var(--c-white-3);
+}
+
+.description {
+  width: 100%;
+  padding-top: 0.24rem;
+}
+
+.description h2 {
+  margin: 0 0 0.5em 0;
+  font-size: 0.24rem;
+  font-weight: 600;
+  padding: 18px 24px;
+  background-color: var(--c-primary);
+  color: var(--c-black);
+  word-wrap: normal;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 80px 80px 0 80px;
+}
+
+.description h3 {
+  margin: 0.7em 0 0.5em 0;
+  font-size: 0.24rem;
+  padding: 14px 22px;
+  word-wrap: normal;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid var(--c-primary);
+  border-radius: 80px 80px 0 80px;
+}
+
+.description p {
+  margin-bottom: 0.14rem;
+  line-height: 0.24rem;
+}
+
+.description a {
+  color: var(--c-primary);
+  text-decoration: underline;
+  text-wrap: balance;
+  margin-bottom: 0.14rem;
+  line-height: 0.24rem;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.skill {
+  color: var(--c-black-1);
+  font-size: 0.148rem;
+  font-weight: 600;
+  padding: 0.06rem 0.18rem;
+  background-color: var(--c-white-1);
+  border-radius: 80px 80px 0 80px;
+}
+
+.time {
+  color: var(--c-black-1);
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.time time {
+  font-size: 0.148rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.12rem;
+  background-color: var(--c-white-1);
+  border-radius: 80px 80px 0 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .worksContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

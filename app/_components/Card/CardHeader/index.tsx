@@ -27,11 +27,11 @@ const CardHeader = ({ iconPath, iconAlt, title, link, isShare, shareTitle }: Car
           {link ?
             <Link href={link}>
               <img className={styles.headIcon} src={iconPath} alt={iconAlt} />
-              <div className={styles.title}>{title}</div>
+              <h1 className={styles.title}>{title}</h1>
             </Link>
             :
             <a><img className={styles.headIcon} src={iconPath} alt={iconAlt} />
-              <div className={styles.title}>{title}</div></a>
+              <h1 className={styles.title}>{title}</h1></a>
           }
 
         </div>

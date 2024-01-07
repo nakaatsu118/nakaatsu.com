@@ -14,7 +14,7 @@ const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
     <div className={styles.topBlogsWrapper}>
       <Card>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.2, delay: 0.1 }}>
-          <CardHeader iconPath='/images/notebook.svg' iconAlt='blog' title='Blog' link="/blog" />
+          <CardHeader iconPath='/images/blog.png' iconAlt='blog' title='Blog' link="/blog" />
           <ul className={styles.blogContainer}>
             {contents.map((blog, i) => (
               <li key={blog.id} className={styles.blog}>

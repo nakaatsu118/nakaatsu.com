@@ -18,6 +18,16 @@ export type Category = {
   name: string;
 } & MicroCMSDate;
 
+export type Work = {
+  id: string;
+  title: string;
+  link: string;
+  visual: MicroCMSImage;
+  description: string;
+  skill: string;
+  published: string;
+} & MicroCMSDate;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error('Please set MICROCMS_SERVICE_DOMAIN');
 }
@@ -52,4 +62,12 @@ export const getBlogDetail = async (
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return detailData;
+};
+
+export const getWorksList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Work>({ endpoint: 'works', queries });
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  return listData;
 };

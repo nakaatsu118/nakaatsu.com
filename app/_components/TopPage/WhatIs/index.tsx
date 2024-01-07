@@ -13,7 +13,7 @@ const WhatIs = () => {
     <div className={styles.whatIsWrapper}>
       <Card>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2, delay: 0.3 }}>
-          <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='user icon' title='nakaatsu' link='/' isShare />
+          <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='nakaatsu icon' title='Welcome!' link='/' isShare />
           <motion.div className={`${styles.imageContainer}`} initial={{ x: 400, y: 200, scale: 0 }} animate={{ x: 0, y: 0, scale: 1 }} transition={{ type: 'spring', duration: 0.48, delay: 0.6, bounce: 0.3 }}>
             <Image src='https://images.microcms-assets.io/assets/af60901723f5492a9a451bcfbe5ace1c/f5eb79b485a54f5b9a550bbf0a440121/nakaatsu_top.png?fit=crop&w=1200' alt="main Image" fill style={{ objectFit: 'cover' }} />
           </motion.div>
@@ -41,7 +41,7 @@ const WhatIs = () => {
               <h3 className={styles.title}>このサイトについて</h3>
             </div>
             <div className={styles.bodyContainer}>
-              こんにちは。なかあつです。このサイトは <a className='link' href='https://twitter.com/nakaatsu' target='_blank' rel='noopener noreferrer'>@nakaatsu</a> の日々をしたためています。<br />
+              こんにちは。なかあつです。このサイトは <Link href='/profile' className={styles.link}>@nakaatsu</Link> の日々をしたためています。<br />
               多趣味でごっちゃにななかあつの世界がここにあります。<br />
               <br />
               🔥Next.js / React / TypeScript<br />
