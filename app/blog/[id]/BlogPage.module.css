@@ -43,27 +43,50 @@
 
 .content {
   padding: 0.12rem 0;
-  /* line-height: 0.24rem; */
 }
 
 .content h1 {
   font-size: 0.4rem;
   margin: 0.7rem 0 0.34rem 0;
   font-weight: 600;
+  padding: 20px 26px;
+  background-color: var(--c-primary);
+  color: var(--c-black);
+  word-wrap: normal;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 80px 80px 0 80px;
 }
 
 .content h2 {
   margin: 1em 0;
   font-size: 0.38rem;
   font-weight: 600;
+  padding: 16px 22px;
+  background-color: var(--c-primary);
+  color: var(--c-black);
+  word-wrap: normal;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 80px 80px 0 80px;
 }
 
 .content h3 {
-  font-size: 0.32rem;
+  margin: 0.7em 0 0.5em 0;
+  font-size: 0.28rem;
+  padding: 14px 22px;
+  word-wrap: normal;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid var(--c-primary);
+  border-radius: 80px 80px 0 80px;
 }
 
 .content h4 {
   font-size: 0.28rem;
+  width: fit-content;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--c-primary);
 }
 
 .content h5 {

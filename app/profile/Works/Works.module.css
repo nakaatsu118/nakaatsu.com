@@ -81,11 +81,10 @@
 }
 
 .skill {
-  color: var(--c-black-1);
   font-size: 0.148rem;
   font-weight: 600;
   padding: 0.06rem 0.18rem;
-  background-color: var(--c-white-1);
+  border: 2px solid var(--c-white-3);
   border-radius: 80px 80px 0 80px;
 }
 
