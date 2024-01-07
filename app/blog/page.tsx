@@ -2,6 +2,7 @@ import Footer from "@/_components/Footer"
 import { getBlogList } from "~/_libs/microcms"
 import Blogs from "./_components/Blogs"
 import MotionWrapper from "~/_components/MotionWrapper"
+import ProgressBar from "~/_components/ProgressBar"
 
 const blogLimit = 9
 
@@ -10,6 +11,7 @@ const Blog = async () => {
 
   return (
     <MotionWrapper>
+      <ProgressBar />
       <Blogs contents={res.contents} totalCount={res.totalCount} limit={0} offset={0} />
       <Footer />
     </MotionWrapper>

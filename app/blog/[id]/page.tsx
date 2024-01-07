@@ -5,7 +5,7 @@ import { getBlogDetail } from "~/_libs/microcms";
 import styles from './BlogPage.module.css';
 import { formatDate } from "~/_libs/formatDate";
 import Footer from "~/_components/Footer";
-import ProgressBar from "./_components/ProgressBar";
+import ProgressBar from "~/_components/ProgressBar";
 
 type Props = {
   params: {
