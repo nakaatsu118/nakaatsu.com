@@ -23,7 +23,6 @@ const Blogs = ({ contents, totalCount, current }: Props) => {
           <ul className={styles.blogsContainer}>
             {contents.map((blog, i) => (
               <li key={blog.id} className={styles.blog}>
-                {/* <a href={`/blog/${(blog.id)}`}> */}
                 <Link href={`/blog/${(blog.id)}`}>
                   <motion.div initial={{ x: 48, y: 48, scale: 0 }} whileInView={{ x: 0, y: 0, scale: 1 }} transition={{ duration: 0.4, delay: 0.1 * i, type: 'spring', bounce: 0.3 }} viewport={{ margin: '120px', once: true }} >
                     <motion.div className={styles.blog} whileHover={{ scale: 1.05, transition: { duration: 0.3 } }} transition={{ type: "spring", stiffness: 400, damping: 11 }} whileTap={{ scale: 0.9 }}>
@@ -40,7 +39,6 @@ const Blogs = ({ contents, totalCount, current }: Props) => {
                     </motion.div>
                   </motion.div>
                 </Link>
-                {/* </a> */}
               </li>
             ))}
           </ul>

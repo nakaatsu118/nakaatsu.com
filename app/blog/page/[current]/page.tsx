@@ -12,6 +12,20 @@ type Props = {
   }
 }
 
+export const generateStaticParams = async () => {
+  const { totalCount } = await getBlogList();
+  const pages = Array.from({ length: Math.ceil(totalCount / blogLimit) }).map(
+    (_, i) => i + 1,
+  );
+  const paths = pages.map((page) => {
+    return {
+      current: page.toString(),
+    }
+  });
+
+  return [...paths]
+}
+
 const Blog = async ({ params }: Props) => {
   const current = parseInt(params.current as string, 10)
   const res = await getBlogList({ limit: blogLimit, offset: blogLimit * (current - 1) })
