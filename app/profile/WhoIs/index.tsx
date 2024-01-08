@@ -20,7 +20,7 @@ const WhoIs = () => {
               delay: 0.3,
               duration: 0.4
             }}>
-              <Image src='/images/Icon_nakaatsu_.png' alt="nakaatsu" width={480} height={480} />
+              <Image src='/images/Icon_nakaatsu_.png' alt="nakaatsu" width={480} height={480} priority />
             </motion.div>
             <div className={styles.description}>
               <h2>なかあつ / nakaatsu</h2>

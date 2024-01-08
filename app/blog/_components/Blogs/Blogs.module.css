@@ -75,4 +75,8 @@
     right: 10px;
     padding: 8px 12px;
   }
+
+  .imageContainer {
+    border-radius: 40px 40px 0 40px;
+  }
 }

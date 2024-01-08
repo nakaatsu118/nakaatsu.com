@@ -15,7 +15,7 @@ const WhatIs = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2, delay: 0.3 }}>
           <CardHeader iconPath='/images/Icon_nakaatsu_.png' iconAlt='nakaatsu icon' title='Welcome!' link='/' isShare />
           <motion.div className={`${styles.imageContainer}`} initial={{ x: 400, y: 200, scale: 0 }} animate={{ x: 0, y: 0, scale: 1 }} transition={{ type: 'spring', duration: 0.48, delay: 0.6, bounce: 0.3 }}>
-            <Image src='https://images.microcms-assets.io/assets/af60901723f5492a9a451bcfbe5ace1c/f5eb79b485a54f5b9a550bbf0a440121/nakaatsu_top.png?fit=crop&w=1200' alt="main Image" fill style={{ objectFit: 'cover' }} />
+            <Image src='https://images.microcms-assets.io/assets/af60901723f5492a9a451bcfbe5ace1c/f5eb79b485a54f5b9a550bbf0a440121/nakaatsu_top.png?fit=crop&w=1200' alt="main Image" fill style={{ objectFit: 'cover' }} priority />
           </motion.div>
           <div className={styles.mainContent}>
             <div className={styles.actionContainer}>

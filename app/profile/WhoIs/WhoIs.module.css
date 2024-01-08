@@ -76,6 +76,7 @@
 
   .imageContainer img {
     width: 4rem;
+    border-radius: 16px;
   }
 
   .profileContainer {
