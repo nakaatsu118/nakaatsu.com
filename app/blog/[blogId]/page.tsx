@@ -1,7 +1,7 @@
 import Card from "~/_components/Card";
 import CardHeader from "~/_components/Card/CardHeader";
 import MotionWrapper from "~/_components/MotionWrapper"
-import { getBlogDetail } from "~/_libs/microcms";
+import { getBlogDetail, getBlogList } from "~/_libs/microcms";
 import styles from './BlogPage.module.css';
 import { formatDate } from "~/_libs/formatDate";
 import Footer from "~/_components/Footer";
@@ -9,12 +9,25 @@ import ProgressBar from "~/_components/ProgressBar";
 
 type Props = {
   params: {
-    id: string;
+    blogId: string;
   }
 }
 
+export const generateStaticParams = async () => {
+  const { contents } = await getBlogList();
+
+  const paths = contents.map((blog) => {
+    return {
+      blogId: blog.id,
+    }
+  });
+
+  return [...paths]
+}
+
 const BlogPage = async ({ params }: Props) => {
-  const res = await getBlogDetail(params.id)
+  const { blogId } = params
+  const res = await getBlogDetail(blogId)
 
   return (
     <MotionWrapper>
