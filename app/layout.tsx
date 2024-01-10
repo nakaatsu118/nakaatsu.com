@@ -26,8 +26,7 @@ export const metadata: Metadata = {
     description,
     site: '@nakaatsu',
     creator: '@nakaatsu',
-  },
-  metadataBase: new URL(process.env.URL ?? 'http://localhost:3000'),
+  }
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
