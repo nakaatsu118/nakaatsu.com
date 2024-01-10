@@ -1,0 +1,84 @@
+.headContainer {
+  width: 100%;
+  max-width: 100%;
+  height: 0.54rem;
+  display: flex;
+  font-size: 0.16rem;
+  font-weight: 600;
+  padding: 12px 0;
+}
+
+.contents {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contents > * {
+  min-width: 0;
+}
+
+.left a {
+  display: flex;
+  gap: 0.12rem;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.headIcon {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 50%;
+  margin-left: 0.08rem;
+  background-color: var(--c-white-1);
+}
+
+.title {
+  position: relative;
+  width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.16rem;
+}
+
+.right {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0.08rem;
+}
+
+.right a {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 0.2rem;
+  transition: 0.3s;
+}
+
+@media (hover: hover) {
+  .left:hover a {
+    color: var(--c-primary);
+    transition: 0.3s;
+    transition-duration: 0.2s;
+  }
+
+  .right a:hover .rightAnimation {
+    transform: translateX(4px);
+    transition: 0.3s;
+  }
+
+  .right a:hover .rotateAnimation {
+    transform: rotate(360deg);
+    transition: 0.3s;
+  }
+}

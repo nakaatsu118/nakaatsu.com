@@ -1,0 +1,32 @@
+.paginationContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+.paginationContainer li {
+  line-height: 1;
+  list-style: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--c-white-1);
+  border-radius: 80px 80px 0 80px;
+}
+
+.paginationContainer li a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  background-color: var(--c-primary);
+  border: 1px solid var(--c-primary) !important;
+}
+
+.active a {
+  color: var(--c-black-1);
+}

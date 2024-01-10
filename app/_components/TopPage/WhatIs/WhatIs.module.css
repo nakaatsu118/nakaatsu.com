@@ -1,0 +1,126 @@
+.whatIsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImage {
+  width: 100%;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 4.8rem;
+  position: relative;
+  border-radius: 80px 80px 0 80px;
+  overflow: hidden;
+}
+
+.mainContent {
+  padding-bottom: 0.16rem;
+}
+
+.actionContainer {
+  width: 100%;
+  height: 0.32rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.24rem 0;
+}
+
+.leftAction {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.04rem;
+}
+
+.actionIcon {
+  font-size: 0.22rem;
+  color: var(--c-white-1);
+  padding: 0.08rem;
+}
+
+.titleContainer {
+  display: flex;
+  gap: 0.08rem;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 0.24rem;
+  padding: 0.18rem 0.24rem;
+  background-color: var(--c-primary);
+  color: var(--c-black);
+  word-wrap: normal;
+  width: fit-content;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+}
+
+.bodyContainer {
+  font-size: 0.1651rem;
+  letter-spacing: 0.01em;
+  padding: 0.16rem 0;
+  line-height: 1.64;
+}
+
+.link {
+  color: var(--c-primary);
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .actionContainer {
+    padding: 0.16rem 0;
+  }
+
+  .leftAction {
+    gap: 0.12rem;
+  }
+
+  .actionIcon {
+    padding: 0;
+  }
+
+  .mainImage {
+    border-radius: 0;
+  }
+
+  .imageContainer {
+    height: 2.4rem;
+  }
+
+  .bodyContainer {
+    padding: 0.12rem 0;
+  }
+
+  .title {
+    font-size: 0.2rem;
+    padding: 0.12rem 0.16rem;
+  }
+}
+
+@media (hover: hover) {
+  .actionIcon:hover {
+    color: #696969;
+    transition: 0.3s;
+  }
+
+  .twitter:hover {
+    color: #1da1f2;
+    transition: 0.3s;
+  }
+
+  .instagram:hover {
+    color: #c13584;
+    transition: 0.3s;
+  }
+
+  .github:hover {
+    color: #696969;
+    transition: 0.3s;
+  }
+}
