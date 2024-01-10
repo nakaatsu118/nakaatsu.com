@@ -1,17 +1,16 @@
 .worksWrapper {
   width: 100vw;
-  /* background-color: var(--c-white-2); */
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 8.333333333333332vw;
+  padding-bottom: 2.333333333333332vw;
 }
 
 .worksContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 42px 24px;
+  gap: 0.42rem 0.24rem;
   align-items: start;
   justify-content: center;
   width: 100%;
@@ -22,7 +21,6 @@
 }
 
 .work {
-  border-radius: 16px 16px 0 16px;
   padding: 0.64rem 0.32rem;
   display: flex;
   flex-direction: column;
@@ -32,9 +30,9 @@
 
 .imageContainer {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 0.08rem;
   overflow: hidden;
-  border: 1px solid var(--c-white-3);
+  border: 0.01rem solid var(--c-white-3);
 }
 
 .description {
@@ -43,31 +41,20 @@
 }
 
 .description h2 {
-  margin: 0 0 0.5em 0;
+  margin: 0 0 0.24rem 0;
   font-size: 0.24rem;
   font-weight: 600;
-  padding: 18px 24px;
+  padding: 0.18rem 0.24rem;
   background-color: var(--c-primary);
   color: var(--c-black);
   word-wrap: normal;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: 80px 80px 0 80px;
-}
-
-.description h3 {
-  margin: 0.7em 0 0.5em 0;
-  font-size: 0.24rem;
-  padding: 14px 22px;
-  word-wrap: normal;
-  width: -moz-fit-content;
-  width: fit-content;
-  border: 2px solid var(--c-primary);
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .description p {
-  margin-bottom: 0.14rem;
+  margin-bottom: 0.16rem;
   line-height: 0.24rem;
 }
 
@@ -75,7 +62,7 @@
   color: var(--c-primary);
   text-decoration: underline;
   text-wrap: balance;
-  margin-bottom: 0.14rem;
+  margin-bottom: 0.16rem;
   line-height: 0.24rem;
   font-weight: 600;
   word-wrap: break-word;
@@ -84,9 +71,9 @@
 .skill {
   font-size: 0.148rem;
   font-weight: 600;
-  padding: 0.06rem 0.18rem;
-  border: 2px solid var(--c-white-3);
-  border-radius: 80px 80px 0 80px;
+  padding: 0.08rem 0.16rem;
+  border: 0.02rem solid var(--c-white-3);
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .time {
@@ -102,7 +89,7 @@
   letter-spacing: 0.05em;
   padding: 0.12rem;
   background-color: var(--c-white-1);
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 @media screen and (max-width: 768px) {

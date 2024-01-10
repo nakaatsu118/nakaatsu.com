@@ -1,28 +1,27 @@
 .imageContainer {
-  padding-top: 48px;
+  padding-top: 0.32rem;
 }
 
 .imageContainer img {
   max-height: 60vh;
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .blogPageContainer {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0.16rem;
 }
 
 .infoContainer {
   display: flex;
-  gap: 16px;
   font-size: 0.14rem;
   justify-content: space-between;
   align-items: baseline;
   background-color: var(--c-black-4);
   color: var(--c-white-1);
   width: 100%;
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.4rem 0.4rem 0 0.4rem;
 }
 
 .infoContainer time {
@@ -37,8 +36,8 @@
   width: fit-content;
   color: var(--c-black);
   background-color: var(--c-white-1);
-  padding: 12px 24px;
-  border-radius: 80px 80px 0 80px;
+  padding: 0.12rem 0.24rem;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .content {
@@ -46,50 +45,52 @@
 }
 
 .content h1 {
-  font-size: 0.4rem;
-  margin: 0.7rem 0 0.34rem 0;
+  font-size: 0.38rem;
+  margin: 0.62rem 0 0.24rem 0;
   font-weight: 600;
-  padding: 20px 26px;
+  padding: 0.2rem 0.32rem;
   background-color: var(--c-primary);
   color: var(--c-black);
   word-wrap: normal;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .content h2 {
-  margin: 1em 0;
-  font-size: 0.38rem;
+  margin: 0.54rem 0 0.24rem 0;
+  font-size: 0.34rem;
   font-weight: 600;
-  padding: 16px 22px;
+  padding: 0.16rem 0.22rem;
   background-color: var(--c-primary);
   color: var(--c-black);
   word-wrap: normal;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .content h3 {
-  margin: 1.33em 0 1.33em 0;
+  margin: 0.468rem 0 0.12rem 0;
   font-size: 0.28rem;
-  padding: 14px 22px;
+  padding: 0.12rem 0.2rem;
   word-wrap: normal;
   width: -moz-fit-content;
   width: fit-content;
-  border: 2px solid var(--c-primary);
-  border-radius: 80px 80px 0 80px;
+  border: 0.02rem solid var(--c-primary);
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .content h4 {
-  font-size: 0.28rem;
+  margin: 0.4rem 0 0.1rem 0;
+  font-size: 0.26rem;
   width: fit-content;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--c-primary);
+  padding-bottom: 0.08rem;
+  border-bottom: 0.01rem solid var(--c-primary);
 }
 
 .content h5 {
+  margin: 0.36rem 0 0.14rem 0;
   font-size: 0.24rem;
 }
 
@@ -103,7 +104,7 @@
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding-inline-start: 40px;
+  padding-inline-start: 0.4rem;
   line-height: 0.24rem;
 }
 
@@ -123,10 +124,10 @@
 }
 
 .content blockquote {
-  margin: 16px 0;
-  padding: 16px;
+  margin: 0.16rem 0;
+  padding: 0.16rem;
   background-color: var(--c-black-4);
-  border-radius: 8px;
+  border-radius: 0.08rem;
 }
 
 .content blockquote p {
@@ -140,7 +141,7 @@
 
 .content pre {
   background-color: var(--c-black-1);
-  border-radius: 8px;
+  border-radius: 0.08rem;
   overflow-x: auto;
   word-break: normal;
   word-wrap: normal;
@@ -148,22 +149,31 @@
 }
 
 .content code {
-  padding: 0.05rem;
+  padding: 0.06rem;
   font-family: 'Source Code Pro', monospace;
   font-size: 0.144rem;
   background-color: var(--c-black-1);
-  border-radius: 8px;
+  border-radius: 0.08rem;
 }
 
 .content pre code {
-  padding: 0.2rem;
+  padding: 0.4rem;
   font-family: 'Source Code Pro', monospace;
   font-size: 0.144rem;
 }
 
 @media screen and (max-width: 768px) {
+  .imageContainer {
+    padding-top: 0.16rem;
+  }
+
+  .imageContainer img {
+    max-height: 60vh;
+    border-radius: 0.4rem 0.4rem 0 0.4rem;
+  }
+
   .category {
-    padding: 8px 12px;
+    padding: 0.08rem 0.12rem;
   }
 
   .content {
@@ -174,8 +184,7 @@
     max-width: 100%;
   }
 
-  .content h1,
-  .content h2 {
-    margin: 0.5rem 0 0.26rem 0;
+  .content pre code {
+    padding: 0.16rem;
   }
 }

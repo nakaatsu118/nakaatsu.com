@@ -23,10 +23,10 @@
 }
 
 .description h2 {
-  margin: 0 0 0.5em 0;
+  margin: 1em 0;
   font-size: 0.38rem;
   font-weight: 600;
-  padding: 18px 24px;
+  padding: 16px 22px;
   background-color: var(--c-primary);
   color: var(--c-black);
   word-wrap: normal;
@@ -36,8 +36,8 @@
 }
 
 .description h3 {
-  margin: 0.7em 0 0.5em 0;
-  font-size: 0.24rem;
+  margin: 1.33em 0 1.33em 0;
+  font-size: 0.28rem;
   padding: 14px 22px;
   word-wrap: normal;
   width: -moz-fit-content;
@@ -76,5 +76,10 @@
 
   .description {
     padding: 64px 8px 0 8px;
+  }
+
+  .description h1,
+  .description h2 {
+    margin: 0.5rem 0 0.26rem 0;
   }
 }

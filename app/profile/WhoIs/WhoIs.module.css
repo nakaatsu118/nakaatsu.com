@@ -14,48 +14,48 @@
 }
 
 .imageContainer {
-  width: 480px;
-  min-width: 200px;
+  width: 0.48rem;
+  min-width: 0.2rem;
   flex: 1;
 }
 
 .imageContainer img {
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .description {
   display: flex;
   flex-direction: column;
-  padding: 0 0.62rem;
+  padding: 0 0.64rem;
   flex: 1;
 }
 
 .description h2 {
-  margin: 0 0 0.5em 0;
-  font-size: 0.38rem;
+  margin: 0 0 0.24rem 0;
+  font-size: 0.34rem;
   font-weight: 600;
-  padding: 18px 24px;
+  padding: 0.16rem 0.22rem;
   background-color: var(--c-primary);
   color: var(--c-black);
   word-wrap: normal;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: 80px 80px 0 80px;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .description h3 {
-  margin: 0.7em 0 0.5em 0;
-  font-size: 0.24rem;
-  padding: 14px 22px;
+  margin: 0.468rem 0 0.12rem 0;
+  font-size: 0.28rem;
+  padding: 0.12rem 0.2rem;
   word-wrap: normal;
   width: -moz-fit-content;
   width: fit-content;
-  border: 2px solid var(--c-primary);
-  border-radius: 80px 80px 0 80px;
+  border: 0.02rem solid var(--c-primary);
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
 }
 
 .description p {
-  margin-bottom: 0.14rem;
+  margin-bottom: 0.12rem;
   line-height: 0.24rem;
 }
 
@@ -65,7 +65,7 @@
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  padding-inline-start: 40px;
+  padding-inline-start: 0.4rem;
   line-height: 0.24rem;
 }
 
@@ -76,7 +76,7 @@
 
   .imageContainer img {
     width: 4rem;
-    border-radius: 16px;
+    border-radius: 0.08rem;
   }
 
   .profileContainer {
@@ -84,10 +84,6 @@
   }
 
   .description {
-    padding: 32px 8px 0 8px;
-  }
-
-  .description h2 {
-    font-size: 0.32rem;
+    padding: 0.24rem 0.08rem 0 0.08rem;
   }
 }

@@ -1,6 +1,6 @@
 .navigationContainer {
   display: flex;
-  height: 120px;
+  height: 1px;
   font-size: 0.14rem;
   padding-top: 0.6rem;
   position: sticky;
@@ -12,16 +12,11 @@
 
 .navigationContainer h2 {
   display: flex;
-  gap: 12px;
+  gap: 0.12rem;
   align-items: center;
   font-size: 0.16rem;
-  height: 24px;
+  height: 0.24rem;
   width: fit-content;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
 }
 
 .imageLink {
@@ -30,10 +25,10 @@
 
 .image {
   position: relative !important;
-  width: 84px !important;
+  width: 0.84rem !important;
   height: auto !important;
   object-fit: contain;
-  min-width: 84px;
+  min-width: 0.84rem;
 }
 
 .linkContainer {
@@ -41,19 +36,15 @@
   flex-direction: column;
   padding-right: 0.8rem;
   padding-left: 0.2rem;
-  gap: 4px;
+  gap: 0.04rem;
 }
 
 .link {
   transition: 0.4s cubic-bezier(0.43, 0.05, 0.17, 1);
 }
 
-.link p {
-  position: relative;
-}
-
 .text {
-  font-size: 0.15rem;
+  font-size: 0.16rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -69,7 +60,7 @@
   .linkContainer {
     flex-direction: row;
     padding: 0;
-    gap: 8px;
+    gap: 0.08rem;
   }
 }
 
