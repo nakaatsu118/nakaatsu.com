@@ -1,11 +1,12 @@
-# nakaats`s Portfolio
+# nakaatsu`s World
 
-nakaatsu のポートフォリオサイトです。
+nakaatsu の個人サイト＆ポートフォリオサイトです。
 
 ## 使ったもの
 
 - Next.js
-- daisyUI
+- App Router
+- Framer Motion
 
 
 ## 使いかた
