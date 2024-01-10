@@ -52,9 +52,9 @@
   background-color: var(--c-primary);
   color: var(--c-black);
   word-wrap: normal;
-  width: -moz-fit-content;
   width: fit-content;
   border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
 }
 
 .content h2 {
@@ -62,23 +62,22 @@
   font-size: 0.34rem;
   font-weight: 600;
   padding: 0.16rem 0.22rem;
-  background-color: var(--c-primary);
-  color: var(--c-black);
   word-wrap: normal;
-  width: -moz-fit-content;
   width: fit-content;
+  border: 0.02rem solid var(--c-primary);
   border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
 }
 
 .content h3 {
   margin: 0.468rem 0 0.12rem 0;
   font-size: 0.28rem;
-  padding: 0.12rem 0.2rem;
+  padding: 0.08rem 0.2rem;
   word-wrap: normal;
-  width: -moz-fit-content;
   width: fit-content;
   border: 0.02rem solid var(--c-primary);
   border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
 }
 
 .content h4 {
@@ -87,11 +86,14 @@
   width: fit-content;
   padding-bottom: 0.08rem;
   border-bottom: 0.01rem solid var(--c-primary);
+  word-break: normal;
 }
 
 .content h5 {
+  width: fit-content;
   margin: 0.36rem 0 0.14rem 0;
   font-size: 0.24rem;
+  word-break: normal;
 }
 
 .content figure {
@@ -119,8 +121,11 @@
 
 .content img {
   max-width: 100%;
+  width: 80%;
   height: auto;
   margin: 0.3rem auto;
+  border-radius: 0.08rem;
+  border: 1px solid var(--c-white-1);
 }
 
 .content blockquote {
@@ -177,14 +182,35 @@
   }
 
   .content {
-    line-height: 0.28rem;
+    line-height: 0.32rem;
+  }
+
+  .content p {
+    margin-bottom: 0.14rem;
+    line-height: 0.32rem;
   }
 
   .content img {
     max-width: 100%;
+    width: 96%;
   }
 
   .content pre code {
     padding: 0.16rem;
+  }
+
+  .content h1 {
+    margin: 0.31rem 0 0.12rem 0;
+    padding: 0.2rem 0.32rem;
+  }
+
+  .content h2 {
+    margin: 0.27rem 0 0.12rem 0;
+    padding: 0.16rem 0.22rem;
+  }
+
+  .content h3 {
+    margin: 0.234rem 0 0.12rem 0;
+    padding: 0.08rem 0.2rem;
   }
 }
