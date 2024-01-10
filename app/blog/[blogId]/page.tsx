@@ -6,6 +6,7 @@ import styles from './BlogPage.module.css';
 import { formatDate } from "~/_libs/formatDate";
 import Footer from "~/_components/Footer";
 import ProgressBar from "~/_components/ProgressBar";
+import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -23,6 +24,30 @@ export const generateStaticParams = async () => {
   });
 
   return [...paths]
+}
+
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const { blogId } = params
+  const res = await getBlogDetail(blogId)
+
+  return {
+    title: res.title + ' | nakaatsu World',
+    openGraph: {
+      title: res.title + ' | nakaatsu World',
+      images: [
+        {
+          url: res.eyecatch?.url + '?w=1200',
+          width: 1200,
+          height: 630,
+          alt: res.title,
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: res.title + ' | nakaatsu World',
+    },
+  }
 }
 
 const BlogPage = async ({ params }: Props) => {
