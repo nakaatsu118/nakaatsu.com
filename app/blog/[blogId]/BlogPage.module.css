@@ -59,9 +59,9 @@
 
 .content h2 {
   margin: 0.54rem 0 0.24rem 0;
-  font-size: 0.34rem;
+  font-size: 0.28rem;
   font-weight: 600;
-  padding: 0.16rem 0.22rem;
+  padding: 0.12rem 0.16rem;
   word-wrap: normal;
   width: fit-content;
   border: 0.02rem solid var(--c-primary);
@@ -71,8 +71,8 @@
 
 .content h3 {
   margin: 0.468rem 0 0.12rem 0;
-  font-size: 0.28rem;
-  padding: 0.08rem 0.2rem;
+  font-size: 0.2rem;
+  padding: 0.08rem 0.1rem;
   word-wrap: normal;
   width: fit-content;
   border: 0.02rem solid var(--c-primary);
@@ -82,7 +82,7 @@
 
 .content h4 {
   margin: 0.4rem 0 0.1rem 0;
-  font-size: 0.26rem;
+  font-size: 0.2rem;
   width: fit-content;
   padding-bottom: 0.08rem;
   border-bottom: 0.01rem solid var(--c-primary);
@@ -92,7 +92,7 @@
 .content h5 {
   width: fit-content;
   margin: 0.36rem 0 0.14rem 0;
-  font-size: 0.24rem;
+  font-size: 0.18rem;
   word-break: normal;
 }
 
@@ -200,17 +200,24 @@
   }
 
   .content h1 {
+    font-size: 0.28rem;
     margin: 0.31rem 0 0.12rem 0;
-    padding: 0.2rem 0.32rem;
+    padding: 0.16rem 0.2rem;
   }
 
   .content h2 {
+    font-size: 0.22rem;
     margin: 0.27rem 0 0.12rem 0;
-    padding: 0.16rem 0.22rem;
+    padding: 0.08rem 0.12rem;
   }
 
   .content h3 {
+    font-size: 0.18rem;
     margin: 0.234rem 0 0.12rem 0;
-    padding: 0.08rem 0.2rem;
+    padding: 0.04rem 0.08rem;
+  }
+
+  .content h4 {
+    font-size: 0.18rem;
   }
 }
