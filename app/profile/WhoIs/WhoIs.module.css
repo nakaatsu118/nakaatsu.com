@@ -30,28 +30,40 @@
   flex: 1;
 }
 
-.description h2 {
-  margin: 0 0 0.24rem 0;
-  font-size: 0.34rem;
+.description h1 {
+  font-size: 0.38rem;
+  margin: 0.62rem 0 0.24rem 0;
   font-weight: 600;
-  padding: 0.16rem 0.22rem;
+  padding: 0.2rem 0.32rem;
   background-color: var(--c-primary);
   color: var(--c-black);
   word-wrap: normal;
-  width: -moz-fit-content;
   width: fit-content;
   border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
+}
+
+.description h2 {
+  margin: 0.54rem 0 0.24rem 0;
+  font-size: 0.28rem;
+  font-weight: 600;
+  padding: 0.12rem 0.16rem;
+  word-wrap: normal;
+  width: fit-content;
+  border: 0.02rem solid var(--c-primary);
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
 }
 
 .description h3 {
   margin: 0.468rem 0 0.12rem 0;
-  font-size: 0.28rem;
-  padding: 0.12rem 0.2rem;
+  font-size: 0.2rem;
+  padding: 0.08rem 0.1rem;
   word-wrap: normal;
-  width: -moz-fit-content;
   width: fit-content;
   border: 0.02rem solid var(--c-primary);
   border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
 }
 
 .description p {
@@ -84,6 +96,25 @@
   }
 
   .description {
+    line-height: 0.32rem;
     padding: 0.24rem 0;
+  }
+
+  .description h1 {
+    font-size: 0.28rem;
+    margin: 0.31rem 0 0.12rem 0;
+    padding: 0.16rem 0.2rem;
+  }
+
+  .description h2 {
+    font-size: 0.22rem;
+    margin: 0.27rem 0 0.12rem 0;
+    padding: 0.08rem 0.12rem;
+  }
+
+  .description h3 {
+    font-size: 0.18rem;
+    margin: 0.234rem 0 0.12rem 0;
+    padding: 0.04rem 0.08rem;
   }
 }

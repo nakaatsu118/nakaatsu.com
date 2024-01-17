@@ -23,11 +23,11 @@ const WhoIs = () => {
               <Image src='/images/Icon_nakaatsu_.png' alt="nakaatsu" width={480} height={480} priority />
             </motion.div>
             <div className={styles.description}>
-              <h2>なかあつ / nakaatsu</h2>
+              <h1>なかあつ / nakaatsu</h1>
               <p>1993年生まれ。東京都在住。</p>
               <p>Webフロントエンドエンジニア寄りのフルスタックエンジニア。</p>
               <p>📧 nakaatsu0118@gmail.com</p>
-              <h3>スキル</h3>
+              <h2>スキル</h2>
               <ul>
                 <li>
                   React / Next.js / TypeScript / JavaScript / HTML / CSS
@@ -40,7 +40,7 @@ const WhoIs = () => {
                 </li>
                 <li>Figma / Adobe XD</li>
               </ul>
-              <h3>趣味</h3>
+              <h2>趣味</h2>
               <p>趣味はアクアリウム、アクアテラリウム、植物、料理、お菓子作り、ゲーム、ポケモンカード、ガジェット、インテリア、プログラミング、散歩などなど…</p>
             </div>
           </div>
