@@ -4,6 +4,7 @@ import "@/_styles/globals.css"
 import styles from '@/Root.module.css'
 import Navigation from "@/_components/Navigation"
 import { Metadata } from "next"
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const siteName = 'nakaatsu World'
 const description = 'nakaatsuの個人サイトです。趣味のブログやポートフォリオをまとめています。'
@@ -38,6 +39,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <main className={styles.main}>{children}</main>
         </div>
       </body>
+      <GoogleTagManager gtmId="GTM-PR49LG4" />
     </html>
   )
 };
