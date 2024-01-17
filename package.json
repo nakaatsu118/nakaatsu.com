@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
+    "@next/third-parties": "^14.0.4",
     "@types/react-gtm-module": "^2.0.1",
     "animate.css": "^4.1.1",
     "dayjs": "^1.11.10",
