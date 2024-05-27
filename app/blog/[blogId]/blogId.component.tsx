@@ -16,6 +16,7 @@ import {
   MicroCMSImage,
 } from 'microcms-js-sdk';
 import Loading from '~/_components/Loading';
+import Script from 'next/script';
 
 const fetchBlogDetail = async (blogId: string) => {
   const res = await getBlogDetail(blogId);
@@ -54,34 +55,37 @@ export const BlogIdComponent = async ({ params }: BlogIdProps) => {
   }
 
   return (
-    <MotionWrapper>
-      <ProgressBar />
-      <Card>
-        <CardHeader
-          iconPath="/images/notebook.svg"
-          iconAlt="blog"
-          title={blogData.title}
-          link={''}
-          isShare
-          shareTitle={blogData.title}
-        />
-        <div className={styles.blogPageContainer}>
-          <div className={styles.infoContainer}>
-            <time>
-              {blogData.publishedAt ? formatDate(blogData.publishedAt) : ''}
-            </time>
-            <div className={styles.category}>{blogData.category?.name}</div>
-          </div>
-          <div className={styles.imageContainer}>
-            <img src={blogData.eyecatch?.url + '?w=960'} />
-          </div>
-          <div
-            className={styles.content}
-            dangerouslySetInnerHTML={{ __html: `${blogData.content}` }}
+    <>
+      <Script src="//cdn.iframe.ly/embed.js" strategy="lazyOnload" />
+      <MotionWrapper>
+        <ProgressBar />
+        <Card>
+          <CardHeader
+            iconPath="/images/notebook.svg"
+            iconAlt="blog"
+            title={blogData.title}
+            link={''}
+            isShare
+            shareTitle={blogData.title}
           />
-        </div>
-      </Card>
-      <Footer />
-    </MotionWrapper>
+          <div className={styles.blogPageContainer}>
+            <div className={styles.infoContainer}>
+              <time>
+                {blogData.publishedAt ? formatDate(blogData.publishedAt) : ''}
+              </time>
+              <div className={styles.category}>{blogData.category?.name}</div>
+            </div>
+            <div className={styles.imageContainer}>
+              <img src={blogData.eyecatch?.url + '?w=960'} />
+            </div>
+            <div
+              className={styles.content}
+              dangerouslySetInnerHTML={{ __html: `${blogData.content}` }}
+            />
+          </div>
+        </Card>
+        <Footer />
+      </MotionWrapper>
+    </>
   );
 };
