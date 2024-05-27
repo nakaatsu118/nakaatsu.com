@@ -7,15 +7,13 @@ import MotionWrapper from '~/_components/MotionWrapper';
 import ProgressBar from '~/_components/ProgressBar';
 import { formatDate } from '~/_libs/formatDate';
 import { BlogIdProps } from './page';
-import { Blog, Category, getBlogDetail } from '~/_libs/microcms';
+import { Category, getBlogDetail } from '~/_libs/microcms';
 import styles from './BlogPage.module.css';
 import { useEffect, useState } from 'react';
-import Script from 'next/script';
 import {
   MicroCMSContentId,
   MicroCMSDate,
   MicroCMSImage,
-  MicroCMSListResponse,
 } from 'microcms-js-sdk';
 import Loading from '~/_components/Loading';
 
@@ -57,7 +55,6 @@ export const BlogIdComponent = async ({ params }: BlogIdProps) => {
 
   return (
     <MotionWrapper>
-      <Script src="//cdn.iframe.ly/embed.js" strategy="afterInteractive" />
       <ProgressBar />
       <Card>
         <CardHeader
