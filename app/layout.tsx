@@ -1,14 +1,16 @@
-import React from "react"
-import "@/_styles/normalize.css"
-import "@/_styles/globals.css"
-import styles from '@/Root.module.css'
-import Navigation from "@/_components/Navigation"
-import { Metadata } from "next"
-import { GoogleTagManager } from '@next/third-parties/google'
+import React, { useEffect } from 'react';
+import '@/_styles/normalize.css';
+import '@/_styles/globals.css';
+import styles from '@/Root.module.css';
+import Navigation from '@/_components/Navigation';
+import { Metadata } from 'next';
+import { GoogleTagManager } from '@next/third-parties/google';
+import Script from 'next/script';
 
-const siteName = 'nakaatsu World'
-const description = 'nakaatsuの個人サイトです。趣味のブログやポートフォリオをまとめています。'
-const url = 'https://nakaatsu.com'
+const siteName = 'nakaatsu World';
+const description =
+  'nakaatsuの個人サイトです。趣味のブログやポートフォリオをまとめています。';
+const url = 'https://nakaatsu.com';
 
 export const metadata: Metadata = {
   title: siteName,
@@ -27,8 +29,8 @@ export const metadata: Metadata = {
     description,
     site: '@nakaatsu',
     creator: '@nakaatsu',
-  }
-}
+  },
+};
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -41,7 +43,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </body>
       <GoogleTagManager gtmId="GTM-PR49LG4" />
     </html>
-  )
+  );
 };
 
 export default RootLayout;
