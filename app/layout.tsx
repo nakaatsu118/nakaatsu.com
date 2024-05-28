@@ -36,6 +36,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja">
       <body>
+        <Script src="//cdn.iframe.ly/embed.js" strategy="lazyOnload" />
         <div className={styles.rootContainer}>
           <Navigation />
           <main className={styles.main}>{children}</main>
