@@ -119,6 +119,7 @@
 .content p {
   margin-bottom: 0.14rem;
   line-height: 0.26rem;
+  letter-spacing: -0.02em;
 }
 
 .content img {
@@ -174,6 +175,7 @@
   text-align: center;
   margin-bottom: 0.34rem;
   color: var(--c-white-1);
+  line-height: 0.26rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -191,11 +193,6 @@
   }
 
   .content {
-    line-height: 0.32rem;
-  }
-
-  .content p {
-    margin-bottom: 0.14rem;
     line-height: 0.32rem;
   }
 
