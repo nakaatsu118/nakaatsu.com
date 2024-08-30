@@ -178,6 +178,35 @@
   line-height: 0.26rem;
 }
 
+.content table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 0.3rem;
+  border: 1px solid var(--c-black-4);
+  font-size: 0.14rem;
+}
+
+.content th {
+  text-align: center;
+  padding: 0.1rem 0.2rem;
+
+}
+
+.content td {
+  border: 1px solid var(--c-black-4);
+  padding: 0.05rem 0.2rem;
+}
+
+.content th p {
+  margin: 0;
+}
+
+.content td p {
+  margin: 0;
+}
+
+
+
 @media screen and (max-width: 768px) {
   .imageContainer {
     padding-top: 0.16rem;
