@@ -1,0 +1,34 @@
+.privacyPolicyContainer h1 {
+  font-size: 0.38rem;
+  margin: 0.62rem 0 0.24rem 0;
+  font-weight: 600;
+  padding: 0.2rem 0.32rem;
+  background-color: var(--c-primary);
+  color: var(--c-black);
+  word-wrap: normal;
+  width: fit-content;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
+}
+
+.privacyPolicyContainer h2 {
+  margin: 0.54rem 0 0.24rem 0;
+  font-size: 0.28rem;
+  font-weight: 600;
+  padding: 0.12rem 0.16rem;
+  word-wrap: normal;
+  width: fit-content;
+  border: 0.02rem solid var(--c-primary);
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+  word-break: normal;
+}
+
+.privacyPolicyContainer ul {
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0.4rem;
+  line-height: 0.24rem;
+}

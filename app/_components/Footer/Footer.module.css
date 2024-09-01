@@ -4,4 +4,5 @@
   display: flex;
   justify-content: center;
   font-size: 0.148rem;
+  gap: 0.32rem;
 }
