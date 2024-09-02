@@ -19,6 +19,11 @@ const options: HTMLReactParserOptions = {
     if (name === 'script' && attribs.src === '//cdn.iframe.ly/embed.js') {
       return <></>;
     }
+
+    // imgにlazyloadを追加
+    if (name === 'img') {
+      return <img {...attribs} loading="lazy" />;
+    }
   },
 };
 
@@ -58,7 +63,7 @@ export const BlogIdComponent = async ({
             <div className={styles.category}>{category?.name}</div>
           </div>
           <div className={styles.imageContainer}>
-            <img src={eyecatch?.url + '?w=960'} />
+            <img src={eyecatch?.url + '?w=1200'} />
           </div>
           <div className={styles.content}>{parse(content, options)}</div>
         </div>

@@ -4,7 +4,7 @@
 
 .imageContainer img {
   max-height: 60vh;
-  border-radius: 0.8rem 0.8rem 0 0.8rem;
+  border-radius: 0.46rem 0.46rem 0 0.46rem;
 }
 
 .blogPageContainer {
@@ -203,6 +203,10 @@
 
 .content td p {
   margin: 0;
+}
+
+.iframely-embed {
+  width: 80%;
 }
 
 
