@@ -7,9 +7,9 @@ import ProgressBar from "~/_components/ProgressBar"
 const blogLimit = 9
 
 type Props = {
-  params: {
+  params: Promise<{
     current: string;
-  }
+  }>;
 }
 
 export const generateStaticParams = async () => {

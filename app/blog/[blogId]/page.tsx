@@ -3,9 +3,9 @@ import { Metadata } from 'next';
 import { BlogIdComponent } from './blogId.component';
 
 export type BlogIdProps = {
-  params: {
+  params: Promise<{
     blogId: string;
-  };
+  }>;
 };
 export const generateStaticParams = async () => {
   const { contents } = await getBlogList();
