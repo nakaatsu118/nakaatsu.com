@@ -10,32 +10,32 @@
     "fix:lint": "next lint --fix"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.2.6",
+    "@ant-design/icons": "^6.0.0",
     "@next/third-parties": "^15.0.0",
-    "@types/react-gtm-module": "^2.0.1",
+    "@types/react-gtm-module": "^2.0.4",
     "animate.css": "^4.1.1",
-    "dayjs": "^1.11.10",
-    "framer-motion": "^10.16.5",
-    "html-react-parser": "^5.1.10",
-    "microcms-js-sdk": "^3.1.1",
+    "dayjs": "^1.11.13",
+    "framer-motion": "^12.23.12",
+    "html-react-parser": "^5.2.6",
+    "microcms-js-sdk": "^3.2.0",
     "next": "^15.4.5",
     "next-sitemap": "^4.2.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-gtm-module": "^2.0.11",
-    "react-intersection-observer": "^9.5.3",
-    "sass": "^1.48.0"
+    "react-intersection-observer": "^9.16.0",
+    "sass": "^1.89.2"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.0.2",
-    "@types/node": "17.0.8",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "@typescript-eslint/parser": "^6.10.0",
-    "eslint": "8.7.0",
+    "@next/eslint-plugin-next": "^15.4.5",
+    "@types/node": "24.1.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint": "9.32.0",
     "eslint-config-next": "^15.4.5",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3"
   }
 }
