@@ -27,7 +27,8 @@ export const generateStaticParams = async () => {
 }
 
 const Blog = async ({ params }: Props) => {
-  const current = parseInt(params.current as string, 10)
+  const { current: currentParam } = await params;
+  const current = parseInt(currentParam as string, 10)
   const res = await getBlogList({ limit: blogLimit, offset: blogLimit * (current - 1) })
 
   return (

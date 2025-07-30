@@ -22,7 +22,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: BlogIdProps): Promise<Metadata> => {
-  const { blogId } = params;
+  const { blogId } = await params;
   const res = await getBlogDetail(blogId);
 
   return {
@@ -45,7 +45,8 @@ export const generateMetadata = async ({
   };
 };
 const BlogPage = async ({ params }: BlogIdProps) => {
-  const res = await getBlogDetail(params.blogId);
+  const { blogId } = await params;
+  const res = await getBlogDetail(blogId);
 
   return <BlogIdComponent {...res} />;
 };
