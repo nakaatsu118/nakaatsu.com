@@ -61,8 +61,8 @@ export const BlogIdComponent = ({
       const existingScript = document.querySelector(
         'script[src="//cdn.iframe.ly/embed.js"]',
       );
-      if (existingScript) {
-        document.body.removeChild(existingScript);
+      if (existingScript && existingScript.parentNode) {
+        existingScript.parentNode.removeChild(existingScript);
       }
     };
   }, []);
