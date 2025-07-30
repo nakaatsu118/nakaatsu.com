@@ -1,12 +1,11 @@
-import { getBlogDetail, getBlogList } from '~/_libs/microcms';
 import { Metadata } from 'next';
+import { getBlogDetail, getBlogList } from '~/_libs/microcms';
 import { BlogIdComponent } from './blogId.component';
-import { useMemo } from 'react';
 
 export type BlogIdProps = {
-  params: {
+  params: Promise<{
     blogId: string;
-  };
+  }>;
 };
 export const generateStaticParams = async () => {
   const { contents } = await getBlogList();
@@ -23,7 +22,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: BlogIdProps): Promise<Metadata> => {
-  const { blogId } = params;
+  const { blogId } = await params;
   const res = await getBlogDetail(blogId);
 
   return {
@@ -46,7 +45,8 @@ export const generateMetadata = async ({
   };
 };
 const BlogPage = async ({ params }: BlogIdProps) => {
-  const res = await useMemo(() => getBlogDetail(params.blogId), []);
+  const { blogId } = await params;
+  const res = await getBlogDetail(blogId);
 
   return <BlogIdComponent {...res} />;
 };

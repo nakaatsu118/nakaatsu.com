@@ -1,14 +1,14 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { MicroCMSListResponse } from 'microcms-js-sdk';
+import Link from 'next/link';
 import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
-import { Blog } from '~/_libs/microcms';
-import styles from './Blogs.module.css';
 import { formatDate } from '~/_libs/formatDate';
+import { Blog } from '~/_libs/microcms';
 import Pagination from '../Pagination';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import styles from './Blogs.module.css';
 
 type Props = {
   current?: number;

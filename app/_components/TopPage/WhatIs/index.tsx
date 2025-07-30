@@ -1,16 +1,16 @@
 'use client';
 
-import Image from 'next/image';
-import styles from './WhatIs.module.css';
-import CardHeader from '../../Card/CardHeader';
 import {
   GithubOutlined,
   InstagramOutlined,
-  TwitterOutlined,
+  XOutlined,
 } from '@ant-design/icons';
-import Card from '~/_components/Card';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import Card from '~/_components/Card';
+import CardHeader from '../../Card/CardHeader';
+import styles from './WhatIs.module.css';
 
 const WhatIs = () => {
   return (
@@ -51,7 +51,7 @@ const WhatIs = () => {
             <div className={styles.actionContainer}>
               <div className={styles.leftAction}>
                 <Link
-                  href={'https://twitter.com/nakaatsu'}
+                  href={'https://x.com/nakaatsu'}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -63,9 +63,7 @@ const WhatIs = () => {
                     }}
                     whileTap={{ scale: 0.8 }}
                   >
-                    <TwitterOutlined
-                      className={`${styles.actionIcon} ${styles.twitter}`}
-                    />
+                    <XOutlined className={`${styles.actionIcon} ${styles.x}`} />
                   </motion.div>
                 </Link>
                 <Link

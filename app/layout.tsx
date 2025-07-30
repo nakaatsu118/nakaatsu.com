@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import '@/_styles/normalize.css';
 import '@/_styles/globals.css';
-import styles from '@/Root.module.css';
-import Navigation from '@/_components/Navigation';
-import { Metadata } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
+import { Metadata } from 'next';
 import Script from 'next/script';
+import Navigation from '@/_components/Navigation';
+import styles from '@/Root.module.css';
 
 const siteName = 'nakaatsu World';
 const description =

@@ -1,13 +1,13 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { MicroCMSListResponse } from 'microcms-js-sdk';
-import { Blog } from '~/_libs/microcms';
-import styles from './TopBlogs.module.css';
+import Link from 'next/link';
+import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
 import { formatDate } from '~/_libs/formatDate';
-import Card from '~/_components/Card';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { Blog } from '~/_libs/microcms';
+import styles from './TopBlogs.module.css';
 
 const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
   return (

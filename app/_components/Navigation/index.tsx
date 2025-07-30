@@ -1,13 +1,18 @@
 import Image from 'next/image';
-import styles from './Navigation.module.css';
 import Link from 'next/link';
+import styles from './Navigation.module.css';
 
 const Navigation = () => {
   return (
     <div className={styles.navigationContainer}>
       <Link href="/" className={styles.imageLink}>
         <h2 className={styles.imageContainer}>
-          <Image src={'/images/logo/naka_.svg'} alt="logo" fill className={styles.image} />
+          <Image
+            src={'/images/logo/naka_.svg'}
+            alt="logo"
+            fill
+            className={styles.image}
+          />
         </h2>
       </Link>
       <div className={styles.linkContainer}>
@@ -29,6 +34,6 @@ const Navigation = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Navigation;
