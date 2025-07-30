@@ -1,9 +1,9 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
 import styles from './Biography.module.css';
-import Card from '~/_components/Card';
-import { motion } from 'framer-motion';
 
 const Biography = () => {
   return (

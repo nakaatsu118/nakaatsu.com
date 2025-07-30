@@ -1,7 +1,7 @@
+import { getBlogList } from '~/_libs/microcms';
 import Footer from './_components/Footer';
 import TopBlogs from './_components/TopPage/TopBlogs';
 import WhatIs from './_components/TopPage/WhatIs';
-import { getBlogList } from '~/_libs/microcms';
 import 'animate.css';
 import MotionWrapper from './_components/MotionWrapper';
 import ProgressBar from './_components/ProgressBar';

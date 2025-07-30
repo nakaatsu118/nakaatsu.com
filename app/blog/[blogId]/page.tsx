@@ -1,5 +1,5 @@
-import { getBlogDetail, getBlogList } from '~/_libs/microcms';
 import { Metadata } from 'next';
+import { getBlogDetail, getBlogList } from '~/_libs/microcms';
 import { BlogIdComponent } from './blogId.component';
 
 export type BlogIdProps = {

@@ -1,5 +1,7 @@
 'use client';
 
+import parse, { HTMLReactParserOptions } from 'html-react-parser';
+import { useEffect, useState } from 'react';
 import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
 import Footer from '~/_components/Footer';
@@ -8,11 +10,14 @@ import ProgressBar from '~/_components/ProgressBar';
 import { formatDate } from '~/_libs/formatDate';
 import { Blog } from '~/_libs/microcms';
 import styles from './BlogPage.module.css';
-import parse, { HTMLReactParserOptions } from 'html-react-parser';
-import { useEffect, useState } from 'react';
 
 const createOptions = (isClient: boolean): HTMLReactParserOptions => ({
-  replace: ({ attribs, name }: any) => {
+  replace: (domNode) => {
+    if (domNode.type !== 'tag') return;
+    const { attribs, name } = domNode as {
+      attribs?: Record<string, string>;
+      name: string;
+    };
     if (!attribs || Object.keys(attribs).length === 0) return;
 
     // サーバーサイドでは iframely 関連の要素を削除
@@ -53,7 +58,9 @@ export const BlogIdComponent = ({
     document.body.appendChild(script);
     // アンマウント時に一応scriptタグを消しておく
     return () => {
-      const existingScript = document.querySelector('script[src="//cdn.iframe.ly/embed.js"]');
+      const existingScript = document.querySelector(
+        'script[src="//cdn.iframe.ly/embed.js"]',
+      );
       if (existingScript) {
         document.body.removeChild(existingScript);
       }

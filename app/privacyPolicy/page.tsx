@@ -1,9 +1,9 @@
 import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
+import Footer from '~/_components/Footer';
 import MotionWrapper from '~/_components/MotionWrapper';
 import ProgressBar from '~/_components/ProgressBar';
 import styles from './PrivacyPolicy.module.css';
-import Footer from '~/_components/Footer';
 
 const PrivacyPolicy = () => {
   return (
@@ -30,8 +30,8 @@ const PrivacyPolicy = () => {
               本サイトでは、Cookieを使用してユーザーの訪問履歴や使用しているブラウザの種類などの情報を収集します。これにより、本サイトのサービス向上や、コンテンツの最適化が図られます。
             </li>
             <li>
-              アクセス解析データ:
-              Google AnalyticsおよびGoogle Tag Managerを使用して、ページビュー数、滞在時間、ユーザーの行動パターンなどのアクセス解析データを収集しています。
+              アクセス解析データ: Google AnalyticsおよびGoogle Tag
+              Managerを使用して、ページビュー数、滞在時間、ユーザーの行動パターンなどのアクセス解析データを収集しています。
             </li>
           </ul>
           <h2>2. Amazonアソシエイト・プログラムについて</h2>
@@ -49,10 +49,31 @@ const PrivacyPolicy = () => {
           <h2>5. クッキーの使用について</h2>
           本サイトでは、Cookieを使用してアクセス情報を記録することがあります。ユーザーは、ブラウザの設定を変更することでCookieの受け入れを拒否することができますが、その場合、本サイトの一部機能が利用できなくなることがあります。
           <h2>6. Google AnalyticsおよびGoogle Tag Managerについて</h2>
-          本サイトでは、Google AnalyticsおよびGoogle Tag Managerを使用しています。これらのサービスは、ユーザーのアクセス情報を収集し、サイトの利用状況を分析するために使用されます。Google AnalyticsおよびGoogle Tag Managerの利用規約およびプライバシーポリシーについては、Googleの公式サイトをご確認ください。
+          本サイトでは、Google AnalyticsおよびGoogle Tag
+          Managerを使用しています。これらのサービスは、ユーザーのアクセス情報を収集し、サイトの利用状況を分析するために使用されます。Google
+          AnalyticsおよびGoogle Tag
+          Managerの利用規約およびプライバシーポリシーについては、Googleの公式サイトをご確認ください。
           <ul>
-            <li>Google Analytics: <a href="https://marketingplatform.google.com/about/analytics/terms/jp/" target="_blank" rel="noopener noreferrer">https://marketingplatform.google.com/about/analytics/terms/jp/</a></li>
-            <li>Google Tag Manager: <a href="https://marketingplatform.google.com/intl/ja/about/analytics/tag-manager/use-policy/" target="_blank" rel="noopener noreferrer">https://marketingplatform.google.com/intl/ja/about/analytics/tag-manager/use-policy/</a></li>
+            <li>
+              Google Analytics:{' '}
+              <a
+                href="https://marketingplatform.google.com/about/analytics/terms/jp/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://marketingplatform.google.com/about/analytics/terms/jp/
+              </a>
+            </li>
+            <li>
+              Google Tag Manager:{' '}
+              <a
+                href="https://marketingplatform.google.com/intl/ja/about/analytics/tag-manager/use-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://marketingplatform.google.com/intl/ja/about/analytics/tag-manager/use-policy/
+              </a>
+            </li>
           </ul>
           <h2>7. プライバシーポリシーの変更について</h2>
           本サイトは、法令の改正やサービス内容の変更に伴い、本プライバシーポリシーを改定することがあります。改定されたプライバシーポリシーは、本ページに掲載された時点で効力を持ちます。

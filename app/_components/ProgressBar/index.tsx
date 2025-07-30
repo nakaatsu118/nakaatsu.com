@@ -1,14 +1,17 @@
-'use client'
+'use client';
 
-import { motion, useScroll } from "framer-motion"
-import styles from './ProgressBar.module.css'
+import { motion, useScroll } from 'framer-motion';
+import styles from './ProgressBar.module.css';
 
 const ProgressBar = () => {
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll();
 
   return (
-    <motion.div className={styles.progressBar} style={{ scaleX: scrollYProgress }} />
-  )
-}
+    <motion.div
+      className={styles.progressBar}
+      style={{ scaleX: scrollYProgress }}
+    />
+  );
+};
 
-export default ProgressBar
+export default ProgressBar;

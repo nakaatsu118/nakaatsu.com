@@ -1,13 +1,13 @@
-import Footer from "~/_components/Footer";
-import MotionWrapper from "~/_components/MotionWrapper";
-import WhoIs from "./WhoIs";
-import Works from "./Works";
-import { getWorksList } from "~/_libs/microcms";
-import Biography from "./Biography";
-import ProgressBar from "~/_components/ProgressBar";
+import Footer from '~/_components/Footer';
+import MotionWrapper from '~/_components/MotionWrapper';
+import ProgressBar from '~/_components/ProgressBar';
+import { getWorksList } from '~/_libs/microcms';
+import Biography from './Biography';
+import WhoIs from './WhoIs';
+import Works from './Works';
 
 const Profile = async () => {
-  const res = await getWorksList({ limit: 6, orders: '-published' })
+  const res = await getWorksList({ limit: 6, orders: '-published' });
 
   return (
     <MotionWrapper>
@@ -18,6 +18,6 @@ const Profile = async () => {
       <Footer />
     </MotionWrapper>
   );
-}
+};
 
 export default Profile;

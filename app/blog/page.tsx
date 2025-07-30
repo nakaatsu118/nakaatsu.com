@@ -1,9 +1,9 @@
+import { useMemo } from 'react';
 import Footer from '@/_components/Footer';
-import { getBlogList } from '~/_libs/microcms';
-import Blogs from './_components/Blogs';
 import MotionWrapper from '~/_components/MotionWrapper';
 import ProgressBar from '~/_components/ProgressBar';
-import { useMemo } from 'react';
+import { getBlogList } from '~/_libs/microcms';
+import Blogs from './_components/Blogs';
 
 const blogLimit = 9;
 
