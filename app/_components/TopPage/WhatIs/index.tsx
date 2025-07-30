@@ -6,7 +6,7 @@ import CardHeader from '../../Card/CardHeader';
 import {
   GithubOutlined,
   InstagramOutlined,
-  TwitterOutlined,
+  XOutlined,
 } from '@ant-design/icons';
 import Card from '~/_components/Card';
 import Link from 'next/link';
@@ -51,7 +51,7 @@ const WhatIs = () => {
             <div className={styles.actionContainer}>
               <div className={styles.leftAction}>
                 <Link
-                  href={'https://twitter.com/nakaatsu'}
+                  href={'https://x.com/nakaatsu'}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -63,8 +63,8 @@ const WhatIs = () => {
                     }}
                     whileTap={{ scale: 0.8 }}
                   >
-                    <TwitterOutlined
-                      className={`${styles.actionIcon} ${styles.twitter}`}
+                    <XOutlined
+                      className={`${styles.actionIcon} ${styles.x}`}
                     />
                   </motion.div>
                 </Link>
