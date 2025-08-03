@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "fix:lint": "next lint --fix"
@@ -19,7 +18,6 @@
     "html-react-parser": "^5.2.6",
     "microcms-js-sdk": "^3.2.0",
     "next": "^15.4.5",
-    "next-sitemap": "^4.2.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-gtm-module": "^2.0.11",
