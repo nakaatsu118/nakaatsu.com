@@ -8,15 +8,34 @@ export type BlogIdProps = {
   }>;
 };
 export const generateStaticParams = async () => {
-  const { contents } = await getBlogList();
+  const allContents = [];
+  let offset = 0;
+  const limit = 100; // microCMSの上限値
 
-  const paths = contents.map((blog) => {
+  while (true) {
+    const { contents, totalCount } = await getBlogList({
+      limit,
+      offset,
+      orders: '-publishedAt',
+    });
+
+    allContents.push(...contents);
+
+    // 全件取得完了したかチェック
+    if (contents.length < limit || offset + limit >= totalCount) {
+      break;
+    }
+
+    offset += limit;
+  }
+
+  const paths = allContents.map((blog) => {
     return {
       blogId: blog.id,
     };
   });
 
-  return [...paths];
+  return paths;
 };
 
 export const generateMetadata = async ({
