@@ -1,0 +1,15 @@
+---
+description: nakaatsu WorldブログのリッチエディタHTML制約。microCMSへ本文を入稿・下書きするときに使う。
+alwaysApply: false
+---
+
+# 本文 HTML
+
+- `content` は microCMS リッチエディタが受け付ける HTML 文字列だけにする
+- 使える見出しは h1〜h5。このブログの本文では **h1 をセクション見出し**にする（h2 以下はサブセクション）
+- 段落は `p`。箇条書きは `ul` / `ol`。強調は `strong`
+- 画像は microCMS メディアの URL（`images.microcms-assets.io`）だけ。外部画像 URL は入稿できない
+- 画像は `figure` + `img`（width/height 付き）+ 必要なら `figcaption`
+- コードは `pre` > `code`。引用は `blockquote`
+- サイト未対応の独自 class やインラインの巨大 style は足さない
+- 詳細は `.cursor/skills/draft-blog-post/references/rich-editor.md`
