@@ -1,6 +1,6 @@
 # microCMS スキーマと MCP
 
-サイトの読み取りは `app/_libs/microcms.ts`。書き込みは公式 MCP のみ。SDK で POST しない。
+サイトの読み取りは `app/_libs/microcms.ts`。書き込みは公式リモート MCP（`https://mcp.microcms.io/mcp/nakaatsu`）のみ。SDK で POST しない。
 
 ## エンドポイント
 
@@ -33,13 +33,13 @@
 
 - `microcms_upload_media`
 - `microcms_create_content_draft`
-- `microcms_update_content_draft`
+- `microcms_update_content_draft_only`
 
 禁止:
 
 - `microcms_create_content_published`
 - `microcms_create_contents_bulk_published`
-- `microcms_update_content_published`
+- `microcms_update_content`（公開済みの更新）
 - `microcms_patch_content_status`（公開にも下書き戻しにも使わない）
 - `microcms_delete_content` / `microcms_delete_media`（依頼がない限り）
 
@@ -51,9 +51,11 @@ MCP のフィールド仕様に従う。画像は URL 文字列、参照は cont
 
 ## キー
 
+- サービスIDは `nakaatsu`
 - サイトの `MICROCMS_API_KEY` は GET 想定。MCP に使い回さない
-- MCP は AI 専用の書き込みキー（Content API の POST と、メディア・API 情報なら Management API）
-- 設定例: `.cursor/mcp.json.example`
+- MCP は `MICROCMS_MCP_API_KEY`（AI 専用。下書き POST と、メディア・API 情報なら Management API）
+- 設定例: `.cursor/mcp.json.example`（`Authorization: Bearer`）
+- API の IP 制限があるとリモート MCP から届かないことがある
 
 ## 公開との関係
 

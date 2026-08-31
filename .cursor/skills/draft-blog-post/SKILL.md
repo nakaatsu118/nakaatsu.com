@@ -8,8 +8,10 @@ disable-model-invocation: true
 
 このスキルは **下書き作成まで** 行う。公開しない。
 
-- 使ってよい: `microcms_create_content_draft` / `microcms_update_content_draft` / 取得・メディア系
-- 使ってはいけない: `microcms_create_content_published` / `microcms_create_contents_bulk_published` / `microcms_update_content_published` / `microcms_patch_content_status`
+接続先は公式リモート MCP（`https://mcp.microcms.io/mcp/nakaatsu`）。ローカルの `npx microcms-mcp-server` は使わない。
+
+- 使ってよい: `microcms_create_content_draft` / `microcms_update_content_draft_only` / 取得・メディア系
+- 使ってはいけない: `microcms_create_content_published` / `microcms_create_contents_bulk_published` / `microcms_update_content` / `microcms_patch_content_status`
 
 MCP が無い・キーが書き込み不可なら、そこで止めて設定方法（リポジトリの `.cursor/mcp.json.example`）を案内する。推測で公開相当の投稿はしない。
 
@@ -54,7 +56,7 @@ MCP が無い・キーが書き込み不可なら、そこで止めて設定方�
 6. **HTML を組む。** `references/voice.md` と `references/rich-editor.md`。導入の挨拶を忘れない。
 7. **下書きのみ POST。**
    - 新規: `microcms_create_content_draft`（endpoint: `blogs`、可能なら `contentId`）
-   - 更新: `microcms_update_content_draft`
+   - 更新: `microcms_update_content_draft_only`
    - フィールドは最低 `title` と `content`。分かっていれば `category`（参照 ID）と `eyecatch`（メディア URL）
 8. **結果を返す。** contentId、管理画面で開く手順、入れたフィールド、入れられなかったもの（画像なし、カテゴリ未設定など）。公開やサイト再ビルドは案内しない（このサイトは静的エクスポートで、下書きは表に出ない）。
 
