@@ -2,6 +2,7 @@
 
 import { ShareAltOutlined, SwapRightOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './CardHeader.module.css';
@@ -35,12 +36,24 @@ const CardHeader = ({
         <div className={styles.left}>
           {link ? (
             <Link href={link}>
-              <img className={styles.headIcon} src={iconPath} alt={iconAlt} />
+              <Image
+                className={styles.headIcon}
+                src={iconPath}
+                alt={iconAlt}
+                width={32}
+                height={32}
+              />
               <h1 className={styles.title}>{title}</h1>
             </Link>
           ) : (
             <a>
-              <img className={styles.headIcon} src={iconPath} alt={iconAlt} />
+              <Image
+                className={styles.headIcon}
+                src={iconPath}
+                alt={iconAlt}
+                width={32}
+                height={32}
+              />
               <h1 className={styles.title}>{title}</h1>
             </a>
           )}

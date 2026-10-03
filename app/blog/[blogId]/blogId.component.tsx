@@ -1,31 +1,32 @@
 'use client';
 
-import parse, { HTMLReactParserOptions } from 'html-react-parser';
-import { useEffect, useState } from 'react';
+import type { HTMLReactParserOptions } from 'html-react-parser';
+import parse, { attributesToProps, Element } from 'html-react-parser';
+import Image from 'next/image';
+import Script from 'next/script';
+import { useEffect, useSyncExternalStore } from 'react';
 import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
 import Footer from '~/_components/Footer';
 import MotionWrapper from '~/_components/MotionWrapper';
 import ProgressBar from '~/_components/ProgressBar';
 import { formatDate } from '~/_libs/formatDate';
-import { Blog } from '~/_libs/microcms';
+import type { Blog } from '~/_libs/microcms';
 import styles from './BlogPage.module.css';
 
 const createOptions = (isClient: boolean): HTMLReactParserOptions => ({
   replace: (domNode) => {
-    if (domNode.type !== 'tag') return;
-    const { attribs, name } = domNode as {
-      attribs?: Record<string, string>;
-      name: string;
-    };
+    if (!(domNode instanceof Element)) return;
+    const { attribs, name } = domNode;
+    // embed.jsはNext Scriptで一度だけ読み込む。
+    if (name === 'script' && attribs.src?.includes('cdn.iframe.ly/embed.js')) {
+      return <></>;
+    }
     if (!attribs || Object.keys(attribs).length === 0) return;
 
     // サーバーサイドでは iframely 関連の要素を削除
     if (!isClient) {
-      if (name === 'script' && attribs.src === '//cdn.iframe.ly/embed.js') {
-        return <></>;
-      }
-      if (name === 'div' && attribs.className?.includes('iframely')) {
+      if (name === 'div' && attribs.class?.includes('iframely')) {
         return <></>;
       }
       if (name === 'a' && attribs['data-iframely-url']) {
@@ -35,10 +36,28 @@ const createOptions = (isClient: boolean): HTMLReactParserOptions => ({
 
     // imgにlazyloadを追加
     if (name === 'img') {
-      return <img {...attribs} loading="lazy" />;
+      // CMS本文には画像サイズがないため、ネイティブのimgを使う。
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          {...attributesToProps(attribs)}
+          alt={attribs.alt ?? ''}
+          loading="lazy"
+        />
+      );
     }
   },
 });
+
+const subscribe = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+
+const loadEmbeds = () => {
+  const iframely = (window as Window & { iframely?: { load: () => void } })
+    .iframely;
+  iframely?.load();
+};
 
 export const BlogIdComponent = ({
   content,
@@ -47,30 +66,25 @@ export const BlogIdComponent = ({
   category,
   eyecatch,
 }: Blog) => {
-  const [isClient, setIsClient] = useState(false);
+  const isClient = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
 
   useEffect(() => {
-    setIsClient(true);
-
-    // scriptを読み込み
-    const script = document.createElement('script');
-    script.src = '//cdn.iframe.ly/embed.js';
-    document.body.appendChild(script);
-    // アンマウント時に一応scriptタグを消しておく
-    return () => {
-      const existingScript = document.querySelector(
-        'script[src="//cdn.iframe.ly/embed.js"]',
-      );
-      if (existingScript && existingScript.parentNode) {
-        existingScript.parentNode.removeChild(existingScript);
-      }
-    };
-  }, []);
+    if (isClient) loadEmbeds();
+  }, [isClient, content]);
 
   const options = createOptions(isClient);
 
   return (
     <MotionWrapper>
+      <Script
+        src="https://cdn.iframe.ly/embed.js"
+        strategy="lazyOnload"
+        onReady={loadEmbeds}
+      />
       <ProgressBar />
       <Card>
         <CardHeader
@@ -87,7 +101,15 @@ export const BlogIdComponent = ({
             <div className={styles.category}>{category?.name}</div>
           </div>
           <div className={styles.imageContainer}>
-            <img src={eyecatch?.url + '?w=1200'} />
+            {eyecatch && (
+              <Image
+                src={eyecatch.url + '?w=1200'}
+                alt={title}
+                width={eyecatch.width ?? 1200}
+                height={eyecatch.height ?? 630}
+                loading="eager"
+              />
+            )}
           </div>
           <div className={styles.content}>{parse(content, options)}</div>
         </div>

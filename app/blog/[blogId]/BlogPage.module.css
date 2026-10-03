@@ -189,7 +189,6 @@
 .content th {
   text-align: center;
   padding: 0.1rem 0.2rem;
-
 }
 
 .content td {
@@ -208,8 +207,6 @@
 .iframely-embed {
   width: 80%;
 }
-
-
 
 @media screen and (max-width: 768px) {
   .imageContainer {

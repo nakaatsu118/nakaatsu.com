@@ -10,7 +10,9 @@ const Navigation = () => {
           <Image
             src={'/images/logo/naka_.svg'}
             alt="logo"
-            fill
+            width={84}
+            height={23}
+            loading="eager"
             className={styles.image}
           />
         </h2>

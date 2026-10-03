@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import Footer from '@/_components/Footer';
 import MotionWrapper from '~/_components/MotionWrapper';
 import ProgressBar from '~/_components/ProgressBar';
@@ -8,10 +7,7 @@ import Blogs from './_components/Blogs';
 const blogLimit = 9;
 
 const Blog = async () => {
-  const res = await useMemo(
-    () => getBlogList({ limit: blogLimit, orders: '-publishedAt' }),
-    [],
-  );
+  const res = await getBlogList({ limit: blogLimit, orders: '-publishedAt' });
 
   return (
     <MotionWrapper>

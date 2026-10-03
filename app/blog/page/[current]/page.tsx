@@ -32,6 +32,7 @@ const Blog = async ({ params }: Props) => {
   const res = await getBlogList({
     limit: blogLimit,
     offset: blogLimit * (current - 1),
+    orders: '-publishedAt',
   });
 
   return (

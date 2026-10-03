@@ -1,12 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MicroCMSListResponse } from 'microcms-js-sdk';
+import type { MicroCMSListResponse } from 'microcms-js-sdk';
+import Image from 'next/image';
 import Link from 'next/link';
 import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
 import { formatDate } from '~/_libs/formatDate';
-import { Work } from '~/_libs/microcms';
+import type { Work } from '~/_libs/microcms';
 import styles from './Works.module.css';
 
 const Works = ({ contents }: MicroCMSListResponse<Work>) => {
@@ -44,7 +45,12 @@ const Works = ({ contents }: MicroCMSListResponse<Work>) => {
                     whileTap={{ scale: 0.9 }}
                   >
                     <div className={styles.imageContainer}>
-                      <img src={work.visual?.url + '?fit=crop&w=1280&h=1080'} />
+                      <Image
+                        src={work.visual.url + '?fit=crop&w=1280&h=1080'}
+                        alt={work.title}
+                        width={1280}
+                        height={1080}
+                      />
                     </div>
                     <div className={styles.description}>
                       <h2>{work.title}</h2>

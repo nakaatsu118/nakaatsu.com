@@ -47,22 +47,26 @@
 }
 
 .lineScale > div:nth-child(1) {
-  -webkit-animation: lineScale 1s -0.4s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  -webkit-animation: lineScale 1s -0.4s infinite
+    cubic-bezier(0.2, 0.68, 0.18, 1.08);
   animation: lineScale 1s -0.4s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
 }
 
 .lineScale > div:nth-child(2) {
-  -webkit-animation: lineScale 1s -0.3s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  -webkit-animation: lineScale 1s -0.3s infinite
+    cubic-bezier(0.2, 0.68, 0.18, 1.08);
   animation: lineScale 1s -0.3s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
 }
 
 .lineScale > div:nth-child(3) {
-  -webkit-animation: lineScale 1s -0.2s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  -webkit-animation: lineScale 1s -0.2s infinite
+    cubic-bezier(0.2, 0.68, 0.18, 1.08);
   animation: lineScale 1s -0.2s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
 }
 
 .lineScale > div:nth-child(4) {
-  -webkit-animation: lineScale 1s -0.1s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  -webkit-animation: lineScale 1s -0.1s infinite
+    cubic-bezier(0.2, 0.68, 0.18, 1.08);
   animation: lineScale 1s -0.1s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
 }
 
