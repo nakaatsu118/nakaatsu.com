@@ -15,6 +15,57 @@
   width: 100%;
 }
 
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.08rem;
+  margin-bottom: 0.16rem;
+}
+
+.filterButton {
+  min-height: 44px;
+  padding: 0.1rem 0.2rem;
+  border: 1px solid var(--c-white-1);
+  border-radius: 0.24rem;
+  background: transparent;
+  color: var(--c-white-1);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.filterButton[aria-pressed='true'] {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+  color: var(--c-black-1);
+  font-weight: 700;
+}
+
+.filterButton:hover {
+  border-color: var(--c-primary);
+}
+
+.filterButton:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 3px;
+}
+
+.resultCount {
+  margin-bottom: 0.24rem;
+}
+
+.emptyMessage {
+  padding: 0.32rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterButton {
+    transition: none;
+  }
+}
+
 .blog {
   min-width: 0;
   position: relative;

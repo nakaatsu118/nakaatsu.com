@@ -1,5 +1,6 @@
 .paginationContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   align-items: center;
   justify-content: center;
@@ -9,17 +10,35 @@
 .paginationContainer li {
   line-height: 1;
   list-style: none;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--c-white-1);
   border-radius: 80px 80px 0 80px;
 }
 
-.paginationContainer li a {
+.paginationContainer li a,
+.paginationContainer li button {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.paginationContainer li button {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.paginationContainer li a:focus-visible,
+.paginationContainer li button:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 4px;
 }
 
 .active {
@@ -27,6 +46,7 @@
   border: 1px solid var(--c-primary) !important;
 }
 
-.active a {
+.active a,
+.active button {
   color: var(--c-black-1);
 }
