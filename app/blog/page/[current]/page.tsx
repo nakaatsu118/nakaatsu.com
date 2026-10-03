@@ -2,9 +2,8 @@ import Footer from '@/_components/Footer';
 import Blogs from '@/blog/_components/Blogs';
 import MotionWrapper from '~/_components/MotionWrapper';
 import ProgressBar from '~/_components/ProgressBar';
-import { getBlogList } from '~/_libs/microcms';
-
-const blogLimit = 9;
+import { getAllBlogSummaries } from '~/_libs/microcms';
+import { BLOG_PAGE_SIZE } from '../../_constants';
 
 type Props = {
   params: Promise<{
@@ -13,10 +12,10 @@ type Props = {
 };
 
 export const generateStaticParams = async () => {
-  const { totalCount } = await getBlogList();
-  const pages = Array.from({ length: Math.ceil(totalCount / blogLimit) }).map(
-    (_, i) => i + 1,
-  );
+  const blogs = await getAllBlogSummaries();
+  const pages = Array.from({
+    length: Math.ceil(blogs.length / BLOG_PAGE_SIZE),
+  }).map((_, i) => i + 1);
   const paths = pages.map((page) => {
     return {
       current: page.toString(),
@@ -29,22 +28,12 @@ export const generateStaticParams = async () => {
 const Blog = async ({ params }: Props) => {
   const { current: currentParam } = await params;
   const current = parseInt(currentParam as string, 10);
-  const res = await getBlogList({
-    limit: blogLimit,
-    offset: blogLimit * (current - 1),
-    orders: '-publishedAt',
-  });
+  const blogs = await getAllBlogSummaries();
 
   return (
     <MotionWrapper>
       <ProgressBar />
-      <Blogs
-        contents={res.contents}
-        totalCount={res.totalCount}
-        current={current}
-        limit={0}
-        offset={0}
-      />
+      <Blogs contents={blogs} current={current} />
       <Footer />
     </MotionWrapper>
   );

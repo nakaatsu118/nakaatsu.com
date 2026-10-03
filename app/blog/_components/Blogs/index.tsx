@@ -1,21 +1,46 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { MicroCMSListResponse } from 'microcms-js-sdk';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
 import { formatDate } from '~/_libs/formatDate';
-import type { Blog } from '~/_libs/microcms';
+import type { BlogSummary } from '~/_libs/microcms';
+import { BLOG_PAGE_SIZE } from '../../_constants';
 import Pagination from '../Pagination';
 import styles from './Blogs.module.css';
 
 type Props = {
   current?: number;
-} & MicroCMSListResponse<Blog>;
+  contents: BlogSummary[];
+};
 
-const Blogs = ({ contents, totalCount, current }: Props) => {
+const Blogs = ({ contents, current = 1 }: Props) => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [page, setPage] = useState(current);
+  const categories = Array.from(
+    new Map(
+      contents.flatMap(({ category }) =>
+        category ? [[category.id, category] as const] : [],
+      ),
+    ).values(),
+  );
+  const filteredBlogs =
+    selectedCategory === null
+      ? contents
+      : contents.filter((blog) => blog.category?.id === selectedCategory);
+  const visibleBlogs = filteredBlogs.slice(
+    (page - 1) * BLOG_PAGE_SIZE,
+    page * BLOG_PAGE_SIZE,
+  );
+
+  const selectCategory = (categoryId: string | null) => {
+    setSelectedCategory(categoryId);
+    setPage(1);
+  };
+
   return (
     <div className={styles.blogsWrapper}>
       <Card>
@@ -32,8 +57,36 @@ const Blogs = ({ contents, totalCount, current }: Props) => {
             isShare
             shareTitle="Blog"
           />
+          <div
+            className={styles.filters}
+            role="group"
+            aria-label="カテゴリで絞り込み"
+          >
+            <button
+              type="button"
+              className={styles.filterButton}
+              aria-pressed={selectedCategory === null}
+              onClick={() => selectCategory(null)}
+            >
+              すべて
+            </button>
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                type="button"
+                className={styles.filterButton}
+                aria-pressed={selectedCategory === category.id}
+                onClick={() => selectCategory(category.id)}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+          <p className={styles.resultCount} role="status">
+            {filteredBlogs.length}件の記事
+          </p>
           <ul className={styles.blogsContainer}>
-            {contents.map((blog, i) => (
+            {visibleBlogs.map((blog, i) => (
               <li key={blog.id} className={styles.blog}>
                 <Link href={`/blog/${blog.id}`}>
                   <motion.div
@@ -91,11 +144,15 @@ const Blogs = ({ contents, totalCount, current }: Props) => {
               </li>
             ))}
           </ul>
+          {filteredBlogs.length === 0 && (
+            <p className={styles.emptyMessage}>記事がありません。</p>
+          )}
         </motion.div>
         <Pagination
-          totalCount={totalCount}
-          current={current}
+          totalCount={filteredBlogs.length}
+          current={page}
           basePath="/blog"
+          onPageChange={selectedCategory === null ? undefined : setPage}
         />
       </Card>
     </div>

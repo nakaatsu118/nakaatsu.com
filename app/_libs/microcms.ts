@@ -20,6 +20,11 @@ export type Category = {
   name: string;
 } & MicroCMSDate;
 
+export type BlogSummary = Pick<
+  Blog,
+  'id' | 'title' | 'eyecatch' | 'category' | 'publishedAt'
+>;
+
 export type Work = {
   id: string;
   title: string;
@@ -47,6 +52,16 @@ export const getBlogList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Blog>({ endpoint: 'blogs', queries });
 
   return listData;
+};
+
+export const getAllBlogSummaries = async () => {
+  return client.getAllContents<BlogSummary>({
+    endpoint: 'blogs',
+    queries: {
+      fields: 'id,title,eyecatch,category,publishedAt',
+      orders: '-publishedAt',
+    },
+  });
 };
 
 export const getBlogDetail = async (
