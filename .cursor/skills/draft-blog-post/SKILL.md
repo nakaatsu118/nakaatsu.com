@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 このスキルは **下書き作成まで** 行う。公開しない。
 
-接続先は公式リモート MCP（`https://mcp.microcms.io/mcp/nakaatsu`）。ローカルの `npx microcms-mcp-server` は使わない。
+接続先は公式リモート MCP（`https://mcp.microcms.io/mcp/nakaatsu`）。ローカルの `npx microcms-mcp-server` は使わない。Cloud Agent から使うときは README の「Cloud Agent からブログ下書き」に従う（プロジェクトの `mcp.json` は VM に無い）。
 
 - 使ってよい: `microcms_create_content_draft` / `microcms_update_content_draft_only` / 取得・メディア系
 - 使ってはいけない: `microcms_create_content_published` / `microcms_create_contents_bulk_published` / `microcms_update_content` / `microcms_patch_content_status`
@@ -49,7 +49,7 @@ MCP が無い・キーが書き込み不可なら、そこで止めて設定方�
 ## Instructions
 
 1. **入力を表に当てはめる。** テーマが無い、または事実が足りず誤情報になりそうなら質問して止める。
-2. **MCP でスキーマを取る（未確認のときだけ）。** `microcms_get_api_list` → `blogs` の `microcms_get_api_info`。カテゴリ API 名はコードに無いので一覧から特定し、`microcms_get_list` で contentId と表示名を取る。結果の要点は `references/microcms-schema.md` と突き合わせる。
+2. **MCP でスキーマを取る（未確認のときだけ）。** フィールドとカテゴリ ID は `references/microcms-schema.md` に記録済み。増減や型が疑わしいときだけ `microcms_get_api_list` → `blogs` の `microcms_get_api_info` → `categories` の `microcms_get_list`。
 3. **正本を読む。** `references/canonical-posts.md` の近い記事を `microcms_get_content`。同カテゴリや同一メーカーの前回記事があれば 1 本足す。
 4. **草案を出す。** タイトル、contentId、カテゴリ、見出し（`assets/outline-template.md` と `references/structure.md`）。利用者が未確定ならここで確認してから本文に進む。contentId は既存と衝突しないケバブケース。
 5. **画像。** アイキャッチ・本文画像があれば `microcms_upload_media`。失敗したら画像なしで本文だけ下書きし、欠落として報告する。外部 URL を `eyecatch` や `img src` に直接入れない。

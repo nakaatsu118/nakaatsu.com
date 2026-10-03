@@ -35,3 +35,27 @@ yarn build
 API の IP 制限を付けていると、リモート MCP の送信元が固定でないため繋がらないことがある。
 
 このサイトは静的エクスポートなので、下書きは管理画面にだけ残る。表に出すには microCMS で公開したあとビルドする。
+
+## Cloud Agent からブログ下書き
+
+ローカルの `.cursor/mcp.json` は gitignore 済みなので、Cloud Agent の VM には載らない。同じリモート MCP を Cloud 側へ別途登録する。stdio / ローカル `npx` は使わない。
+
+1. [cursor.com/agents](https://cursor.com/agents) の MCP ドロップダウン（Team なら [Dashboard → Integrations & MCP](https://cursor.com/dashboard/integrations)）から **HTTP（Streamable HTTP）** で追加する
+   - URL: `https://mcp.microcms.io/mcp/nakaatsu`
+   - ヘッダー: `Authorization: Bearer <AI専用APIキー>`
+2. キー権限はローカルと同じ（GET・下書き POST、メディア、API 情報。公開作成・ステータス変更・DELETE は付けない）。Cloud 側でも公開・削除ツールはオフにする
+3. egress を Allowlist にしている場合は `mcp.microcms.io` と `images.microcms-assets.io` を許可する
+4. 設定後は **新しい Agent を起動**する（既存 run には MCP が増えない）
+5. 最初の run で `microcms_get_api_list` の疎通を確認する
+
+スキル `draft-blog-post` は `disable-model-invocation` のため自動では選ばれない。プロンプトで明示する。Cloud の VM にローカル写真は無いので、画像はチャット添付・公開 URL、または画像なし本文のみにする。
+
+依頼例:
+
+```text
+/draft-blog-post に従って microCMS に下書きだけ作る。
+公開しない。コード変更・ブランチ・PR は不要。
+テーマ: （製品名）
+種類: 開封レビュー
+所感: …
+```
