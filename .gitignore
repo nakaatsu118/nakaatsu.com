@@ -33,6 +33,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+# Cursor MCP（実キー入り。例ファイル mcp.json.example はコミットする）
+.cursor/mcp.json
+
 # vercel
 .vercel
 

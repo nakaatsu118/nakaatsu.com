@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "microcms": {
+      "url": "https://mcp.microcms.io/mcp/nakaatsu",
+      "headers": {
+        "Authorization": "Bearer ${env:MICROCMS_MCP_API_KEY}"
+      }
+    }
+  }
+}
