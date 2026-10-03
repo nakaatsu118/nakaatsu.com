@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import type React from 'react';
 import '@/_styles/normalize.css';
 import '@/_styles/globals.css';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { Metadata } from 'next';
-import Script from 'next/script';
+import type { Metadata } from 'next';
 import Navigation from '@/_components/Navigation';
 import styles from '@/Root.module.css';
 
@@ -13,6 +12,7 @@ const description =
 const url = 'https://nakaatsu.com';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title: siteName,
   description,
   openGraph: {
@@ -36,7 +36,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ja">
       <body>
-        <Script src="//cdn.iframe.ly/embed.js" strategy="lazyOnload" />
         <div className={styles.rootContainer}>
           <Navigation />
           <main className={styles.main}>{children}</main>

@@ -1,12 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MicroCMSListResponse } from 'microcms-js-sdk';
+import type { MicroCMSListResponse } from 'microcms-js-sdk';
+import Image from 'next/image';
 import Link from 'next/link';
 import Card from '~/_components/Card';
 import CardHeader from '~/_components/Card/CardHeader';
 import { formatDate } from '~/_libs/formatDate';
-import { Blog } from '~/_libs/microcms';
+import type { Blog } from '~/_libs/microcms';
 import styles from './TopBlogs.module.css';
 
 const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
@@ -52,9 +53,14 @@ const TopBlogs = ({ contents }: MicroCMSListResponse<Blog>) => {
                       whileTap={{ scale: 0.9 }}
                     >
                       <div className={styles.imageContainer}>
-                        <img
-                          src={blog.eyecatch?.url + '?fit=crop&w=480&h=480'}
-                        />
+                        {blog.eyecatch && (
+                          <Image
+                            src={blog.eyecatch.url + '?fit=crop&w=480&h=480'}
+                            alt={blog.title}
+                            width={480}
+                            height={480}
+                          />
+                        )}
                         {blog.category && (
                           <div
                             key={blog.category.id}

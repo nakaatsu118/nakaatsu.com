@@ -3,7 +3,6 @@ import { getBlogList } from '@/_libs/microcms';
 
 // 静的エクスポート用の設定
 export const dynamic = 'force-static';
-export const revalidate = 3600; // 1時間ごとに再生成
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.nakaatsu.com';

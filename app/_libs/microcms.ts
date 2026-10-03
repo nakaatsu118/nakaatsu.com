@@ -1,3 +1,5 @@
+import 'server-only';
+
 import type {
   MicroCMSDate,
   MicroCMSImage,
@@ -44,8 +46,6 @@ export const client = createClient({
 export const getBlogList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Blog>({ endpoint: 'blogs', queries });
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
   return listData;
 };
 
@@ -59,15 +59,11 @@ export const getBlogDetail = async (
     queries,
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
   return detailData;
 };
 
 export const getWorksList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Work>({ endpoint: 'works', queries });
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return listData;
 };

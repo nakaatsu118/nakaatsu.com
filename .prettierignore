@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+build/
+.cursor/
+package-lock.json
+next-env.d.ts
+AGENTS.md
