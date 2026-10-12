@@ -82,6 +82,7 @@ export function sanitizeContent(html) {
       'rp',
     ],
     allowedAttributes: {
+      h2: ['class'],
       a: ['href', 'title', 'target', 'rel', 'data-iframely-url'],
       img: ['src', 'alt', 'width', 'height', 'loading', 'decoding'],
       iframe: [
@@ -100,6 +101,7 @@ export function sanitizeContent(html) {
       ol: ['start'],
     },
     allowedClasses: {
+      h2: ['cms-title'],
       div: ['iframely-embed', 'iframely-responsive'],
       code: ['language-*'],
     },
@@ -109,7 +111,8 @@ export function sanitizeContent(html) {
     allowedIframeHostnames: embedHosts,
     allowIframeRelativeUrls: false,
     transformTags: {
-      h1: 'h2',
+      // Preserve the original title appearance while keeping one page-level h1.
+      h1: () => ({ tagName: 'h2', attribs: { class: 'cms-title' } }),
       a(tagName, attribs) {
         const attrs = { ...attribs };
         if (attrs['data-iframely-url']?.startsWith('//')) {

@@ -1,0 +1,99 @@
+.worksWrapper {
+  width: 100vw;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2.333333333333332vw;
+}
+
+.worksContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.42rem 0.24rem;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+}
+
+.workContainer {
+  min-width: 0;
+}
+
+.work {
+  padding: 0.64rem 0.32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  width: 100%;
+  border-radius: 0.08rem;
+  overflow: hidden;
+  border: 0.01rem solid var(--c-white-3);
+}
+
+.description {
+  width: 100%;
+  padding-top: 0.24rem;
+}
+
+.description h2 {
+  margin: 0 0 0.24rem 0;
+  font-size: 0.24rem;
+  font-weight: 600;
+  padding: 0.18rem 0.24rem;
+  background-color: var(--c-primary);
+  color: var(--c-black);
+  word-wrap: normal;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+}
+
+.description p {
+  margin-bottom: 0.16rem;
+  line-height: 0.24rem;
+}
+
+.description a {
+  color: var(--c-primary);
+  text-decoration: underline;
+  text-wrap: balance;
+  margin-bottom: 0.16rem;
+  line-height: 0.24rem;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.skill {
+  font-size: 0.148rem;
+  font-weight: 600;
+  padding: 0.08rem 0.16rem;
+  border: 0.02rem solid var(--c-white-3);
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+}
+
+.time {
+  color: var(--c-black-1);
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.time time {
+  font-size: 0.148rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.12rem;
+  background-color: var(--c-white-1);
+  border-radius: 0.8rem 0.8rem 0 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .worksContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

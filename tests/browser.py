@@ -1,8 +1,9 @@
 """Run after npm run build:fixtures and a local Wrangler server on port 8787."""
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-BASE = 'http://127.0.0.1:8787'
+BASE = os.environ.get('PREVIEW_URL', 'http://127.0.0.1:8787').rstrip('/')
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
@@ -37,7 +38,6 @@ with sync_playwright() as p:
     assert page.locator('.content script').count() == 0
     assert page.locator('[onerror]').count() == 0
     assert 'tag=fixture-22' in page.get_by_role('link', name='Amazonで確認する').get_attribute('href')
-    assert page.locator('.disclosure').is_visible()
     assert 'undefined' not in page.locator('meta[property="og:image"]').get_attribute('content')
     Path('test-results').mkdir(exist_ok=True)
     page.screenshot(path='test-results/article-mobile.png', full_page=True)

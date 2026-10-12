@@ -31,7 +31,7 @@ test('preserves headings, tables, code and image dimensions', () => {
   const result = sanitizeContent(
     '<h1>見出し</h1><table><tr><th scope="col">列</th><td>値</td></tr></table><pre><code class="language-js">a &lt; b</code></pre><img src="https://images.microcms-assets.io/a.png" width="640" height="480" alt="写真">',
   );
-  assert.match(result, /<h2>見出し<\/h2>/);
+  assert.match(result, /<h2 class="cms-title">見出し<\/h2>/);
   assert.match(result, /<th scope="col">列<\/th>/);
   assert.match(result, /class="language-js">a &lt; b/);
   assert.match(result, /width="640" height="480"/);

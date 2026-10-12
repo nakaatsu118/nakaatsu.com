@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from './Card.astro';
+import CardHeader from './CardHeader.astro';
+import styles from '../styles/legacy/Blogs.module.css';
+import pagination from '../styles/legacy/Pagination.module.css';
 import BlogCards from './BlogCards.astro';
 import { categoryPath, pagePath } from '../lib/urls.mjs';
 import type { listingPages } from '../lib/urls.mjs';
@@ -11,36 +15,62 @@ const title = `${page.category?.name || 'Blog'}${page.current > 1 ? ` – ${page
 ---
 
 <Layout title={title}>
-  <section class="section">
-    <h1>{title}</h1>
-    <nav class="filters" aria-label="カテゴリで絞り込み">
-      <a href="/blog" aria-current={!page.category ? 'page' : undefined}>
-        すべて
-      </a>
-      {page.categories.map((category) => (
+  <section class={styles.blogsWrapper} data-reveal>
+    <Card>
+      <CardHeader
+        title="Blog"
+        icon="/images/blog.webp"
+        link="/blog"
+        share
+        primary
+      />
+      <nav
+        class:list={['filters', styles.filters]}
+        aria-label="カテゴリで絞り込み"
+      >
         <a
-          href={categoryPath(category.id)}
-          aria-current={page.category?.id === category.id ? 'page' : undefined}
+          class={styles.filterButton}
+          href="/blog"
+          aria-current={!page.category ? 'page' : undefined}
         >
-          {category.name}
+          すべて
         </a>
-      ))}
-    </nav>
-    <p class="result-count">{page.total}件の記事</p>
-    <BlogCards blogs={page.blogs} />
-    {page.total === 0 && <p>記事がありません。</p>}
-    {page.count > 1 && (
-      <nav class="pagination" aria-label="ページ切り替え">
-        {Array.from({ length: page.count }, (_, i) => (
+        {page.categories.map((category) => (
           <a
-            href={pagePath(page.base, i + 1)}
-            aria-label={`${i + 1}ページ目`}
-            aria-current={page.current === i + 1 ? 'page' : undefined}
+            class={styles.filterButton}
+            href={categoryPath(category.id)}
+            aria-current={
+              page.category?.id === category.id ? 'page' : undefined
+            }
           >
-            {i + 1}
+            {category.name}
           </a>
         ))}
       </nav>
-    )}
+      <p class:list={['result-count', styles.resultCount]}>
+        {page.total}件の記事
+      </p>
+      <BlogCards blogs={page.blogs} />
+      {page.total === 0 && <p>記事がありません。</p>}
+      {page.count > 1 && (
+        <nav class="pagination" aria-label="ページ切り替え">
+          <ul class={pagination.paginationContainer}>
+            {Array.from({ length: page.count }, (_, i) => (
+              <li
+                class={page.current === i + 1 ? pagination.active : undefined}
+              >
+                <a
+                  href={pagePath(page.base, i + 1)}
+                  aria-label={`${i + 1}ページ目`}
+                  aria-current={page.current === i + 1 ? 'page' : undefined}
+                >
+                  {i + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+    </Card>
   </section>
 </Layout>

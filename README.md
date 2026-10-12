@@ -75,3 +75,7 @@ GitHub Actionsでは認証情報なしで同じ検証を行います。外部PR�
 モーションは`src/scripts/motion.ts`で管理します。ページのフェード、画像・カード・経歴の登場、ホバー・押下、スクロール進捗をFramer Motionで描画します。初期HTMLを非表示にせず、JavaScript無効時も本文を読めます。`prefers-reduced-motion`の変更時はJSアニメーションも停止します。登場演出は各ページ表示中に一度再生し、ページ遷移は通常のリンク遷移を維持します。`python tests/motion.py`でJS有効の動作を検証します。
 
 全体の移行ゴールは継続中です。検証用ビルドの成功は本番移行の完了を示しません。
+
+現行サイトの見た目は`src/styles/legacy/`の元CSSと、共通の`Card`・`CardHeader`で維持します。Google Fonts、SNSアイコン、背景の切り替え、画像のトリミング、記事見出し、固定ナビゲーションを移植しています。本文のh1はh2へ変換しても`cms-title`で元の装飾を保持します。
+
+画面比較は`python tests/capture-design.py`で両サイトのスクリーンショットと要素寸法を保存し、`python tests/compare-design.py`で照合します。`PREVIEW_URL`で比較先、`CAPTURE_SITE`（original/astro）・`CAPTURE_PAGES`・`CAPTURE_WIDTHS`（カンマ区切り）で範囲を指定できます。成果物は`test-results/design/`に保存します。通常のスクリーンショットと、登場アニメーションを静止させた全ページ画像を分けて記録し、動作自体は`tests/motion.py`で検証します。外部埋め込みやCMS更新で差分が発生した場合は、原本も同時に再取得してください。

@@ -45,6 +45,7 @@ with sync_playwright() as p:
     page.mouse.move(0, 0)
     page.mouse.up()
     page.wait_for_timeout(500)
+    page.goto(BASE + page.locator(".blog-card").first.get_attribute("href"))
     page.evaluate("window.scrollTo({top: document.body.scrollHeight, behavior: 'instant'})")
     page.wait_for_function("new DOMMatrix(getComputedStyle(document.querySelector('.scroll-progress')).transform).a > 0.95")
     page.goto(BASE + '/profile')

@@ -1,5 +1,10 @@
 ---
+import '../styles/legacy/normalize.css';
+import '../styles/legacy/globals.css';
 import '../styles/site.css';
+import root from '../styles/legacy/Root.module.css';
+import nav from '../styles/legacy/Navigation.module.css';
+import footer from '../styles/legacy/Footer.module.css';
 import Analytics from '../components/Analytics.astro';
 import { canonicalPath } from '../lib/urls.mjs';
 interface Props {
@@ -58,31 +63,49 @@ const pageTitle = `${title} | nakaatsu World`;
     <a class="skip" href="#main">
       本文へスキップ
     </a>
-    <nav class="navigation" aria-label="メインナビゲーション">
-      <a href="/" aria-label="nakaatsu World ホーム">
-        <img
-          src="/images/logo/naka_.svg"
-          width="84"
-          height="32"
-          alt="nakaatsu"
-        />
-      </a>
-      <div>
-        <a href="/blog">Blog</a>
-        <a href="/profile">Profile</a>
-      </div>
-    </nav>
-    <main id="main">
-      <slot />
-    </main>
-    <footer>
-      <p>
-        Amazonのアソシエイトとして、nakaatsuは適格販売により収入を得ています。
-      </p>
-      <p>
-        ©nakaatsu · <a href="/privacyPolicy">Privacy Policy</a>
-      </p>
-    </footer>
+    <div class={root.rootContainer}>
+      <nav
+        class:list={['navigation', nav.navigationContainer]}
+        aria-label="メインナビゲーション"
+      >
+        <a class={nav.imageLink} href="/" aria-label="nakaatsu World ホーム">
+          <h2>
+            <img
+              class={nav.image}
+              src="/images/logo/naka_.svg"
+              width="84"
+              height="23"
+              alt="nakaatsu"
+            />
+          </h2>
+        </a>
+        <div class={nav.linkContainer}>
+          {['Home', 'Blog', 'Profile'].map((label) => (
+            <a
+              class={nav.link}
+              href={label === 'Home' ? '/' : `/${label.toLowerCase()}`}
+            >
+              <h2>
+                <p class={nav.text}>{label}</p>
+              </h2>
+            </a>
+          ))}
+        </div>
+      </nav>
+      <main id="main" class={root.main}>
+        <div class="page-shell">
+          <slot />
+          <footer class={footer.footerContainer}>
+            <div>©nakaatsu</div>
+            <a href="/privacyPolicy">
+              <h2>
+                <p>PrivacyPolicy</p>
+              </h2>
+            </a>
+          </footer>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
 <script>

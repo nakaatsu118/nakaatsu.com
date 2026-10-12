@@ -1,78 +1,94 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ShareLink from '../components/ShareLink.astro';
+import Card from '../components/Card.astro';
+import CardHeader from '../components/CardHeader.astro';
+import Icon from '../components/Icon.astro';
 import BlogCards from '../components/BlogCards.astro';
 import { getContent } from '../lib/content';
-import { Image } from 'astro:assets';
-import hero from '../../public/images/nakaatsu_top.webp';
+import welcome from '../styles/legacy/Welcome.module.css';
+import top from '../styles/legacy/TopBlogs.module.css';
 const { blogs } = await getContent();
 ---
 
 <Layout title="Welcome!">
-  <section class="section">
-    <h1>Welcome!</h1>
-    <ShareLink title="Welcome!" />
-    <Image
-      class="hero"
-      src={hero}
-      alt="nakaatsuの世界"
-      widths={[480, 900, 1200]}
-      sizes="(max-width: 768px) calc(100vw - 32px), 900px"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <nav class="social" aria-label="SNS">
-      <a
-        href="https://x.com/nakaatsu"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        X
-      </a>
-      <a
-        href="https://www.instagram.com/nakaatsu_world/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Instagram
-      </a>
-      <a
-        href="https://github.com/nakaatsu118"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub
-      </a>
-    </nav>
-    <h2>このサイトについて</h2>
-    <p>
-      こんにちは。なかあつです。このサイトは<a href="/profile">@nakaatsu</a>
-      の日々をしたためています。
-      <br />
-      多趣味でごっちゃにななかあつの世界がここにあります。
-    </p>
-    <p>
-      🔥Next.js / React / TypeScript
-      <br />
-      🐠Aquarium / 🌿Plants / 👨‍🍳Cooking / 📸Gadget
-    </p>
+  <section class={welcome.whatIsWrapper} data-reveal>
+    <Card>
+      <CardHeader
+        title="Welcome!"
+        icon="/images/Icon_nakaatsu_.webp"
+        link="/"
+        share
+        primary
+      />
+      <div class:list={['hero', welcome.imageContainer]}>
+        <img
+          src="/images/nakaatsu_top.webp"
+          alt="main Image"
+          width="1200"
+          height="800"
+          fetchpriority="high"
+        />
+      </div>
+      <div class={welcome.mainContent}>
+        <div class={welcome.actionContainer}>
+          <nav class:list={['social', welcome.leftAction]} aria-label="SNS">
+            <a
+              href="https://x.com/nakaatsu"
+              aria-label="X"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="x" class={`${welcome.actionIcon} ${welcome.x}`} />
+            </a>
+            <a
+              href="https://www.instagram.com/nakaatsu_world/"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                name="instagram"
+                class={`${welcome.actionIcon} ${welcome.instagram}`}
+              />
+            </a>
+            <a
+              href="https://github.com/nakaatsu118"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                name="github"
+                class={`${welcome.actionIcon} ${welcome.github}`}
+              />
+            </a>
+          </nav>
+        </div>
+        <div class={welcome.titleContainer}>
+          <h3 class={welcome.title}>このサイトについて</h3>
+        </div>
+        <div class={welcome.bodyContainer}>
+          こんにちは。なかあつです。このサイトは
+          <a href="/profile" class={welcome.link}>
+            @nakaatsu
+          </a>
+          の日々をしたためています。
+          <br />
+          多趣味でごっちゃにななかあつの世界がここにあります。
+          <br />
+          <br />
+          🔥Next.js / React / TypeScript
+          <br />
+          🐠Aquarium / 🌿Plants / 👨‍🍳Cooking / 📸Gadget
+          <br />
+        </div>
+      </div>
+    </Card>
   </section>
-  <section class="section" aria-labelledby="latest">
-    <h2 id="latest">Blog</h2>
-    <BlogCards blogs={blogs.slice(0, 6)} />
-    <a href="/blog">ブログをもっと見る →</a>
+  <section class={top.topBlogsWrapper} data-reveal>
+    <Card>
+      <CardHeader title="Blog" icon="/images/blog.webp" link="/blog" />
+      <BlogCards blogs={blogs.slice(0, 6)} top />
+    </Card>
   </section>
 </Layout>
-<style>
-  .hero {
-    width: 100%;
-    max-height: 650px;
-    object-fit: cover;
-    border-radius: 5rem 5rem 0 5rem;
-  }
-  .social {
-    display: flex;
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-  }
-</style>

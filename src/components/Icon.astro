@@ -1,0 +1,15 @@
+---
+// Ant Design icons, MIT: /ant-design-icons-LICENSE.txt
+import icons from './icons.json';
+interface Props {
+  name: keyof typeof icons;
+  class?: string;
+}
+const { name, class: className } = Astro.props;
+---
+
+<span
+  class:list={['anticon', className]}
+  aria-hidden="true"
+  set:html={icons[name]}
+/>

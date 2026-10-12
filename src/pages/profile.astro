@@ -1,151 +1,142 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ShareLink from '../components/ShareLink.astro';
+import Card from '../components/Card.astro';
+import CardHeader from '../components/CardHeader.astro';
+import profile from '../styles/legacy/Profile.module.css';
+import biography from '../styles/legacy/Biography.module.css';
+import workStyles from '../styles/legacy/Works.module.css';
 import { getContent } from '../lib/content';
 import { imageUrl, formatDate } from '../lib/urls.mjs';
-import { Image } from 'astro:assets';
-import portrait from '../../public/images/Icon_nakaatsu_.webp';
+
 const { works } = await getContent();
 ---
 
 <Layout title="Profile">
-  <section class="section">
-    <h1>Profile</h1>
-    <ShareLink title="Profile" />
-    <div class="profile">
-      <Image
-        src={portrait}
-        alt="nakaatsu"
-        widths={[280, 480, 960]}
-        sizes="(max-width: 768px) 280px, 450px"
-        loading="eager"
-        fetchpriority="high"
+  <section class={profile.whoIsWrapper} data-reveal>
+    <Card>
+      <CardHeader
+        title="Profile"
+        icon="/images/whoIs.png"
+        link="/profile"
+        share
+        primary
       />
-      <div>
-        <h2>なかあつ / nakaatsu</h2>
-        <p>1993年生まれ。東京都在住。</p>
-        <p>Webフロントエンドエンジニア寄りのフルスタックエンジニア。</p>
-        <p>
-          📧 <a href="mailto:nakaatsu0118@gmail.com">nakaatsu0118@gmail.com</a>
-        </p>
-        <h3>スキル</h3>
-        <ul>
-          <li>React / Next.js / TypeScript / JavaScript / HTML / CSS</li>
-          <li>Ruby / Ruby on Rails / Node.js / Golang / PHP</li>
-          <li>
-            Firebase / AWS / GCP / microCMS / Salesforce / GTM / GA / GSC /
-            Google App Script
-          </li>
-          <li>Figma / Adobe XD</li>
-        </ul>
-        <h3>趣味</h3>
-        <p>
-          趣味はアクアリウム、アクアテラリウム、植物、料理、お菓子作り、ゲーム、ポケモンカード、ガジェット、インテリア、プログラミング、散歩などなど…
-        </p>
+      <div class:list={['profile', profile.profileContainer]}>
+        <div class={profile.imageContainer}>
+          <img
+            src="/images/Icon_nakaatsu_.png"
+            alt="nakaatsu"
+            width="480"
+            height="480"
+            fetchpriority="high"
+          />
+        </div>
+        <div class={profile.description}>
+          <h2 class={profile.name}>なかあつ / nakaatsu</h2>
+          <p>1993年生まれ。東京都在住。</p>
+          <p>Webフロントエンドエンジニア寄りのフルスタックエンジニア。</p>
+          <p>
+            📧{' '}
+            <a href="mailto:nakaatsu0118@gmail.com">nakaatsu0118@gmail.com</a>
+          </p>
+          <h2>スキル</h2>
+          <ul>
+            <li>React / Next.js / TypeScript / JavaScript / HTML / CSS</li>
+            <li>Ruby / Ruby on Rails / Node.js / Golang / PHP</li>
+            <li>
+              Firebase / AWS / GCP / microCMS / Salesforce / GTM / GA / GSC /
+              Google App Script
+            </li>
+            <li>Figma / Adobe XD</li>
+          </ul>
+          <h2>趣味</h2>
+          <p>
+            趣味はアクアリウム、アクアテラリウム、植物、料理、お菓子作り、ゲーム、ポケモンカード、ガジェット、インテリア、プログラミング、散歩などなど…
+          </p>
+        </div>
       </div>
-    </div>
+    </Card>
   </section>
-  <section class="section">
-    <h2>Biography</h2>
-    <dl class="history">
-      <div>
-        <dt>
-          <time datetime="2016-04">2016/4</time>
-        </dt>
-        <dd>SIer企業に入社。インターネット決済システムの設計、試験を担当。</dd>
-      </div>
-      <div>
-        <dt>
-          <time datetime="2018-09">2018/9</time>
-        </dt>
-        <dd>
-          いちから株式会社（現ANYCOLOR株式会社）に入社。WEBフロント開発、サーバーサイド、社内システム、LP制作・監修、PMなどを担当。
-        </dd>
-      </div>
-      <div>
-        <dt>
-          <time datetime="2022-02">2022/2</time>
-        </dt>
-        <dd>
-          freee株式会社に入社。申告システムの機能追加や改修をフルスタックで担当。
-        </dd>
-      </div>
-      <div>
-        <dt>
-          <time datetime="2022-11">2022/11</time>
-        </dt>
-        <dd>株式会社microCMSに入社。</dd>
-      </div>
-    </dl>
-  </section>
-  <section class="section">
-    <h2>Works</h2>
-    <ul class="works">
-      {works.map((work) => (
-        <li>
-          <div class="work-card">
-            {work.visual && (
-              <img
-                src={imageUrl(work.visual, 1280, 1080)}
-                width="1280"
-                height="1080"
-                alt={work.title}
-                loading="lazy"
-              />
-            )}
-            <h3>{work.title}</h3>
-            <a href={work.link} target="_blank" rel="noopener noreferrer">
-              {work.link}
-            </a>
-            <p>{work.description}</p>
-            <p>{work.skill}</p>
-            <time datetime={work.published}>{formatDate(work.published)}</time>
+  <section class={biography.biographyWrapper} data-reveal>
+    <Card>
+      <CardHeader title="Biography" icon="/images/biography.webp" />
+      <div class:list={['history', biography.biographyContainer]}>
+        <div class={biography.historyContainer}>
+          <div class={biography.history}>
+            <p class={biography.date}>
+              <time datetime="2016-04">2016/4</time>
+            </p>
+            <p class={biography.description}>
+              SIer企業に入社。インターネット決済システムの設計、試験を担当。
+            </p>
           </div>
-        </li>
-      ))}
-    </ul>
+        </div>
+        <div class={biography.historyContainer}>
+          <div class={biography.history}>
+            <p class={biography.date}>
+              <time datetime="2018-09">2018/9</time>
+            </p>
+            <p class={biography.description}>
+              いちから株式会社（現ANYCOLOR株式会社）に入社。WEBフロント開発、サーバーサイド、社内システム、LP制作・監修、PMなどを担当。
+            </p>
+          </div>
+        </div>
+        <div class={biography.historyContainer}>
+          <div class={biography.history}>
+            <p class={biography.date}>
+              <time datetime="2022-02">2022/2</time>
+            </p>
+            <p class={biography.description}>
+              freee株式会社に入社。申告システムの機能追加や改修をフルスタックで担当。
+            </p>
+          </div>
+        </div>
+        <div class={biography.historyContainer}>
+          <div class={biography.history}>
+            <p class={biography.date}>
+              <time datetime="2022-11">2022/11</time>
+            </p>
+            <p class={biography.description}>株式会社microCMSに入社。</p>
+          </div>
+        </div>
+      </div>
+    </Card>
+  </section>
+  <section class={workStyles.worksWrapper} data-reveal>
+    <Card>
+      <CardHeader title="Works" icon="/images/works.png" />
+      <ul class:list={['works', workStyles.worksContainer]}>
+        {works.map((work) => (
+          <li class={workStyles.workContainer}>
+            <div class:list={['work-card', workStyles.work]}>
+              {work.visual && (
+                <div class={workStyles.imageContainer}>
+                  <img
+                    src={imageUrl(work.visual, 1280, 1080)}
+                    width="1280"
+                    height="1080"
+                    alt={work.title}
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div class={workStyles.description}>
+                <h2>{work.title}</h2>
+                <a href={work.link} target="_blank" rel="noopener noreferrer">
+                  {work.link}
+                </a>
+                <p>{work.description}</p>
+                <p class={workStyles.skill}>{work.skill}</p>
+                <div class={workStyles.time}>
+                  <time datetime={work.published}>
+                    {formatDate(work.published)}
+                  </time>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Card>
   </section>
 </Layout>
-<style>
-  .profile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  .profile img {
-    border-radius: 50%;
-  }
-  .history > div {
-    display: grid;
-    grid-template-columns: 6rem 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .history dd {
-    margin: 0;
-  }
-  .works {
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  .works li {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-  .works img {
-    border-radius: 3rem 3rem 0 3rem;
-  }
-  @media (max-width: 768px) {
-    .profile,
-    .works {
-      grid-template-columns: 1fr;
-    }
-    .profile img {
-      max-width: 280px;
-      margin: auto;
-    }
-  }
-</style>

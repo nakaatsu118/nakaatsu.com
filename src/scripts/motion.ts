@@ -25,7 +25,7 @@ function startMotion() {
   const main = document.querySelector<HTMLElement>('main');
   if (main) play(main, { opacity: [0, 1] }, { duration: 0.3 });
   document
-    .querySelectorAll<HTMLElement>('section.section')
+    .querySelectorAll<HTMLElement>('section[data-reveal]')
     .forEach((element) => {
       cleanups.push(
         inView(element, () => {

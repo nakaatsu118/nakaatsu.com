@@ -1,13 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import CardHeader from '../../components/CardHeader.astro';
+import styles from '../../styles/legacy/Article.module.css';
 import Iframely from '../../components/Iframely.astro';
 import { getContent } from '../../lib/content';
-import {
-  blogPath,
-  categoryPath,
-  imageUrl,
-  formatDate,
-} from '../../lib/urls.mjs';
+import { categoryPath, imageUrl, formatDate } from '../../lib/urls.mjs';
 import { contentDescription } from '../../lib/sanitize-content.mjs';
 export async function getStaticPaths() {
   const { blogs } = await getContent();
@@ -15,11 +13,6 @@ export async function getStaticPaths() {
 }
 const { blog } = Astro.props;
 const description = contentDescription(blog.content);
-const share = new URL('https://twitter.com/share');
-share.search = new URLSearchParams({
-  url: new URL(blogPath(blog.id), Astro.site).href,
-  text: `${blog.title} - nakaatsu World`,
-}).toString();
 ---
 
 <Layout
@@ -30,41 +23,30 @@ share.search = new URLSearchParams({
   publishedAt={blog.publishedAt}
   updatedAt={blog.updatedAt}
 >
-  <article class="section">
-    <h1>{blog.title}</h1>
-    <div class="article-info">
-      <time datetime={blog.publishedAt}>{formatDate(blog.publishedAt)}</time>
-      {blog.category && (
-        <a href={categoryPath(blog.category.id)}>{blog.category.name}</a>
+  <Card>
+    <CardHeader title={blog.title} icon="/images/notebook.svg" share primary />
+    <article class={styles.blogPageContainer}>
+      <div class={styles.infoContainer}>
+        <time datetime={blog.publishedAt}>{formatDate(blog.publishedAt)}</time>
+        {blog.category && (
+          <a class={styles.category} href={categoryPath(blog.category.id)}>
+            {blog.category.name}
+          </a>
+        )}
+      </div>
+      {blog.eyecatch && (
+        <div class={styles.imageContainer}>
+          <img
+            src={imageUrl(blog.eyecatch, 1200)}
+            width={blog.eyecatch.width}
+            height={blog.eyecatch.height}
+            alt={blog.title}
+            fetchpriority="high"
+          />
+        </div>
       )}
-    </div>
-    {blog.content.includes('sponsored') && (
-      <p class="disclosure">
-        この記事にはアフィリエイトリンクが含まれています。
-      </p>
-    )}
-    {blog.eyecatch && (
-      <img
-        class="eyecatch"
-        src={imageUrl(blog.eyecatch, 1200)}
-        width={blog.eyecatch.width}
-        height={blog.eyecatch.height}
-        alt={blog.title}
-        fetchpriority="high"
-      />
-    )}
-    <div class="content" set:html={blog.content} />
-    {blog.content.includes('data-iframely-url=') && <Iframely />}
-    <a
-      class="share-link"
-      href={share}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      この記事をXで共有
-    </a>
-    <p>
-      <a href="/blog">ブログ一覧へ</a>
-    </p>
-  </article>
+      <div class:list={['content', styles.content]} set:html={blog.content} />
+      {blog.content.includes('data-iframely-url=') && <Iframely />}
+    </article>
+  </Card>
 </Layout>
