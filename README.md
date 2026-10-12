@@ -69,7 +69,7 @@ GitHub Actionsでは認証情報なしで同じ検証を行います。外部PR�
 - 検証用ビルドとWranglerローカル配信でJSなしの遷移・301・404を確認しました。実CMS25記事の本文・画像URL・リンク先・埋め込みURLを照合し、制作実績3件もビルドしました。`node scripts/verify-content-parity.mjs`で再照合できます。
 - Cloudflare CLI認証・CMS環境変数の設定を完了し、[検証サイト](https://nakaatsu-site.nakaatsu-world.workers.dev)へデプロイ済みです。検索登録とGTMは無効です。`python tests/preview.py`で全40URL・301・404・ヘッダー・モバイル表示を確認しました。
 - CloudflareのDNSゾーンを無料プランで準備し、既存4レコードをDNSのみで設定しました。元の設定は[DNS移行前記録](docs/dns-before-migration.md)に保存しています。DNSSECは承認を受けて一時解除済みで、旧DSのキャッシュ失効待ちです。ネームサーバー変更は2026-10-13 10:51 JST以降に再確認して実施します。本番切り替え、Vercel停止は未実施です。
-- Workers BuildsをGitHubへ接続し、対象ブランチを`migration/astro-cloudflare`に設定しました。Node 24.21.0、検証用環境変数、暗号化したCMSキーを登録済みです。実ビルドとWebhookの検証は進行中です。mainへマージ後、ビルド対象ブランチもmainへ切り替えます。
+- Workers BuildsをGitHubへ接続し、対象ブランチを`migration/astro-cloudflare`に設定しました。Node 24.21.0、検証用環境変数、暗号化したCMSキーを登録済みです。Git pushから実CMSビルド・検証・デプロイの成功を確認しました。blogs・works・categoriesに同じDeploy Hookを登録し、公開・公開中更新・公開終了・公開中削除を通知します。mainへマージ後、ビルドとHookの対象ブランチもmainへ切り替えます。
 - Amazon登録・契約・費用・PV・DNSSEC・メール・Search Console・実ユーザー速度の確認、切り替え後の監視は残っています。
 
 全体の移行ゴールは継続中です。検証用ビルドの成功は本番移行の完了を示しません。
