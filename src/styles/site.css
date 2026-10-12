@@ -49,9 +49,6 @@ a:focus-visible {
   position: absolute;
   inset: 0;
 }
-.content {
-  overflow-wrap: anywhere;
-}
 .content iframe {
   max-width: 100%;
   border: 0;
