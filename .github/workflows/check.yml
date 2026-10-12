@@ -1,0 +1,41 @@
+name: Check migration
+on:
+  pull_request:
+  push:
+    branches: [main, migration/astro-cloudflare]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.21.0'
+          cache: npm
+      - run: npm install -g npm@11.19.0
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build:fixtures
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r tests/requirements.txt
+      - run: python -m unittest discover -s tests -p 'test_*.py'
+      - run: python -m playwright install --with-deps chromium
+      - name: Browser checks on Workers Static Assets
+        run: |
+          npx wrangler dev --assets dist-test --port 8787 --local --show-interactive-dev-session=false > /tmp/wrangler.log 2>&1 &
+          WRANGLER_PID=$!
+          trap 'kill "$WRANGLER_PID"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8787/blog > /dev/null; then break; fi
+            sleep 1
+          done
+          python tests/browser.py
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-screenshots
+          path: test-results/

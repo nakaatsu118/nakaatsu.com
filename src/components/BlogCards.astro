@@ -1,0 +1,33 @@
+---
+import type { Blog } from '../lib/content';
+import { blogPath, imageUrl, formatDate } from '../lib/urls.mjs';
+interface Props {
+  blogs: Blog[];
+}
+const { blogs } = Astro.props;
+---
+
+<ul class="blog-grid">
+  {blogs.map((blog, i) => (
+    <li>
+      <a class="blog-card" href={blogPath(blog.id)}>
+        <div class="card-image">
+          <img
+            src={imageUrl(blog.eyecatch, 480, 480)}
+            width="480"
+            height="480"
+            alt=""
+            loading={i < 3 ? 'eager' : 'lazy'}
+          />
+          {blog.category && <span class="badge">{blog.category.name}</span>}
+        </div>
+        <div class="card-text">
+          <time datetime={blog.publishedAt}>
+            {formatDate(blog.publishedAt)}
+          </time>
+          <h2>{blog.title}</h2>
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>

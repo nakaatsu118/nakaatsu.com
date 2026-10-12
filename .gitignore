@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+/test-results/
+__pycache__/
 
 # next.js
 /.next/
@@ -14,6 +16,10 @@
 
 # production
 /build
+/dist/
+/dist-test/
+/.astro/
+/.wrangler/
 robots.txt
 sitemap.xml
 

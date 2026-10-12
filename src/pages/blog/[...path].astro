@@ -1,0 +1,15 @@
+---
+import Listing from '../../components/Listing.astro';
+import { getContent } from '../../lib/content';
+import { listingPages } from '../../lib/urls.mjs';
+export async function getStaticPaths() {
+  const { blogs } = await getContent();
+  return listingPages(blogs).map((page) => ({
+    params: { path: page.path.slice('/blog'.length + 1) || undefined },
+    props: { page },
+  }));
+}
+const { page } = Astro.props;
+---
+
+<Listing page={page} />

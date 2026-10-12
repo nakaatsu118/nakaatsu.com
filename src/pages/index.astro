@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogCards from '../components/BlogCards.astro';
+import { getContent } from '../lib/content';
+import { Image } from 'astro:assets';
+import hero from '../../public/images/nakaatsu_top.webp';
+const { blogs } = await getContent();
+---
+
+<Layout title="Welcome!">
+  <section class="section">
+    <h1>Welcome!</h1>
+    <Image
+      class="hero"
+      src={hero}
+      alt="nakaatsuの世界"
+      widths={[480, 900, 1200]}
+      sizes="(max-width: 768px) calc(100vw - 32px), 900px"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <nav class="social" aria-label="SNS">
+      <a
+        href="https://x.com/nakaatsu"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        X
+      </a>
+      <a
+        href="https://www.instagram.com/nakaatsu_world/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+      <a
+        href="https://github.com/nakaatsu118"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+    </nav>
+    <h2>このサイトについて</h2>
+    <p>
+      こんにちは。なかあつです。このサイトは<a href="/profile">@nakaatsu</a>
+      の日々をしたためています。
+      <br />
+      多趣味でごっちゃにななかあつの世界がここにあります。
+    </p>
+    <p>
+      🔥Next.js / React / TypeScript
+      <br />
+      🐠Aquarium / 🌿Plants / 👨‍🍳Cooking / 📸Gadget
+    </p>
+  </section>
+  <section class="section" aria-labelledby="latest">
+    <h2 id="latest">Blog</h2>
+    <BlogCards blogs={blogs.slice(0, 6)} />
+    <a href="/blog">ブログをもっと見る →</a>
+  </section>
+</Layout>
+<style>
+  .hero {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    border-radius: 5rem 5rem 0 5rem;
+  }
+  .social {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+</style>

@@ -2,38 +2,36 @@
   "name": "nakaatsu-world",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "serve out -l 3000",
+    "dev": "astro dev",
+    "build": "astro build && node scripts/verify-build.mjs",
+    "start": "wrangler dev --local",
     "lint": "eslint . --max-warnings 0",
     "fix:lint": "eslint . --fix --max-warnings 0",
-    "typecheck": "next typegen && tsc --noEmit",
+    "typecheck": "astro check",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run lint && npm run typecheck && npm run format:check"
+    "check": "npm run lint && npm run typecheck && npm test && npm run format:check",
+    "test": "node --test tests/*.test.mjs",
+    "build:fixtures": "node scripts/build-fixtures.mjs",
+    "deploy": "node scripts/verify-build.mjs --deploy && wrangler deploy"
   },
   "dependencies": {
-    "@ant-design/icons": "^6.3.4",
-    "@next/third-parties": "16.3.8",
-    "animate.css": "^4.1.1",
-    "dayjs": "^1.11.23",
-    "framer-motion": "^14.0.0",
-    "html-react-parser": "^6.1.8",
-    "microcms-js-sdk": "^3.5.1",
-    "next": "16.3.8",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
-    "server-only": "0.0.1"
+    "astro": "^7.3.8",
+    "parse5": "^8.0.1",
+    "sanitize-html": "^2.18.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@eslint/js": "^10.0.1",
     "@types/node": "^24.19.1",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "eslint": "^9.39.5",
-    "eslint-config-next": "16.3.8",
+    "@types/sanitize-html": "^2.16.2",
+    "eslint": "^10.12.0",
+    "eslint-plugin-astro": "^3.2.1",
     "prettier": "^3.9.9",
-    "serve": "^14.2.6",
-    "typescript": "~5.9.3"
+    "prettier-plugin-astro": "^1.1.1",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.1",
+    "wrangler": "^4.149.0"
   },
   "engines": {
     "node": ">=24.21.0 <25"

@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getContent } from '../lib/content';
+import { imageUrl, formatDate } from '../lib/urls.mjs';
+import { Image } from 'astro:assets';
+import portrait from '../../public/images/Icon_nakaatsu_.webp';
+const { works } = await getContent();
+---
+
+<Layout title="Profile">
+  <section class="section">
+    <h1>Profile</h1>
+    <div class="profile">
+      <Image
+        src={portrait}
+        alt="nakaatsu"
+        widths={[280, 480, 960]}
+        sizes="(max-width: 768px) 280px, 450px"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div>
+        <h2>なかあつ / nakaatsu</h2>
+        <p>1993年生まれ。東京都在住。</p>
+        <p>Webフロントエンドエンジニア寄りのフルスタックエンジニア。</p>
+        <p>
+          📧 <a href="mailto:nakaatsu0118@gmail.com">nakaatsu0118@gmail.com</a>
+        </p>
+        <h3>スキル</h3>
+        <ul>
+          <li>React / Next.js / TypeScript / JavaScript / HTML / CSS</li>
+          <li>Ruby / Ruby on Rails / Node.js / Golang / PHP</li>
+          <li>
+            Firebase / AWS / GCP / microCMS / Salesforce / GTM / GA / GSC /
+            Google App Script
+          </li>
+          <li>Figma / Adobe XD</li>
+        </ul>
+        <h3>趣味</h3>
+        <p>
+          趣味はアクアリウム、アクアテラリウム、植物、料理、お菓子作り、ゲーム、ポケモンカード、ガジェット、インテリア、プログラミング、散歩などなど…
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Biography</h2>
+    <dl class="history">
+      <dt>
+        <time datetime="2016-04">2016/4</time>
+      </dt>
+      <dd>SIer企業に入社。インターネット決済システムの設計、試験を担当。</dd>
+      <dt>
+        <time datetime="2018-09">2018/9</time>
+      </dt>
+      <dd>
+        いちから株式会社（現ANYCOLOR株式会社）に入社。WEBフロント開発、サーバーサイド、社内システム、LP制作・監修、PMなどを担当。
+      </dd>
+      <dt>
+        <time datetime="2022-02">2022/2</time>
+      </dt>
+      <dd>
+        freee株式会社に入社。申告システムの機能追加や改修をフルスタックで担当。
+      </dd>
+      <dt>
+        <time datetime="2022-11">2022/11</time>
+      </dt>
+      <dd>株式会社microCMSに入社。</dd>
+    </dl>
+  </section>
+  <section class="section">
+    <h2>Works</h2>
+    <ul class="works">
+      {works.map((work) => (
+        <li>
+          {work.visual && (
+            <img
+              src={imageUrl(work.visual, 1280, 1080)}
+              width="1280"
+              height="1080"
+              alt={work.title}
+              loading="lazy"
+            />
+          )}
+          <h3>{work.title}</h3>
+          <a href={work.link} target="_blank" rel="noopener noreferrer">
+            {work.link}
+          </a>
+          <p>{work.description}</p>
+          <p>{work.skill}</p>
+          <time datetime={work.published}>{formatDate(work.published)}</time>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>
+<style>
+  .profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .profile img {
+    border-radius: 50%;
+  }
+  .history {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1.5rem;
+  }
+  .history dd {
+    margin: 0;
+  }
+  .works {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .works li {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .works img {
+    border-radius: 3rem 3rem 0 3rem;
+  }
+  @media (max-width: 768px) {
+    .profile,
+    .works {
+      grid-template-columns: 1fr;
+    }
+    .profile img {
+      max-width: 280px;
+      margin: auto;
+    }
+  }
+</style>

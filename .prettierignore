@@ -2,6 +2,11 @@ node_modules/
 .next/
 out/
 build/
+dist/
+dist-test/
+.astro/
+.wrangler/
+test-results/
 .cursor/
 package-lock.json
 next-env.d.ts

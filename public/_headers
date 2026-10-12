@@ -1,0 +1,6 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: DENY
+  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://cdn.iframe.ly https://iframely.net https://www.googletagmanager.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://cdn.iframe.ly https://iframely.net https://iframe.ly https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://iframe.ly https://cdn.iframe.ly https://iframely.net
