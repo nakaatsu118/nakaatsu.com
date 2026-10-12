@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ShareLink from '../components/ShareLink.astro';
 import BlogCards from '../components/BlogCards.astro';
 import { getContent } from '../lib/content';
 import { Image } from 'astro:assets';
@@ -10,6 +11,7 @@ const { blogs } = await getContent();
 <Layout title="Welcome!">
   <section class="section">
     <h1>Welcome!</h1>
+    <ShareLink title="Welcome!" />
     <Image
       class="hero"
       src={hero}

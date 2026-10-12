@@ -53,6 +53,7 @@ const pageTitle = `${title} | nakaatsu World`;
     {updatedAt && <meta property="article:modified_time" content={updatedAt} />}
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true" hidden></div>
     {!preview && <Analytics />}
     <a class="skip" href="#main">
       本文へスキップ
@@ -84,3 +85,6 @@ const pageTitle = `${title} | nakaatsu World`;
     </footer>
   </body>
 </html>
+<script>
+  import '../scripts/motion';
+</script>

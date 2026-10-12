@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ShareLink from '../components/ShareLink.astro';
 import { getContent } from '../lib/content';
 import { imageUrl, formatDate } from '../lib/urls.mjs';
 import { Image } from 'astro:assets';
@@ -10,6 +11,7 @@ const { works } = await getContent();
 <Layout title="Profile">
   <section class="section">
     <h1>Profile</h1>
+    <ShareLink title="Profile" />
     <div class="profile">
       <Image
         src={portrait}
@@ -46,26 +48,34 @@ const { works } = await getContent();
   <section class="section">
     <h2>Biography</h2>
     <dl class="history">
-      <dt>
-        <time datetime="2016-04">2016/4</time>
-      </dt>
-      <dd>SIer企業に入社。インターネット決済システムの設計、試験を担当。</dd>
-      <dt>
-        <time datetime="2018-09">2018/9</time>
-      </dt>
-      <dd>
-        いちから株式会社（現ANYCOLOR株式会社）に入社。WEBフロント開発、サーバーサイド、社内システム、LP制作・監修、PMなどを担当。
-      </dd>
-      <dt>
-        <time datetime="2022-02">2022/2</time>
-      </dt>
-      <dd>
-        freee株式会社に入社。申告システムの機能追加や改修をフルスタックで担当。
-      </dd>
-      <dt>
-        <time datetime="2022-11">2022/11</time>
-      </dt>
-      <dd>株式会社microCMSに入社。</dd>
+      <div>
+        <dt>
+          <time datetime="2016-04">2016/4</time>
+        </dt>
+        <dd>SIer企業に入社。インターネット決済システムの設計、試験を担当。</dd>
+      </div>
+      <div>
+        <dt>
+          <time datetime="2018-09">2018/9</time>
+        </dt>
+        <dd>
+          いちから株式会社（現ANYCOLOR株式会社）に入社。WEBフロント開発、サーバーサイド、社内システム、LP制作・監修、PMなどを担当。
+        </dd>
+      </div>
+      <div>
+        <dt>
+          <time datetime="2022-02">2022/2</time>
+        </dt>
+        <dd>
+          freee株式会社に入社。申告システムの機能追加や改修をフルスタックで担当。
+        </dd>
+      </div>
+      <div>
+        <dt>
+          <time datetime="2022-11">2022/11</time>
+        </dt>
+        <dd>株式会社microCMSに入社。</dd>
+      </div>
     </dl>
   </section>
   <section class="section">
@@ -73,22 +83,24 @@ const { works } = await getContent();
     <ul class="works">
       {works.map((work) => (
         <li>
-          {work.visual && (
-            <img
-              src={imageUrl(work.visual, 1280, 1080)}
-              width="1280"
-              height="1080"
-              alt={work.title}
-              loading="lazy"
-            />
-          )}
-          <h3>{work.title}</h3>
-          <a href={work.link} target="_blank" rel="noopener noreferrer">
-            {work.link}
-          </a>
-          <p>{work.description}</p>
-          <p>{work.skill}</p>
-          <time datetime={work.published}>{formatDate(work.published)}</time>
+          <div class="work-card">
+            {work.visual && (
+              <img
+                src={imageUrl(work.visual, 1280, 1080)}
+                width="1280"
+                height="1080"
+                alt={work.title}
+                loading="lazy"
+              />
+            )}
+            <h3>{work.title}</h3>
+            <a href={work.link} target="_blank" rel="noopener noreferrer">
+              {work.link}
+            </a>
+            <p>{work.description}</p>
+            <p>{work.skill}</p>
+            <time datetime={work.published}>{formatDate(work.published)}</time>
+          </div>
         </li>
       ))}
     </ul>
@@ -103,10 +115,11 @@ const { works } = await getContent();
   .profile img {
     border-radius: 50%;
   }
-  .history {
+  .history > div {
     display: grid;
     grid-template-columns: 6rem 1fr;
     gap: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   .history dd {
     margin: 0;

@@ -55,7 +55,12 @@ share.search = new URLSearchParams({
     )}
     <div class="content" set:html={blog.content} />
     {blog.content.includes('data-iframely-url=') && <Iframely />}
-    <a href={share} target="_blank" rel="noopener noreferrer">
+    <a
+      class="share-link"
+      href={share}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       この記事をXで共有
     </a>
     <p>
