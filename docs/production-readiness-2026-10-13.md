@@ -13,11 +13,11 @@
 - 検証記事 `blogs/m2cravpms5v` の一時公開とタイトル更新がそれぞれmicroCMSのDeploy HookでWorkers Buildsを起動。Workerと現行Vercelの両方で更新後タイトルをHTTP 200で確認。公開終了後、microCMSの公開APIと両サイトの記事URLがHTTP 404になり、記事を下書きへ戻した。
 - 一時的にビルドコマンドを失敗させたコミット `dccefe0` のWorkers Buildsは失敗。失敗中もWorkerのトップとブログ一覧はHTTP 200、停止済み検証記事はHTTP 404で、従来版の配信が続いた。復旧コミット `5d8376c` でビルドコマンドを元に戻し、Workers BuildsとGitHub Actionsが成功した。
 - Workers Buildsの本番ブランチとmicroCMSのDeploy Hookをmainへ変更して保存。`SITE_PRODUCTION=false`と既存の暗号化CMSキーを維持した。
+- mainのコミット `adf7773` からのWorkers Builds `796e6a24-e5c4-439f-a201-9c4198c6c450` とGitHub Actionsは成功。検証Workerは `tests/preview.py` で40 URL、noindex、ヘッダー、転送、404、JSなしモバイル表示に合格。現行wwwはVercelからHTTP 200で配信され、wwwのCNAMEは `cname.vercel-dns.com` のまま。
 
 ## 残る本番準備
 
 - CMS更新がビルド中に重なる実地試験は、依頼者の判断で本番準備の必須項目から除外した。取得中の更新検知は単体テストで確認済み。
-- mainからの最終Workers Builds成功と検証URLの配信状態を確認する。
 - WorkerのプレビューURLは本番切り替えまで `SITE_PRODUCTION=false` を維持する。同じWorkerを `workers.dev` でも公開しているため、先に `true` にするとプレビューのクロール抑止が外れる。本番ビルド設定の切り替えとSEOの再確認はCustom Domain接続と同じ切り替え工程で行う。
 
 ## 切り替え時と復旧

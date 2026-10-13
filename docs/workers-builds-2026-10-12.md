@@ -33,6 +33,8 @@ microCMSはWebhook送信失敗時に自動再送しないため、更新後はCl
 
 PR #26をmainへ統合し、Workers BuildsとDeploy Hookの対象ブランチをmainへ変更した。DNS委任は2026-10-13に完了した。WorkersのCustom Domainを接続する本番サイト切り替えまでは`SITE_PRODUCTION=false`を維持する。現在の確認結果と残件は[本番準備記録](production-readiness-2026-10-13.md)、復旧用レコードは[DNS移行記録](dns-before-migration.md)を参照。
 
+mainへの切り替え後、コミット `adf7773` のWorkers BuildsとGitHub Actionsは成功し、検証Workerの40 URLを再確認した。
+
 検証サイト: https://nakaatsu-site.nakaatsu-world.workers.dev
 
 通常のGitHub ActionsとWorkers Buildsは成功。意図的な失敗試験のビルドは例外として記録した。VercelのGit自動デプロイは移行ブランチの `vercel.json` で停止し、既存の成功済み本番デプロイは維持する。
