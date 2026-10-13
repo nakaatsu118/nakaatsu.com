@@ -1,5 +1,7 @@
 # Workers Builds・microCMS接続記録
 
+本番切り替え後の配信先と検索設定は [本番切り替え記録](production-cutover-2026-10-13.md) を参照。この文書内の `SITE_PRODUCTION=false` と workers.dev URL は検証時点の値。
+
 2026-10-12に検証環境へ接続した。本番DNSとVercelの配信先は変更していない。
 
 ## 保存した設定
