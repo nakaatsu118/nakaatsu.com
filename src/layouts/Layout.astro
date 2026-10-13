@@ -29,7 +29,8 @@ const canonical = new URL(canonicalPath(Astro.url.pathname), Astro.site);
 const preview =
   import.meta.env.SITE_PRODUCTION !== 'true' ||
   import.meta.env.SITE_TEST_FIXTURES === '1';
-const pageTitle = `${title} | nakaatsu World`;
+const pageTitle =
+  title === 'nakaatsu World' ? title : `${title} | nakaatsu World`;
 ---
 
 <!doctype html>
