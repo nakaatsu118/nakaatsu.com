@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/verify-build.mjs",
+    "build": "node -e \"process.exit(1)\"",
     "start": "wrangler dev --local",
     "lint": "eslint . --max-warnings 0",
     "fix:lint": "eslint . --fix --max-warnings 0",
