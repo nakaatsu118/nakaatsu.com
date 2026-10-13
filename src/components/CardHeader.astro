@@ -1,0 +1,51 @@
+---
+import styles from '../styles/legacy/CardHeader.module.css';
+import Icon from './Icon.astro';
+import { canonicalPath } from '../lib/urls.mjs';
+interface Props {
+  title: string;
+  icon: string;
+  link?: string;
+  share?: boolean;
+  primary?: boolean;
+}
+const { title, icon, link, share = false, primary = false } = Astro.props;
+const Heading = primary ? 'h1' : 'h2';
+const shareUrl = new URL('https://twitter.com/share');
+shareUrl.search = new URLSearchParams({
+  url: new URL(canonicalPath(Astro.url.pathname), Astro.site).href,
+  text: `${title} - nakaatsu World`,
+}).toString();
+---
+
+<header class={styles.headContainer}>
+  <div class={styles.contents}>
+    <div class={styles.left}>
+      <a href={link}>
+        <img class={styles.headIcon} src={icon} alt="" width="32" height="32" />
+        <Heading class={styles.title}>{title}</Heading>
+      </a>
+    </div>
+    <div class={styles.right}>
+      {share ? (
+        <a
+          class="share-link"
+          href={shareUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${title}をXで共有`}
+        >
+          <Icon name="share-alt" class={styles.icon} />
+        </a>
+      ) : link ? (
+        <a href={link}>
+          MORE
+          <Icon
+            name="swap-right"
+            class={`${styles.icon} ${styles.rightAnimation}`}
+          />
+        </a>
+      ) : null}
+    </div>
+  </div>
+</header>

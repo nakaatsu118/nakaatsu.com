@@ -1,0 +1,33 @@
+<script>
+  const win = window as Window & { dataLayer?: Record<string, unknown>[] };
+  win.dataLayer = win.dataLayer || [];
+  win.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+  const tag = document.createElement('script');
+  tag.async = true;
+  tag.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PR49LG4';
+  document.head.append(tag);
+  document.addEventListener('click', (event) => {
+    const link =
+      event.target instanceof Element
+        ? event.target.closest<HTMLAnchorElement>('a[rel~="sponsored"]')
+        : null;
+    if (!link) return;
+    win.dataLayer?.push({
+      event: 'affiliate_click',
+      article_id: location.pathname.split('/').at(-1),
+      placement: 'article_body',
+      product_id: new URL(link.href).pathname.match(
+        /\/(?:dp|gp\/product)\/([A-Z0-9]{10})(?:\/|$)/,
+      )?.[1],
+    });
+  });
+</script>
+<noscript>
+  <iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-PR49LG4"
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"
+    title="Google Tag Manager"
+  ></iframe>
+</noscript>

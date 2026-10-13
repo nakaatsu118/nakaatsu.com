@@ -1,46 +1,81 @@
-# nakaatsu`s World
+# nakaatsu World
 
-nakaatsu の個人サイト＆ポートフォリオサイトです。
-
-Next.js 16のApp Router、React 19、Framer Motionを使用しています。
+nakaatsuの個人サイト・ブログ・ポートフォリオです。AstroでmicroCMSの公開コンテンツを静的生成し、Cloudflare Workers Static Assetsで配信します。
 
 ## セットアップ
 
-Node.js 24.21.0とnpm 11.19.0を使用します。asdfを使う場合は`asdf install`で`.tool-versions`のバージョンをインストールしてください。依存関係はnpmと`package-lock.json`で管理します。
+Node.js 24.21.0 / npm 11.19.0を使用します（`.tool-versions`参照）。
 
 ```sh
 npm ci
 cp .env.sample .env
-```
-
-`.env`に`MICROCMS_SERVICE_DOMAIN`と`MICROCMS_API_KEY`を設定してください。APIキーはサーバー側でのみ使用します。`NEXT_PUBLIC_`を付けたり、`next.config.mjs`の`env`に追加したりしないでください。
-
-```sh
 npm run dev
 ```
 
-## 検証とビルド
+`.env`に`MICROCMS_SERVICE_DOMAIN`と`MICROCMS_API_KEY`を設定します。キーはビルド時だけ使用し、`PUBLIC_`を付けません。既存CMSのblogs・worksのID、本文、公開日時をそのまま使います。
+
+`SITE_URL=https://www.nakaatsu.com`は既存の転送先に合わせています。2026-10-12のHTTP確認ではapexがwwwへ308、wwwが200でした。Search Consoleの登録ホストとの照合は未実施です。
+
+## 検証・ビルド
 
 ```sh
-# Lint・型チェック・整形チェック
 npm run check
-
-# 静的サイトをout/に生成（microCMSへの接続が必要）
 npm run build
-
-# 生成済みの静的サイトをhttp://localhost:3000で確認
 npm start
 ```
 
-`npm run fix:lint`でLintの自動修正、`npm run format`でPrettierによる整形を実行できます。Next.js 16のビルドではLintが実行されないため、ビルド前に`npm run check`を実行してください。
+`check`はESLint・Astro型チェック・単体テスト・Prettierを実行します。`build`は実CMSへ接続し、取得件数・重複ID・更新日時を検証して`dist/`を生成した後、URL数・HTML・sitemap・秘密情報混入を検証します。不完全な取得結果は成功扱いしません。CMSリクエストは10秒タイムアウト、通信障害・429・5xxは最大3回試行します。取得後のID・公開日時・更新日時照合は更新競合の検知であり、CMSのトランザクションを保証するものではありません。
 
-## 公開とCMSの更新
+`npm start`はWranglerのローカル環境で配信設定・301・404を確認します。公開対象は`dist/`だけです。
 
-ホスティング先には`out/`の内容のみを配信します。`next start`は使用しません。HTMLの拡張子を省いたURL（例：`/profile`）と、存在しないURLへの`404.html`の配信に対応する必要があります。
+### CMS認証なしの自動検証
 
-静的出力ではISRによる自動再生成は行われません。microCMSの記事・制作実績を更新した際は、ビルドとデプロイを再実行してください。ブログ本文のIframely埋め込みは、ブラウザーで外部スクリプトを読み込んで表示します。
+```sh
+npm run build:fixtures
+python -m pip install -r tests/requirements.txt
+python -m playwright install chromium
+npx wrangler dev --assets dist-test --port 8787 --local --show-interactive-dev-session=false
+# 別ターミナル
+python tests/browser.py
+```
 
-## 更新を保留しているもの
+検証専用の記事20件と制作実績1件から、28公開URL＋404を生成します。`dist-test/`へ隔離し、noindex・計測無効を強制します。`dist-test/`を本番へデプロイしないでください。ブラウザ検証はJS無効でカテゴリ・ページ・履歴・再読み込み、モバイル表示、本文サニタイズ、301・404、メタデータを確認します。外部埋め込みの通信は遮断するため、その表示は実データ検証が別途必要です。
 
-- TypeScriptは5.9.3、ESLintは9系を使用します。typescript-eslintのTypeScript対応範囲と、eslint-plugin-reactのESLint対応範囲を確認してからメジャー更新してください。
-- 2026年10月3日時点で、開発用の`eslint-config-next → @next/eslint-plugin-next → fast-glob → micromatch → braces`に[CVE-2026-93687](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm)が残っています。`braces`の修正版は未公開です。Next.jsのLint設定の`settings.next.rootDir`で指定するglobに影響するため、外部入力を設定値に使用しないでください。本プロジェクトではこの設定を指定していません。本番用依存関係の監査は`npm audit --omit=dev`、全依存関係の監査は`npm audit`で行います。修正版が公開されたらロックファイルを更新してください。`npm audit fix --force`によるNext.jsのLint設定のダウングレードは避けてください。
+GitHub Actionsでは認証情報なしで同じ検証を行います。外部PRにCMSキーを渡しません。
+
+公開サイトの移行前比較データは`docs/production-baseline.json`に保存しています（記事25件を含む32 URL）。`python scripts/capture-baseline.py`で更新できます。公開HTMLの情報だけであり、CMSスナップショットやDNSの復旧設定の代わりにはなりません。Amazonリンク先へのアクセスは行いません。
+
+## Cloudflareへの切り替え
+
+詳細は[移行計画](docs/cloudflare-astro-migration-plan.md)と[調査結果](docs/project-review-2026-10-12.md)を参照してください。初期構成にSSR・Hono・Cloudflareアダプターは不要です。
+
+1. `wrangler login`で使用アカウントを確認し、Workers Buildsにリポジトリを接続します。Worker名は`nakaatsu-site`です。
+2. ビルド環境にCMSの2変数と`SITE_URL`を登録します。検証環境は`SITE_PRODUCTION=false`にします。
+3. ビルドコマンドを`npm run check && npm run build`、デプロイコマンドを`npm run deploy`に設定します。デプロイ前にも成果物を検証し、失敗したビルドをデプロイしません。`SITE_TEST_FIXTURES`は設定しません。
+4. main用Deploy Hookを作成し、microCMSの公開・公開中更新・公開停止・削除からHTTP POSTするカスタムWebhookを設定します。Hook URLは秘密情報として扱います。
+5. 実記事の全URL・画像・埋め込み・Amazonタグ・更新反映を確認します。連続更新、ビルド失敗時の旧版維持と再実行も検証します。
+6. DNSのA/AAAA/CNAME/MX/TXT/CAA、DNSSEC、メール、Vercelの復旧設定を控えます。Cloudflare zoneへ移行しても、Webの参照先はサイト切り替えまでVercelを維持します。
+7. 検証済みの本番ビルドで`SITE_PRODUCTION=true`にし、wwwのCustom Domainを接続します。apexからwwwへパスとクエリを保った301をRedirect Rulesで設定します。
+8. SSL・メール・robots・canonical・sitemap・全URLとWebhookを本番で確認し、7〜14日の監視後にVercelの旧Webhook・不要な契約を整理します。
+
+既存GTM（GTM-PR49LG4）は本番ビルドだけで読み込みます。Amazonリンクは直接遷移を維持し、`affiliate_click`に記事ID・掲載位置・取得可能なASINを付けます。GTM側の重複タグと既存計測設定の照合は必要です。CSPは`public/_headers`でReport-Onlyから開始し、実埋め込み・計測の検証後に強制へ切り替えます。
+
+ロールバックは直近正常なCloudflareデプロイへの復元を基本とし、移行自体の問題ならCustom Domainの競合設定を解除して保存済みVercel用DNSへ戻します。Cloudflare DNSは維持し、ネームサーバーの再変更を通常の復旧手順にはしません。
+
+## 移行状況（2026-10-12）
+
+- `migration/astro-cloudflare`でトップ・ブログ・カテゴリ・記事・プロフィール・ポリシー・404・sitemap・robotsを移植しました。Next.js／Reactと旧コードを削除しました。Framer MotionはDOM向けAPIで再導入し、Astroの静的HTMLへアニメーションを付けています。
+- サニタイズ、CMSの全件取得・再試行・整合性、ページURL・画像フォールバックを単体テストで検証しています。
+- 検証用ビルドとWranglerローカル配信でJSなしの遷移・301・404を確認しました。実CMS25記事の本文・画像URL・リンク先・埋め込みURLを照合し、制作実績3件もビルドしました。`node scripts/verify-content-parity.mjs`で再照合できます。
+- Cloudflare CLI認証・CMS環境変数の設定を完了し、[検証サイト](https://nakaatsu-site.nakaatsu-world.workers.dev)へデプロイ済みです。検索登録とGTMは無効です。`python tests/preview.py`で全40URL・301・404・ヘッダー・モバイル表示を確認しました。
+- CloudflareのDNSゾーンを無料プランで準備し、既存4レコードをDNSのみで設定しました。元の設定は[DNS移行前記録](docs/dns-before-migration.md)に保存しています。DNSSECは承認を受けて一時解除済みで、旧DSのキャッシュ失効待ちです。ネームサーバー変更は2026-10-13 10:51 JST以降に再確認して実施します。本番切り替え、Vercel停止は未実施です。
+- Workers BuildsをGitHubへ接続し、対象ブランチを`migration/astro-cloudflare`に設定しました。Node 24.21.0、検証用環境変数、暗号化したCMSキーを登録済みです。Git pushから実CMSビルド・検証・デプロイの成功を確認しました。blogs・works・categoriesに同じDeploy Hookを登録し、公開・公開中更新・公開終了・公開中削除を通知します。mainへマージ後、ビルドとHookの対象ブランチもmainへ切り替えます。
+- Amazon登録・契約・費用・PV・DNSSEC・メール・Search Console・実ユーザー速度の確認、切り替え後の監視は残っています。
+
+モーションは`src/scripts/motion.ts`で管理します。ページのフェード、画像・カード・経歴の登場、ホバー・押下、スクロール進捗をFramer Motionで描画します。初期HTMLを非表示にせず、JavaScript無効時も本文を読めます。`prefers-reduced-motion`の変更時はJSアニメーションも停止します。登場演出は各ページ表示中に一度再生し、ページ遷移は通常のリンク遷移を維持します。`python tests/motion.py`でJS有効の動作を検証します。
+
+全体の移行ゴールは継続中です。検証用ビルドの成功は本番移行の完了を示しません。
+
+現行サイトの見た目は`src/styles/legacy/`の元CSSと、共通の`Card`・`CardHeader`で維持します。Google Fonts、SNSアイコン、背景の切り替え、画像のトリミング、記事見出し、固定ナビゲーションを移植しています。本文のh1はh2へ変換しても`cms-title`で元の装飾を保持します。
+
+画面比較は`python tests/capture-design.py`で両サイトのスクリーンショットと要素寸法を保存し、`python tests/compare-design.py`で照合します。`PREVIEW_URL`で比較先、`CAPTURE_SITE`（original/astro）・`CAPTURE_PAGES`・`CAPTURE_WIDTHS`（カンマ区切り）で範囲を指定できます。成果物は`test-results/design/`に保存します。通常のスクリーンショットと、登場アニメーションを静止させた全ページ画像を分けて記録し、動作自体は`tests/motion.py`で検証します。外部埋め込みやCMS更新で差分が発生した場合は、原本も同時に再取得してください。

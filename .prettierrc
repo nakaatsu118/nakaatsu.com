@@ -2,5 +2,7 @@
   "trailingComma": "all",
   "singleQuote": true,
   "jsxSingleQuote": false,
-  "semi": true
+  "semi": true,
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-astro"]
 }

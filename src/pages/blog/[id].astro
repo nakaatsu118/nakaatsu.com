@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import CardHeader from '../../components/CardHeader.astro';
+import styles from '../../styles/legacy/Article.module.css';
+import Iframely from '../../components/Iframely.astro';
+import { getContent } from '../../lib/content';
+import { categoryPath, imageUrl, formatDate } from '../../lib/urls.mjs';
+import { contentDescription } from '../../lib/sanitize-content.mjs';
+export async function getStaticPaths() {
+  const { blogs } = await getContent();
+  return blogs.map((blog) => ({ params: { id: blog.id }, props: { blog } }));
+}
+const { blog } = Astro.props;
+const description = contentDescription(blog.content);
+---
+
+<Layout
+  title={blog.title}
+  description={description}
+  image={imageUrl(blog.eyecatch, 1200, 630)}
+  article
+  publishedAt={blog.publishedAt}
+  updatedAt={blog.updatedAt}
+>
+  <Card>
+    <CardHeader title={blog.title} icon="/images/notebook.svg" share primary />
+    <article class={styles.blogPageContainer}>
+      <div class={styles.infoContainer}>
+        <time datetime={blog.publishedAt}>{formatDate(blog.publishedAt)}</time>
+        {blog.category && (
+          <a class={styles.category} href={categoryPath(blog.category.id)}>
+            {blog.category.name}
+          </a>
+        )}
+      </div>
+      {blog.eyecatch && (
+        <div class={styles.imageContainer}>
+          <img
+            src={imageUrl(blog.eyecatch, 1200)}
+            width={blog.eyecatch.width}
+            height={blog.eyecatch.height}
+            alt={blog.title}
+            fetchpriority="high"
+          />
+        </div>
+      )}
+      <div class:list={['content', styles.content]} set:html={blog.content} />
+      {blog.content.includes('data-iframely-url=') && <Iframely />}
+    </article>
+  </Card>
+</Layout>
