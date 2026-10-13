@@ -5,13 +5,13 @@
 ## 保存した設定
 
 - Worker: `nakaatsu-site`
-- GitHub: `nakaatsu118/nakaatsu.com`、対象ブランチ: `migration/astro-cloudflare`
+- GitHub: `nakaatsu118/nakaatsu.com`、対象ブランチ: `main`（2026-10-13に変更）
 - ビルド: `npm run check && npm run build`
 - デプロイ: `npm run deploy`、ルート: `/`
 - Node.js 24.21.0 / npm 11.19.0（実ビルドの検出ログで確認）
 - ビルド変数: `MICROCMS_SERVICE_DOMAIN=nakaatsu`、`NODE_VERSION=24.21.0`、`SITE_URL=https://www.nakaatsu.com`、`SITE_PRODUCTION=false`
 - `MICROCMS_API_KEY`はビルド専用シークレットとして暗号化保存。
-- Deploy Hook名: `microcms-content-update`、対象ブランチ: `migration/astro-cloudflare`。URLはリポジトリへ保存しない。
+- Deploy Hook名: `microcms-content-update`、対象ブランチ: `main`（2026-10-13に変更）。URLはリポジトリへ保存しない。
 
 microCMSのblogs・works・categoriesに「Cloudflare Workers Builds」カスタム通知を有効で登録した。公開・公開中更新（管理画面/API/レビュー/予約）、公開中の並び替え・ID/公開日時変更、公開終了（管理画面/予約）、公開中削除（管理画面/API）を通知する。下書き保存は通知しない。既存blogsのVercel Webhookは維持した。
 
@@ -31,7 +31,7 @@ Webhookビルド`e59d2f09-7820-4ddf-8e5d-c7a3ab76307e`と`6ac0f8b7-16f4-47df-b21
 
 microCMSはWebhook送信失敗時に自動再送しないため、更新後はCloudflareのビルド成功を確認する。失敗時は原因を修正して該当ビルドを再試行し、公開内容とサイトの一致を確認する。[microCMS公式仕様](https://document.microcms.io/manual/webhook-setting)
 
-PR #26のmainマージ後は、Workers BuildsとDeploy Hookの対象ブランチをmainへ変更する。DNS委任は2026-10-13に完了した。WorkersのCustom Domainを接続する本番サイト切り替えまでは`SITE_PRODUCTION=false`を維持する。現在の確認結果と残件は[本番準備記録](production-readiness-2026-10-13.md)、復旧用レコードは[DNS移行記録](dns-before-migration.md)を参照。
+PR #26をmainへ統合し、Workers BuildsとDeploy Hookの対象ブランチをmainへ変更した。DNS委任は2026-10-13に完了した。WorkersのCustom Domainを接続する本番サイト切り替えまでは`SITE_PRODUCTION=false`を維持する。現在の確認結果と残件は[本番準備記録](production-readiness-2026-10-13.md)、復旧用レコードは[DNS移行記録](dns-before-migration.md)を参照。
 
 検証サイト: https://nakaatsu-site.nakaatsu-world.workers.dev
 
