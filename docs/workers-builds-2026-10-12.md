@@ -29,7 +29,7 @@ Webhookビルド`e59d2f09-7820-4ddf-8e5d-c7a3ab76307e`と`6ac0f8b7-16f4-47df-b21
 
 microCMSはWebhook送信失敗時に自動再送しないため、更新後はCloudflareのビルド成功を確認する。失敗時は原因を修正して該当ビルドを再試行し、公開内容とサイトの一致を確認する。[microCMS公式仕様](https://document.microcms.io/manual/webhook-setting)
 
-PR #26のmainマージ後は、Workers BuildsとDeploy Hookの対象ブランチをmainへ変更する。DNS切り替えまで`SITE_PRODUCTION=false`を維持する。DNS変更の待機時刻と復旧用レコードは[DNS移行前記録](dns-before-migration.md)を参照。
+PR #26のmainマージ後は、Workers BuildsとDeploy Hookの対象ブランチをmainへ変更する。DNS委任は2026-10-13に完了した。WorkersのCustom Domainを接続する本番サイト切り替えまでは`SITE_PRODUCTION=false`を維持する。現在の確認結果と残件は[本番準備記録](production-readiness-2026-10-13.md)、復旧用レコードは[DNS移行記録](dns-before-migration.md)を参照。
 
 検証サイト: https://nakaatsu-site.nakaatsu-world.workers.dev
 
