@@ -23,7 +23,9 @@ Webhookの接続確認では、categoriesの「APIの設定変更時」を一時
 
 Webhookビルド`e59d2f09-7820-4ddf-8e5d-c7a3ab76307e`と`6ac0f8b7-16f4-47df-b21d-9a4d631cef62`はどちらも成功した。`python tests/preview.py`も成功し、40 URL、301・404、noindex・配信ヘッダー、JSなしのモバイル表示、代表3記事の埋め込みとページエラーを確認した。
 
-このテストは通知経路の確認であり、記事の公開・更新・停止・削除による成果物変更や、CMSの同時更新の検証を代替しない。これらと意図的な失敗時の旧版維持・復旧の実地確認は、本番切り替え前に残っている。
+2026-10-13に検証記事 `blogs/m2cravpms5v` を一時公開・更新・公開終了した。公開と更新によるビルドが成功し、記事URLと更新後タイトルを確認した。停止後は記事を下書きへ戻し、microCMS公開API、Workers、現行Vercelの記事URLがHTTP 404になった。既存記事は変更していない。
+
+失敗試験ではコミット `dccefe0` のビルドを意図的に失敗させ、その間もWorkersのトップ・ブログ一覧がHTTP 200、停止した記事がHTTP 404であることを確認。`5d8376c` で失敗要因を取り除いた。復旧ビルドの結果とCMS同時更新時の最終状態は[本番準備記録](production-readiness-2026-10-13.md)を参照。
 
 ## 運用・切り替え
 
@@ -33,4 +35,4 @@ PR #26のmainマージ後は、Workers BuildsとDeploy Hookの対象ブランチ
 
 検証サイト: https://nakaatsu-site.nakaatsu-world.workers.dev
 
-GitHub ActionsとWorkers Buildsは成功。既存Vercel PreviewはNext.jsのプリセットが残るため失敗する。本番Vercelを停止したことを意味しない。
+通常のGitHub ActionsとWorkers Buildsは成功。意図的な失敗試験のビルドは例外として記録した。VercelのGit自動デプロイは移行ブランチの `vercel.json` で停止し、既存の成功済み本番デプロイは維持する。

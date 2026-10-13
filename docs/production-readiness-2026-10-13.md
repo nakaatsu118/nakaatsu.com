@@ -10,11 +10,12 @@
 - `tests/motion.py` でFramer Motionの登場、ホバー、押下、スクロール、reduced-motion、JSエラーなしを確認。
 - `npm run check` 成功。`SITE_PRODUCTION=true`、`SITE_URL=https://www.nakaatsu.com` のローカルビルドは実CMSから25記事・3実績・40公開URLを生成し、`scripts/verify-build.mjs` に合格。
 - 移行ブランチの `vercel.json` でVercelのGit自動デプロイを無効化。既存の成功済みVercel本番デプロイは残す。PR #26のVercel失敗チェックは消え、GitHub ActionsとWorkers Buildsは成功。
+- 検証記事 `blogs/m2cravpms5v` の一時公開とタイトル更新がそれぞれmicroCMSのDeploy HookでWorkers Buildsを起動。Workerと現行Vercelの両方で更新後タイトルをHTTP 200で確認。公開終了後、microCMSの公開APIと両サイトの記事URLがHTTP 404になり、記事を下書きへ戻した。
+- 一時的にビルドコマンドを失敗させたコミット `dccefe0` のWorkers Buildsは失敗。失敗中もWorkerのトップとブログ一覧はHTTP 200、停止済み検証記事はHTTP 404で、従来版の配信が続いた。復旧コミット `5d8376c` でビルドコマンドを元に戻し、Workers BuildsとGitHub Actionsが成功した。
 
 ## 残る本番準備
 
-- 実CMSの検証用下書き `blogs/m2cravpms5v` を一時公開し、公開・更新・停止がWorkers Buildsを起動して成果物に反映されることを確認する。終了後は下書き状態に戻す。既存公開記事は変更しない。
-- CMS更新がビルド中に重なった場合と、意図的なビルド失敗時に旧版が維持され再実行で復旧することを確認する。
+- CMS更新がビルド中に重なった場合の最終状態を確認する。
 - PR #26をレビュー可能な状態にし、移行内容を本番ブランチへ統合する。Workers Buildsの対象ブランチとmicroCMSのDeploy Hookをそのブランチに合わせ、最終ビルドの成功を確認する。
 - WorkerのプレビューURLは本番切り替えまで `SITE_PRODUCTION=false` を維持する。同じWorkerを `workers.dev` でも公開しているため、先に `true` にするとプレビューのクロール抑止が外れる。本番ビルド設定の切り替えとSEOの再確認はCustom Domain接続と同じ切り替え工程で行う。
 
