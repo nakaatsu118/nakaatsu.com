@@ -83,4 +83,4 @@ with sync_playwright() as p:
     assert not errors, errors
     context.close()
     browser.close()
-print('Framer Motion checks passed: entrances, hover/press, scroll progress, reduced motion, no JS errors')
+print('Motion checks passed: entrances, hover/press, scroll progress, reduced motion, no JS errors')
