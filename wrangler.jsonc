@@ -8,4 +8,5 @@
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page",
   },
+  "previews": {},
 }
