@@ -72,7 +72,7 @@ GitHub Actionsでは認証情報なしで同じ検証を行います。外部PR�
 - Workers BuildsをGitHubへ接続し、対象ブランチを`migration/astro-cloudflare`に設定しました。Node 24.21.0、検証用環境変数、暗号化したCMSキーを登録済みです。Git pushから実CMSビルド・検証・デプロイの成功を確認しました。blogs・works・categoriesに同じDeploy Hookを登録し、公開・公開中更新・公開終了・公開中削除を通知します。mainへマージ後、ビルドとHookの対象ブランチもmainへ切り替えます。
 - Amazon登録・契約・費用・PV・DNSSEC・メール・Search Console・実ユーザー速度の確認、切り替え後の監視は残っています。
 
-モーションは`src/scripts/motion.ts`で管理します。ページのフェード、画像・カード・経歴の登場、ホバー・押下、スクロール進捗をFramer Motionで描画します。初期HTMLを非表示にせず、JavaScript無効時も本文を読めます。`prefers-reduced-motion`の変更時はJSアニメーションも停止します。登場演出は各ページ表示中に一度再生し、ページ遷移は通常のリンク遷移を維持します。`python tests/motion.py`でJS有効の動作を検証します。
+モーションは`src/scripts/motion.ts`で管理します。ページのフェード、画像・カード・経歴の登場、ホバー・押下、スクロール進捗をMotion（`motion`パッケージのVanilla JavaScript API）で描画します。初期HTMLを非表示にせず、JavaScript無効時も本文を読めます。`prefers-reduced-motion`の変更時はJSアニメーションも停止します。登場演出は各ページ表示中に一度再生し、ページ遷移は通常のリンク遷移を維持します。`python tests/motion.py`でJS有効の動作を検証します。
 
 全体の移行ゴールは継続中です。検証用ビルドの成功は本番移行の完了を示しません。
 
